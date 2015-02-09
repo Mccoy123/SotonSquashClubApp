@@ -20,41 +20,43 @@
     under the License.
 -->
 <html>
-   <!-- Old Head need to merge 
-    <head>
-        <meta charset="utf-8" />
-        <meta name="format-detection" content="telephone=no" />
-        <meta name="msapplication-tap-highlight" content="no" />
-        <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 ->
-        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
-        <link rel="stylesheet" type="text/css" href="css/index.css" />
-        <title>Hello World</title>
-    </head>
-	-->
-
 <head>
 	<meta charset="utf-8">
 	<!-- Setting the right viewport -->
 	<meta name="viewport" content="width=device-width, initial-scale=1"> 
 	<title>Squash club app</title> 
 	
-	<link rel="stylesheet" href="css/index.css" />
+	<!--CSS-->
+	
 	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.css" />
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+	<link rel="stylesheet" type="text/css" href="css/bootstrapFont-awesome.min.css" />
+	<link rel="stylesheet" type="text/css" href="lib/ratchet/ratchet.css">
+    <link rel="stylesheet" type="text/css" href="lib/ratchet/ratchet-theme-ios.css">
+	<link rel="stylesheet" href="css/index.css" />	
+	<link rel="stylesheet" href="css/app.css" />
+	
+	<!--Javascript,,, some extra for auth0 at the bottom-->
 	<script src="js/index.js"></script>
 	<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
 	<script src="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js"></script> 	
+	
+	
 </head> 
 
     <body> <!-- using the standard template supplied by jquery mobile -->
 	<div class="login-page clearfix">
-              <div class="login-box auth0-box before">
-                <img src="https://i.cloudup.com/StzWWrY34s.png" />
-                <h3>Auth0 Example</h3>
-                <p>Zero friction identity infrastructure, built for developers</p>
-				<input type="submit" class="btn-login" value="login" />
-    </div>
+	  <div class="login-box auth0-box before">
+	    <h1>Soton Squash App</h3>
+		<img class="clubLogoMedium" src="img/icon.png" />
+		<p>Have Fun Get Fit, Get Sexy, Yeahhhhhh Buddddyyyyyyy!!!!</p>
+		<input type="submit" class="btn-login" value="login" />
+      </div>
 	
 	<div class="logged-in-box auth0-box logged-in" style="display: none;">
+	<header class="bar bar-nav">
+	  <h1 class="title">Auth0 Sample</h1>
+	</header>
 	<!-- Start of first page -->
 		<div data-role="page" data-theme="c" id="one">
 

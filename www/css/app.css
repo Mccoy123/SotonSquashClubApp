@@ -1,0 +1,17 @@
+.bar.bar-nav {
+  position: static;
+}
+
+body {
+  text-align: center;
+}
+
+.clubLogoVerySmall{
+  height: 55px;
+  width: 40px;
+}
+
+.clubLogoMedium{
+  height: 40%;
+  width: 40%;
+}
