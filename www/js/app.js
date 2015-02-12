@@ -9,7 +9,7 @@ $(document).ready(function() {
 
     $('.btn-login').click(function(e) {
       e.preventDefault();
-      lock.showSignin(function(err, profile, token) {
+      lock.show(function(err, profile, token) {
         if (err) {
           // Error callback
           console.log("There was an error");
@@ -58,8 +58,8 @@ $(document).ready(function() {
       }, function() {
         alert("You need to download the server seed and start it to call this API");
       });
-    });
-	*/
+    });*/
+	
 
 
 });

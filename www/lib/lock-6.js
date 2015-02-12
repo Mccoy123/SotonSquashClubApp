@@ -188,7 +188,7 @@ module.exports={
   "networkError":                  "We could not reach the server.<br/>Please try again.",
   "signin": {
     "title":                       "Log in",
-    "action":                      "Access",
+    "action":                      "Log-in",
     "actionDomain":                "Log in to {domain}",
     "all":                         "Show all",
     "strategyEmailEmpty":          "The email is empty.",
