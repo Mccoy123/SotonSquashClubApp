@@ -5,8 +5,6 @@ $(document).ready(function() {
       AUTH0_DOMAIN
     );
 	
-	//Parse.initialize("5N1zo8DBnukiwCvOwuSiXByNtVNefFr7DS6YKvoy", "JbmB3R9Rj7ld8sAN7un9lTqI4PUQB4W1JIt5qLSQ"); 
-	
     var userProfile;
 
     $('.btn-login').click(function(e) {
@@ -35,10 +33,26 @@ $(document).ready(function() {
     });
 	
 	//popup funstion
-	function showPopup(){
-	var input = document.getElementById("textInput").value;
-	alert(input);
-	}
+	 $('.btn-popup1').click(function(e) {
+	//var input = document.getElementById("textInput").value;
+	
+	var MatchScore = Parse.Object.extend("MatchScore");
+    var matchScore = new MatchScore();
+      //matchScore.save({Player1ID: "1", Player2ID: "2", P1score: "3". P2Score: "1", victor:"3"}, {
+	  matchScore.save({Player1ID: "1", Player2ID: "2", P1score: "3", P2Score: "1", victor:"3"}, {
+		  success: function(object) {
+			alert("Score Successfully Added");
+		  },
+		  error: function(model, error) {
+			alert("Error Score not uploaded. Please try again later");
+		  }
+      });
+	});
+	//popup funstion
+	function testParse(){
+	//var input = document.getElementById("textInput").value;
+	alert("1");
+	};
 
 	$('.btn-logout').click(function(e) {
       // execute logout script
@@ -50,6 +64,21 @@ $(document).ready(function() {
 		$('.login-box').show();
     });
 	
+	//parse intilaisation
+	
+	Parse.initialize("5N1zo8DBnukiwCvOwuSiXByNtVNefFr7DS6YKvoy", "JbmB3R9Rj7ld8sAN7un9lTqI4PUQB4W1JIt5qLSQ");
+	
+	//parse test
+	//function testParse() {
+	
+	//alert("1");
+		//var TestObject = Parse.Object.extend("TestObject");
+		//var testObject = new TestObject();
+		//testObject.save({foo: "dave"}).then(function(object) {
+			//alert("yay! it worked");
+		//});
+	//};
+	
 	//save score function
 	//$('.btn-saveScore').click(function(e) {
 	/*function saveScore() {
@@ -58,10 +87,10 @@ $(document).ready(function() {
       //matchScore.save({Player1ID: "1", Player2ID: "2", P1score: "3". P2Score: "1", victor:"3"}, {
 	  matchScore.save({Player1ID: "2", Player2ID: "3", P1score: "2", P2Score: "3", victor:"3"}, {
 		  success: function(object) {
-			$(".success").show();
+			alert("sucess");
 		  },
 		  error: function(model, error) {
-			$(".error").show();
+			alert("failure");;
 		  }
       });
 	};
