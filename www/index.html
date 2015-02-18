@@ -33,7 +33,7 @@
 	    <h1>Soton Squash App</h3>
 		<img class="clubLogoMedium" src="img/icon.png" />
 		<p>Have Fun Get Fit, Get Sexy, Yeahhhhhh Buddddyyyyyyy!!!!</p>
-		<input type="submit" class="btn-login" value="login" />
+		<input type="submit" data-inline="true" class="btn-login" value="Sign-Up / Sign-In" />
       </div>
 	
 	<div class="logged-in-box auth0-box logged-in" style="display: none;">
@@ -170,9 +170,61 @@
 
 			<div data-role="content">	
 				<h2>Add Result</h2>
-				<p>Please Fill in the match details below</p>		
+				<p>Please Fill in the match details below</p>
+				
+				<!--Add result form-->
+				<form method="post" action="demoform.asp">
+				
+				  <fieldset class="ui-field-contain">
+					<label for="selectOpponent">Player 1</label>
+					<select name="selectOpponent" id="selectOpponent" data-native-menu="false">
+					  <option value="1">TestME</option>
+					</select>
+				  </fieldset>
+				
+				  <fieldset class="ui-field-contain">
+					<label for="selectOpponent">Select Opponent</label>
+					<select name="selectOpponent" id="selectOpponent" data-native-menu="false">
+					  <option value="5">TestDom</option>
+					  <option value="2">TestDave</option>
+					  <option value="3">TestJess</option>
+					  <option value="4">TestChris</option>
+					</select>
+				  </fieldset>
+				  
+				  <fieldset class="ui-field-contain">
+					<label for="player1Score">Player1 Score</label>
+					<select name="player1Score" id="player2Score" data-native-menu="false">
+					  <option value="0">0</option>
+					  <option value="1">1</option>
+					  <option value="2">2</option>
+					  <option value="3">3</option>
+					</select>
+				  </fieldset>
+				  
+				  <fieldset class="ui-field-contain">
+					<label for="player2Score">Player2</label>
+					<select name="player2Scoret" id="playerScore" data-native-menu="false">
+					  <option value="0">0</option>
+					  <option value="1">1</option>
+					  <option value="2">2</option>
+					  <option value="3">3</option>
+					</select>
+				  </fieldset>
+				  
+				  <fieldset class="ui-field-contain">
+					<label for="winner">Winner</label>
+					<select name="winner" id="winner" data-native-menu="false">
+					  <option value="1">Player1</option>
+					  <option value="2">Player2</option>
+					</select>
+				  </fieldset>
+				  
+				  <input type="submit" data-inline="true" value="Submit">
+				</form>
 			
-			<button class="btn btn-lg btn-primary btn-popup1">Add Score</button>		
+			
+			<button data-inline="true" class="btn btn-primary btn-popup1">Add Score</button>		
 			</div><!-- /content -->
 
 			<!-- Panel -->
