@@ -50,6 +50,8 @@ $(document).ready(function() {
 		$('.login-box').show();
     });
 	
+	//save score function
+	//$('.btn-saveScore').click(function(e) {
 	/*function saveScore() {
     var MatchScore = Parse.Object.extend("MatchScore");
     var matchScore = new MatchScore();
