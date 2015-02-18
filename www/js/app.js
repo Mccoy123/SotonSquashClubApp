@@ -4,7 +4,9 @@ $(document).ready(function() {
       AUTH0_CLIENT_ID,
       AUTH0_DOMAIN
     );
-
+	
+	//Parse.initialize("5N1zo8DBnukiwCvOwuSiXByNtVNefFr7DS6YKvoy", "JbmB3R9Rj7ld8sAN7un9lTqI4PUQB4W1JIt5qLSQ"); 
+	
     var userProfile;
 
     $('.btn-login').click(function(e) {
@@ -47,6 +49,20 @@ $(document).ready(function() {
         $('.logged-in-box').hide();
 		$('.login-box').show();
     });
+	
+	/*function saveScore() {
+    var MatchScore = Parse.Object.extend("MatchScore");
+    var matchScore = new MatchScore();
+      //matchScore.save({Player1ID: "1", Player2ID: "2", P1score: "3". P2Score: "1", victor:"3"}, {
+	  matchScore.save({Player1ID: "2", Player2ID: "3", P1score: "2", P2Score: "3", victor:"3"}, {
+		  success: function(object) {
+			$(".success").show();
+		  },
+		  error: function(model, error) {
+			$(".error").show();
+		  }
+      });
+	};
 	
 	/* Setting up ajax for secure server calls
     $.ajaxSetup({
