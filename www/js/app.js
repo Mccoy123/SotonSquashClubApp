@@ -36,8 +36,18 @@ $(document).ready(function() {
 	function showPopup(){
 	var input = document.getElementById("textInput").value;
 	alert(input);
-}
+	}
 
+	$('.btn-logout').click(function(e) {
+      // execute logout script
+		
+        //var widget = new Auth0Lock(cid, domain);
+		localStorage.removeItem('token');
+		userProfile = null;
+        $('.logged-in-box').hide();
+		$('.login-box').show();
+    });
+	
 	/* Setting up ajax for secure server calls
     $.ajaxSetup({
       'beforeSend': function(xhr) {
