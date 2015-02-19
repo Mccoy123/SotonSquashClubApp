@@ -32,28 +32,7 @@ $(document).ready(function() {
       });
     });
 	
-	//popup funstion
-	 $('.btn-popup1').click(function(e) {
-	//var input = document.getElementById("textInput").value;
-	
-	var MatchScore = Parse.Object.extend("MatchScore");
-    var matchScore = new MatchScore();
-      //matchScore.save({Player1ID: "1", Player2ID: "2", P1score: "3". P2Score: "1", victor:"3"}, {
-	  matchScore.save({Player1ID: "1", Player2ID: "2", P1score: "3", P2Score: "1", victor:"3"}, {
-		  success: function(object) {
-			alert("Score Successfully Added");
-		  },
-		  error: function(model, error) {
-			alert("Error Score not uploaded. Please try again later");
-		  }
-      });
-	});
-	//popup funstion
-	function testParse(){
-	//var input = document.getElementById("textInput").value;
-	alert("1");
-	};
-
+	//logout
 	$('.btn-logout').click(function(e) {
       // execute logout script
 		
@@ -64,36 +43,52 @@ $(document).ready(function() {
 		$('.login-box').show();
     });
 	
+	$('.btn-ShowTextPopup').click(function(e) {
+		alert("Hello");
+    });
+	
+	$('.btn-ShowSelectPopup').click(function(e) {
+		var input2 = document.getElementById("selectInput").value;
+		alert("input2");
+    });
+	
+	//popup funstion
+	function showPopupText(){
+	var input = document.getElementById("textInput").value;
+	alert("input");
+	}
+	
+	function showPopupSelect(){
+	var input2 = document.getElementById("selectInput").value;
+	alert("input");
+	}
+	
+	//addResult
+	//This Currently Works for playerID2 field
+	$('.btn-addResult').click(function(e) {
+	//var input = document.getElementById("textInput").value;
+	var selectOpponentPlayer2 = document.getElementById("selectOpponentPlayer2").value;
+	//var selectOpponentPlayer2 = document.getElementById("selectOpponentPlayer2").value;
+	//var player1Score = document.getElementById("player1Score").value;
+	//var player2Score = document.getElementById("player2Score").value;
+	//var matchWinner = document.getElementById("matchWinner").value;
+	
+	var MatchScore = Parse.Object.extend("MatchScore");
+    var matchScore = new MatchScore();
+      //matchScore.save({Player1ID: "1", Player2ID: "2", P1score: "3". P2Score: "1", victor:"3"}, {
+	  matchScore.save({Player1ID: 1, Player2ID: selectOpponentPlayer2, P1score: "3", P2Score: "1", victor:"4"}, {
+		  success: function(object) {
+			alert("Score Successfully Added");
+		  },
+		  error: function(model, error) {
+			alert("Error Score not uploaded. Please try again later");
+		  }
+      });
+	});
+	
 	//parse intilaisation
 	
 	Parse.initialize("5N1zo8DBnukiwCvOwuSiXByNtVNefFr7DS6YKvoy", "JbmB3R9Rj7ld8sAN7un9lTqI4PUQB4W1JIt5qLSQ");
-	
-	//parse test
-	//function testParse() {
-	
-	//alert("1");
-		//var TestObject = Parse.Object.extend("TestObject");
-		//var testObject = new TestObject();
-		//testObject.save({foo: "dave"}).then(function(object) {
-			//alert("yay! it worked");
-		//});
-	//};
-	
-	//save score function
-	//$('.btn-saveScore').click(function(e) {
-	/*function saveScore() {
-    var MatchScore = Parse.Object.extend("MatchScore");
-    var matchScore = new MatchScore();
-      //matchScore.save({Player1ID: "1", Player2ID: "2", P1score: "3". P2Score: "1", victor:"3"}, {
-	  matchScore.save({Player1ID: "2", Player2ID: "3", P1score: "2", P2Score: "3", victor:"3"}, {
-		  success: function(object) {
-			alert("sucess");
-		  },
-		  error: function(model, error) {
-			alert("failure");;
-		  }
-      });
-	};
 	
 	/* Setting up ajax for secure server calls
     $.ajaxSetup({
