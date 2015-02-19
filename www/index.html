@@ -50,10 +50,21 @@
 				
 				<p>Welcome <span class="nickname"></span></p>
 				<p>I'm first in the source order so I'm shown as the page.</p>		
-				
-				
 				<input style="text" id="textInput">
-				<button onClick="showPopup()"> ShowPopUp</button>
+				
+				<fieldset class="ui-field-contain">
+					<label for="selectOpponentPlayer2">Select Opponent</label>
+					<select name="selectOpponentPlayer2" id="selectInput" data-native-menu="false">
+					  <option value="5">TestDom</option>
+					  <option value="2">TestDave</option>
+					  <option value="3">TestJess</option>
+					  <option value="4">TestChris</option>
+					</select>
+				</fieldset>
+				
+				<button onClick="showPopup()"> ShowTextPopUp</button>
+				<button class="btn btn-lg btn-primary btn-ShowTextPopup"> ShowTextPopUp</button>
+				<button class="btn btn-lg btn-primary btn-ShowSelectPopup"> ShowSelectPopUp</button>
 				<button class="btn btn-lg btn-primary btn-api">Call API</button>
 				
 			
@@ -173,18 +184,18 @@
 				<p>Please Fill in the match details below</p>
 				
 				<!--Add result form-->
-				<form method="post" action="demoform.asp">
+				<form method="post" action="">
 				
 				  <fieldset class="ui-field-contain">
-					<label for="selectOpponent">Player 1</label>
-					<select name="selectOpponent" id="selectOpponent" data-native-menu="false">
-					  <option value="1">TestME</option>
+					<label for="selectOpponentPlayer1">Player 1</label>
+					<select name="selectOpponentPlayer1" id="selectOpponentPlayer1" data-native-menu="false">
+					  <option value="5">TestME</option>
 					</select>
 				  </fieldset>
 				
 				  <fieldset class="ui-field-contain">
-					<label for="selectOpponent">Select Opponent</label>
-					<select name="selectOpponent" id="selectOpponent" data-native-menu="false">
+					<label for="selectOpponentPlayer2">Select Opponent</label>
+					<select name="selectOpponentPlayer2" id="selectOpponentPlayer2" data-native-menu="false">
 					  <option value="5">TestDom</option>
 					  <option value="2">TestDave</option>
 					  <option value="3">TestJess</option>
@@ -194,7 +205,7 @@
 				  
 				  <fieldset class="ui-field-contain">
 					<label for="player1Score">Player1 Score</label>
-					<select name="player1Score" id="player2Score" data-native-menu="false">
+					<select name="player1Score" id="player1Score" data-native-menu="false">
 					  <option value="0">0</option>
 					  <option value="1">1</option>
 					  <option value="2">2</option>
@@ -204,7 +215,7 @@
 				  
 				  <fieldset class="ui-field-contain">
 					<label for="player2Score">Player2</label>
-					<select name="player2Scoret" id="playerScore" data-native-menu="false">
+					<select name="player2Scoret" id="player2Score" data-native-menu="false">
 					  <option value="0">0</option>
 					  <option value="1">1</option>
 					  <option value="2">2</option>
@@ -213,8 +224,8 @@
 				  </fieldset>
 				  
 				  <fieldset class="ui-field-contain">
-					<label for="winner">Winner</label>
-					<select name="winner" id="winner" data-native-menu="false">
+					<label for="matchWinner">Winner</label>
+					<select name="matchWinner" id="matchWinner" data-native-menu="false">
 					  <option value="1">Player1</option>
 					  <option value="2">Player2</option>
 					</select>
@@ -224,7 +235,7 @@
 				</form>
 			
 			
-			<button data-inline="true" class="btn btn-primary btn-popup1">Add Score</button>		
+			<button data-inline="true" class="btn btn-primary btn-addResult">Add Score</button>		
 			</div><!-- /content -->
 
 			<!-- Panel -->
