@@ -19,3 +19,25 @@ body {
 .pageContentPadding{
 padding-top: 20px; 
 }
+
+#LeaderboardTable{
+    border: 1px solid Red;
+    padding: 5px;
+	margin-left: auto;
+    margin-right: auto;
+	width:95%;
+}
+
+#LeaderboardTable th{
+	background-color: Red;
+    color: white;
+	text-align: center;
+}
+#LeaderboardTable tr:nth-child(odd) {
+    background-color: #eee;
+}
+#LeaderboardTable1 tr:nth-child(even) {
+   background-color:#fff;
+  }
+
+

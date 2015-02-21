@@ -86,29 +86,14 @@ $(document).ready(function() {
       });
 	});
 	
-	//create table test
-	$('.btn-testTable').click(function(e) {
-
-    var playerRow = document.createElement("TR");
-    playerRow.setAttribute("id", "playerRow");
-    document.getElementById("testTable").appendChild(playerRow);
-
-    var z = document.createElement("TD");
-    var t = document.createTextNode("cell");
-    z.appendChild(t);
-    document.getElementById("playerRow").appendChild(z);
-	alert("done");
-	});
-	
 	//Leaderboard
-	$('.btn-testLeaderboard').click(function(e) {
+	$(document).on("pagebeforeshow","#leaderboard",function(){
 		
 		var LeaderBoard = Parse.Object.extend("LeaderBoard");
 		var query = new Parse.Query(LeaderBoard);
 		query.notEqualTo("Ranking", 0); //when having opting include a function that sets new (and if you opt out) to 0
 		query.find({
 		  success: function(results) {
-			alert("Successfully retrieved" + results.length + "Rankings");
 			//do something with this object,,,, list it
 			for (var i = 0; i < results.length; i++) {
 				var object = results[i];
@@ -116,7 +101,7 @@ $(document).ready(function() {
 				var playerRow = document.createElement("TR");
 				var playerRowId = "playerRow" + i
 				playerRow.setAttribute("id", playerRowId);
-				document.getElementById("testTable").appendChild(playerRow);
+				document.getElementById("LeaderboardTable").appendChild(playerRow);
 				
 				//create a data entry for column 1
 				//Generates a rank number based on the length of players to be inserted into the table
@@ -148,7 +133,6 @@ $(document).ready(function() {
 	});
 	
 	//parse intilaisation
-	
 	Parse.initialize("5N1zo8DBnukiwCvOwuSiXByNtVNefFr7DS6YKvoy", "JbmB3R9Rj7ld8sAN7un9lTqI4PUQB4W1JIt5qLSQ");
 	
 	/* Setting up ajax for secure server calls
