@@ -86,8 +86,23 @@ $(document).ready(function() {
       });
 	});
 	
+	//create table test
+	$('.btn-testTable').click(function(e) {
+
+    var playerRow = document.createElement("TR");
+    playerRow.setAttribute("id", "playerRow");
+    document.getElementById("testTable").appendChild(playerRow);
+
+    var z = document.createElement("TD");
+    var t = document.createTextNode("cell");
+    z.appendChild(t);
+    document.getElementById("playerRow").appendChild(z);
+	alert("done");
+	});
+	
 	//Leaderboard
-	$('.btn-testLeaderboard').click(function(e) {		
+	$('.btn-testLeaderboard').click(function(e) {
+		
 		var LeaderBoard = Parse.Object.extend("LeaderBoard");
 		var query = new Parse.Query(LeaderBoard);
 		query.notEqualTo("Ranking", 0); //when having opting include a function that sets new (and if you opt out) to 0
@@ -97,6 +112,19 @@ $(document).ready(function() {
 			//do something with this object,,,, list it
 			for (var i = 0; i < results.length; i++) {
 				var object = results[i];
+				//create a row in the table for each player with a unique ID 
+				var playerRow = document.createElement("TR");
+				var playerRowId = "playerRow" + i
+				playerRow.setAttribute("id", playerRowId);
+				document.getElementById("testTable").appendChild(playerRow);
+				
+				//create a data entry for column 1
+				var z = document.createElement("TD");
+				var t = document.createTextNode(i+1);
+				z.appendChild(t);
+				document.getElementById(playerRowId).appendChild(z);
+				
+				
 				alert(object.id + ' - ' + object.get('Ranking'));
 			}
 		  },
