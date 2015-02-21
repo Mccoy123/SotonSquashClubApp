@@ -108,7 +108,6 @@
 			<div data-role="content">	
 				<h2>Page 2</h2>
 				<p>I'm the second in the source order so I'm hidden when the page loads. I'm just shown if a link that references my ID is being clicked.</p>		
-				<p><a href="#one" data-direction="reverse" data-role="button" data-theme="b">Back to page "one"</a></p>	
 			</div><!-- /content -->
 
 			<!-- Panel -->
@@ -260,6 +259,43 @@
 			</div>
 			
 		</section><!-- /add result page -->
+		
+		<!-- Start of Leaderboard page -->
+		<section data-role="page" id="leaderboard">
+
+			<div data-role="header">
+				<h1>Soton Squash Club</h1>
+				<a href="#left-panel5" data-icon="bars" data-iconpos="notext" data-shadow="false" data-iconshadow="false">Menu</a>
+			</div><!-- /header -->
+
+			<div data-role="content">	
+				<h2>LeaderBoard</h2>
+				<p>Blank Text</p>		
+			</div><!-- /content -->
+
+			<!-- Panel -->
+			<div data-role="panel" id="left-panel5" data-display="push" data-theme="a">
+              <ul data-role="listview" data-theme="a">
+                <li data-icon="delete"><a href="#" data-rel="close">Close</a></li>
+                <li data-role="list-divider">Menu</li>
+				<li data-icon="grid"><a href="#one">Home</a></li>
+				<li data-icon="alert"><a href="#leaderboard">Leaderboard</a></li>
+				<li data-role="list-divider">My Matches</li>
+				<li data-icon="home"><a href="#challengePlayer">Challenge Player</a></li>
+				<li data-icon="home"><a href="#uploadResult">Add Result</a></li>
+				<li data-icon="home"><a href="#myChallenges">My Challenges</a></li>
+				<li data-icon="home"><a href="#profile">My profile</a></li>
+				<li data-role="list-divider">About</li>
+                <li data-icon="grid"><a href="#club">The Club</a></li>
+				<li data-icon="home"><a href="#squash">Squash</a></li>
+				<li data-role="list-divider">Other</li>
+				<li data-icon="home"><a href="#twtter">Twitter</a></li>
+				<li data-icon="home"><a href="#feedback">Send Feedback</a></li>
+              </ul>
+			</div>
+			
+		</section><!-- /page 2 -->
+		
 	</div> <!-- end of logged in content -->
 		
 		<!-- Auth0 widget script -->
