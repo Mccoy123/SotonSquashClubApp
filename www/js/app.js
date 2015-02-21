@@ -119,13 +119,26 @@ $(document).ready(function() {
 				document.getElementById("testTable").appendChild(playerRow);
 				
 				//create a data entry for column 1
+				//Generates a rank number based on the length of players to be inserted into the table
 				var z = document.createElement("TD");
 				var t = document.createTextNode(i+1);
 				z.appendChild(t);
 				document.getElementById(playerRowId).appendChild(z);
 				
+				//create a data entry for column 2
+				//pulls the users unique objectID need to change this to their username
+				var z = document.createElement("TD");
+				var t = document.createTextNode(object.id);
+				z.appendChild(t);
+				document.getElementById(playerRowId).appendChild(z);
 				
-				alert(object.id + ' - ' + object.get('Ranking'));
+				//create a data entry for column 3
+				//pulls the rank stored in the db probably will change this to wins and games played
+				var z = document.createElement("TD");
+				var t = document.createTextNode(object.get('Ranking'));
+				z.appendChild(t);
+				document.getElementById(playerRowId).appendChild(z);
+				
 			}
 		  },
 		  error: function(error) {
