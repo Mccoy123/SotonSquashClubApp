@@ -86,6 +86,26 @@ $(document).ready(function() {
       });
 	});
 	
+	//Leaderboard
+	$('.btn-testLeaderboard').click(function(e) {		
+		var LeaderBoard = Parse.Object.extend("LeaderBoard");
+		var query = new Parse.Query(LeaderBoard);
+		query.notEqualTo("Ranking", 0); //when having opting include a function that sets new (and if you opt out) to 0
+		query.find({
+		  success: function(results) {
+			alert("Successfully retrieved" + results.length + "Rankings");
+			//do something with this object,,,, list it
+			for (var i = 0; i < results.length; i++) {
+				var object = results[i];
+				alert(object.id + ' - ' + object.get('Ranking'));
+			}
+		  },
+		  error: function(error) {
+			alert("Error: " + error.code + " " + error.message);
+		  }
+		});
+	});
+	
 	//parse intilaisation
 	
 	Parse.initialize("5N1zo8DBnukiwCvOwuSiXByNtVNefFr7DS6YKvoy", "JbmB3R9Rj7ld8sAN7un9lTqI4PUQB4W1JIt5qLSQ");
