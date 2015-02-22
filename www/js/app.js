@@ -87,11 +87,12 @@ $(document).ready(function() {
 	});
 	
 	//Leaderboard
-	$(document).on("pagebeforeshow","#leaderboard",function(){
+	$(document).on("pagebeforecreate","#leaderboard",function(){
 		
 		var LeaderBoard = Parse.Object.extend("LeaderBoard");
 		var query = new Parse.Query(LeaderBoard);
 		query.notEqualTo("Ranking", 0); //when having opting include a function that sets new (and if you opt out) to 0
+		query.include("playerID");
 		query.find({
 		  success: function(results) {
 			//do something with this object,,,, list it
@@ -103,21 +104,23 @@ $(document).ready(function() {
 				playerRow.setAttribute("id", playerRowId);
 				document.getElementById("LeaderboardTable").appendChild(playerRow);
 				
-				//create a data entry for column 1
+				//create a data entry for column 1 Rank
 				//Generates a rank number based on the length of players to be inserted into the table
 				var z = document.createElement("TD");
 				var t = document.createTextNode(i+1);
 				z.appendChild(t);
 				document.getElementById(playerRowId).appendChild(z);
 				
-				//create a data entry for column 2
+				//create a data entry for column 2 Player
 				//pulls the users unique objectID need to change this to their username
+				var playerUserId = object.get('playerID');
 				var z = document.createElement("TD");
-				var t = document.createTextNode(object.id);
+				var t = document.createTextNode(playerUserId.get('username'));
 				z.appendChild(t);
 				document.getElementById(playerRowId).appendChild(z);
 				
-				//create a data entry for column 3
+				
+				//create a data entry for column 3 Points
 				//pulls the rank stored in the db probably will change this to wins and games played
 				var z = document.createElement("TD");
 				var t = document.createTextNode(object.get('Ranking'));
