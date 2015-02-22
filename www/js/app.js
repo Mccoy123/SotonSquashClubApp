@@ -68,15 +68,14 @@ $(document).ready(function() {
 	$('.btn-addResult').click(function(e) {
 	//var input = document.getElementById("textInput").value;
 	var selectOpponentPlayer2 = document.getElementById("selectOpponentPlayer2").value;
-	//var selectOpponentPlayer2 = document.getElementById("selectOpponentPlayer2").value;
-	//var player1Score = document.getElementById("player1Score").value;
-	//var player2Score = document.getElementById("player2Score").value;
-	//var matchWinner = document.getElementById("matchWinner").value;
+	var player1Score = document.getElementById("player1Score").value;
+	var player2Score = document.getElementById("player2Score").value;
+	var matchWinner = document.getElementById("matchWinner").value;
 	
 	var MatchScore = Parse.Object.extend("MatchScore");
     var matchScore = new MatchScore();
       //matchScore.save({Player1ID: "1", Player2ID: "2", P1score: "3". P2Score: "1", victor:"3"}, {
-	  matchScore.save({Player1ID: 1, Player2ID: selectOpponentPlayer2, P1score: "3", P2Score: "1", victor:"4"}, {
+	  matchScore.save({Player1ID: 1, Player2ID: selectOpponentPlayer2, P1score: player1Score, P2Score: player2Score, victor:matchWinner}, {
 		  success: function(object) {
 			alert("Score Successfully Added");
 		  },
