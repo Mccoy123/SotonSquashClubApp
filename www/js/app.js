@@ -52,22 +52,23 @@ $(document).ready(function() {
 		alert("input2");
     });
 	
-	//Test Function Delete
-	//popup function 
+	//popup funstion
 	function showPopupText(){
 	var input = document.getElementById("textInput").value;
 	alert("input");
 	}
 	
-	//Test Function Delete
 	function showPopupSelect(){
 	var input2 = document.getElementById("selectInput").value;
 	alert("input");
 	}
 	
+
 	// Add result functions 3
-	/*$(document).on("pagebeforecreate","#uploadResult",function(){
-		
+	// Add result function 1 populate Opponent field
+	$(document).on("pagebeforecreate","#uploadResult",function(){
+		var select = document.getElementById("selectOpponentPlayer2");
+		var options = ["1", "2", "3"];
 		var opponentUsername = Parse.Object.extend("User");
 		var query = new Parse.Query(opponentUsername);
 		query.notEqualTo("objectId", "pHtwexlcv6"); //need to change so the objectId is whoever the current user is
@@ -172,8 +173,11 @@ $(document).ready(function() {
 		});
 	});*/
 	
-	//addResult submit Form 3
+	//Add Result Function 3 submit Form
+	//addResult
+	//This Currently Works for playerID2 field
 	$('.btn-addResult').click(function(e) {
+	//var input = document.getElementById("textInput").value;
 	var selectOpponentPlayer2 = document.getElementById("selectOpponentPlayer2").value;
 	var player1Score = document.getElementById("player1Score").value;
 	var player2Score = document.getElementById("player2Score").value;
@@ -181,6 +185,7 @@ $(document).ready(function() {
 	
 	var MatchScore = Parse.Object.extend("MatchScore");
     var matchScore = new MatchScore();
+      //matchScore.save({Player1ID: "1", Player2ID: "2", P1score: "3". P2Score: "1", victor:"3"}, {
 	  matchScore.save({Player1ID: 1, Player2ID: selectOpponentPlayer2, P1score: player1Score, P2Score: player2Score, victor:matchWinner}, {
 		  success: function(object) {
 			alert("Score Successfully Added");
