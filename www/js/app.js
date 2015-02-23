@@ -82,7 +82,7 @@ $(document).ready(function() {
 					el.setAttribute("id", elId);
 					el.value = opt;
 					var select = document.getElementById("selectOpponentPlayer2");
-	
+					el.textContent = opt2;
 	/*$(document).on("pagebeforecreate","#uploadResult",function(){
 		//var select = document.getElementById("selectOpponentPlayer2");
 		var options = ["1", "2", "3", "4", "5"];
