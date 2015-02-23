@@ -81,28 +81,8 @@ $(document).ready(function() {
 					var elId = "el" + i;
 					el.setAttribute("id", elId);
 					el.value = opt;
-					var select = document.getElementById("selectOpponentPlayer2");
 					el.textContent = opt2;
-	/*$(document).on("pagebeforecreate","#uploadResult",function(){
-		//var select = document.getElementById("selectOpponentPlayer2");
-		var options = ["1", "2", "3", "4", "5"];
-		var opponentUsername = Parse.Object.extend("User");
-		var query = new Parse.Query(opponentUsername);
-		var testArray = new Array();
-		query.notEqualTo("objectId", "pHtwexlcv6"); //need to change so the objectId is whoever the current user is
-		query.find({
-			success: function(results) {
-				
-				for(var i = 0; i < options.length; i++) {
-					var opt = results[i];
-					var playerUserId = opt.get('username');
-					testArray[testArray.length] = playerUserId;
-					alert(testArray[0]);
-					//var el = document.createElement("option");
-					//el.textContent = opt;
-					//el.value = opt;
-					//var select = document.getElementById("selectOpponentPlayer2");
-					//select.appendChild(el);
+					var select = document.getElementById("selectOpponentPlayer2");
 					
 				}
 			},
