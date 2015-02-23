@@ -144,8 +144,7 @@ $(document).ready(function() {
 				alert("Error: playerId couldnt be collected");
 				}
 		});
-		alert(testArray[0]);
-	});*/
+	});
 	
 	//addresult populate opponent 1 //not working just yet
 	/*$(document).on("pagebeforecreate","#uploadResult",function(){
@@ -210,7 +209,7 @@ $(document).ready(function() {
 				var object = results[i];
 				//create a row in the table for each player with a unique ID 
 				var playerRow = document.createElement("TR");
-				var playerRowId = "playerRow" + i
+				var playerRowId = "playerRow" + i;
 				playerRow.setAttribute("id", playerRowId);
 				document.getElementById("LeaderboardTable").appendChild(playerRow);
 				
