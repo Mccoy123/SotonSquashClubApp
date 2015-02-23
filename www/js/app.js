@@ -84,6 +84,18 @@ $(document).ready(function() {
 					el.textContent = opt2;
 					var select = document.getElementById("selectOpponentPlayer2");
 					
+					/*tests
+					alert(select); // returns a object html select element
+					alert(el); // returns a object html option element
+					alert(el.value); //returns the user objectId
+					alert(el.textContent); //returns the username
+					*/
+								
+					try { 
+					select.appendChild(el); //executes fine apparently???
+					} catch(err) {
+					alert (err.message);
+					}
 				}
 			},
 			error: function(error) {
