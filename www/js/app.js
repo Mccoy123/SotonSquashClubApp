@@ -82,17 +82,6 @@ $(document).ready(function() {
 					el.textContent = opt;
 					el.value = opt;
 					var select = document.getElementById("selectOpponentPlayer2");
-					select.appendChild(el);
-					//var test44 = document.getElementById("test44");
-					//alert(test44.value);//option element el is created, why is it not visible
-					//alert(select); //that is evaluated
-				}
-			/*},
-			error: function(error) {
-				alert("Error: playerId couldnt be collected");
-				}
-		});*/
-	});
 	
 	/*$(document).on("pagebeforecreate","#uploadResult",function(){
 		//var select = document.getElementById("selectOpponentPlayer2");
