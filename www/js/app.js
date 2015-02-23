@@ -74,32 +74,9 @@ $(document).ready(function() {
 		query.notEqualTo("objectId", "pHtwexlcv6"); //need to change so the objectId is whoever the current user is
 		query.find({
 			success: function(results) {
-			//do something with this object,,,, list it
-			var select = document.getElementById("selectOpponentPlayer2");
-			  for (var i = 0; i < results.length; i++) {
-				var object = results[i];
-				var el = document.createElement("option");
-				el.textContent = "hi";
-				el.value = "hi";
-				select.appendChild(el);
-				}
-			},
-			error: function(error) {
-				alert("Error: playerId couldnt be collected");
-			}
-		});
-	});*/
-	
-	$(document).on("pagebeforecreate","#uploadResult",function(){
-		//var select = document.getElementById("selectOpponentPlayer2");
-		var options = ["1", "2", "3", "4", "5"];
-		var opponentUsername = Parse.Object.extend("User");
-		var query = new Parse.Query(opponentUsername);
-		query.notEqualTo("objectId", "pHtwexlcv6"); //need to change so the objectId is whoever the current user is
-		//query.find({
-			//success: function(results) {
-				for(var i = 0; i < options.length; i++) {
-					var opt = options[i];
+				for(var i = 0; i < results.length; i++) {
+					var opt = results[i].id;
+					var opt2 = results[i].get("username");
 					var el = document.createElement("option");
 					//el.setAttribute("id", "test44");
 					el.textContent = opt;
