@@ -78,8 +78,8 @@ $(document).ready(function() {
 					var opt = results[i].id;
 					var opt2 = results[i].get("username");
 					var el = document.createElement("option");
-					//el.setAttribute("id", "test44");
-					el.textContent = opt;
+					var elId = "el" + i;
+					el.setAttribute("id", elId);
 					el.value = opt;
 					var select = document.getElementById("selectOpponentPlayer2");
 	
