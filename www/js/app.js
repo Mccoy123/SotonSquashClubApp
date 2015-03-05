@@ -22,7 +22,8 @@ $(document).ready(function() {
 
           // Save the profile
           userProfile = profile;
-
+		  window.location.href+='#one'; //set navigation on login
+		  alert("Hello");//previous line only works when this executes
           $('.login-box').hide();
           $('.logged-in-box').show();
           $('.nickname').text(profile.nickname);
@@ -45,6 +46,7 @@ $(document).ready(function() {
 	
 	$('.btn-ShowTextPopup').click(function(e) {
 		alert("Hello");
+		window.location.href+='#one';
     });
 	
 	$('.btn-ShowSelectPopup').click(function(e) {
@@ -65,8 +67,12 @@ $(document).ready(function() {
 	
 
 	// Add result functions 3
-	// Add result function 1 populate Opponent field
 	$(document).on("pagebeforecreate","#uploadResult",function(){
+	populateOpponent();
+	//populateUserPlayer();
+	});
+	// Add result function 1 populate Opponent field
+	function populateOpponent(){
 		var select = document.getElementById("selectOpponentPlayer2");
 		var opponentUsername = Parse.Object.extend("User");
 		var query = new Parse.Query(opponentUsername);
@@ -103,10 +109,10 @@ $(document).ready(function() {
 				alert("Error: playerId couldnt be collected");
 				}
 		});
-	});
+	};
 	
 	//addresult populate opponent 1 //not working just yet
-	/*$(document).on("pagebeforecreate","#uploadResult",function(){
+	/*function populateUserPlayer(){
 		//add comment about challenges here
 		var select = document.getElementById("selectOpponentPlayer2");
 		var opponentUsername = Parse.Object.extend("User");
