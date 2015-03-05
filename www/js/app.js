@@ -5,6 +5,8 @@ $(document).ready(function() {
       AUTH0_DOMAIN
     );
 	
+	window.location.href = '#one'; //set navigation on login maybe put inside a function??
+	
     var userProfile;
 
     $('.btn-login').click(function(e) {
@@ -22,16 +24,30 @@ $(document).ready(function() {
 
           // Save the profile
           userProfile = profile;
-		  window.location.href+='#one'; //set navigation on login
-		  alert("Hello");//previous line only works when this executes
           $('.login-box').hide();
           $('.logged-in-box').show();
           $('.nickname').text(profile.nickname);
           $('.nickname').text(profile.name);
           $('.avatar').attr('src', profile.picture);
+		  $('.sessionIdTest').text(profile.parse_session_token); //session token 
+		  
+		  //set current user in Parse
+		  setParseUser(profile.parse_session_token);
         }
       });
     });
+	
+	//set current user in Parse
+	function setParseUser(dominictest){
+		Parse.User.become(dominictest).then(function (user) {
+		  // The current user is now set to user.
+		  currentUser = Parse.User.current();
+		}, function (error) {
+		  // The token could not be validated.
+		  alert("parse user could not be set");
+		});
+	}
+	
 	
 	//logout
 	$('.btn-logout').click(function(e) {
@@ -46,7 +62,6 @@ $(document).ready(function() {
 	
 	$('.btn-ShowTextPopup').click(function(e) {
 		alert("Hello");
-		window.location.href+='#one';
     });
 	
 	$('.btn-ShowSelectPopup').click(function(e) {
@@ -64,13 +79,13 @@ $(document).ready(function() {
 	var input2 = document.getElementById("selectInput").value;
 	alert("input");
 	}
-	
 
 	// Add result functions 3
 	$(document).on("pagebeforecreate","#uploadResult",function(){
 	populateOpponent();
-	//populateUserPlayer();
+	// populateUserPlayer();
 	});
+
 	// Add result function 1 populate Opponent field
 	function populateOpponent(){
 		var select = document.getElementById("selectOpponentPlayer2");
@@ -106,7 +121,7 @@ $(document).ready(function() {
 				}
 			},
 			error: function(error) {
-				alert("Error: playerId couldnt be collected");
+				alert("Error: playerId couldn't be collected");
 				}
 		});
 	};
