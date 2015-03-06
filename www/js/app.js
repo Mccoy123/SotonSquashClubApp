@@ -42,6 +42,7 @@ $(document).ready(function() {
 		Parse.User.become(dominictest).then(function (user) {
 		  // The current user is now set to user.
 		  currentUser = Parse.User.current();
+		  alert(currentUser.id);
 		}, function (error) {
 		  // The token could not be validated.
 		  alert("parse user could not be set");
@@ -91,7 +92,7 @@ $(document).ready(function() {
 		var select = document.getElementById("selectOpponentPlayer2");
 		var opponentUsername = Parse.Object.extend("User");
 		var query = new Parse.Query(opponentUsername);
-		query.notEqualTo("objectId", "pHtwexlcv6"); //need to change so the objectId is whoever the current user is
+		query.notEqualTo("objectId", currentUser.id); //need to change so the objectId is whoever the current user is
 		query.find({
 			success: function(results) {
 				for(var i = 0; i < results.length; i++) {
