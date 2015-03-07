@@ -63,6 +63,19 @@ $(document).ready(function() {
 	
 	$('.btn-ShowTextPopup').click(function(e) {
 		alert("Hello");
+		
+    });
+	$('.btn-ParseCloudCode').click(function(e) {
+		alert("Hello");
+		Parse.Cloud.run('hello', {}, {
+		success: function(result) {
+			// result is 'My Cloud Code!'
+			alert(result);
+		  },
+		  error: function(error) {
+		    alert(error);
+		  }
+		});
     });
 	
 	$('.btn-ShowSelectPopup').click(function(e) {
