@@ -20,6 +20,12 @@ body {
 padding-top: 20px; 
 }
 
+.scroll46 {
+	background-color: #00FFFF;
+	height: 270px;
+    overflow: scroll;
+	}
+
 #LeaderboardTable{
     border: 1px solid Red;
     padding: 5px;

@@ -38,11 +38,11 @@ $(document).ready(function() {
     });
 	
 	//set current user in Parse
-	function setParseUser(dominictest){
-		Parse.User.become(dominictest).then(function (user) {
+	function setParseUser(parseToken){
+		Parse.User.become(parseToken).then(function (user) {
 		  // The current user is now set to user.
 		  currentUser = Parse.User.current();
-		  alert(currentUser.id);
+		  alert(currentUser.get("username"));
 		}, function (error) {
 		  // The token could not be validated.
 		  alert("parse user could not be set");
@@ -84,7 +84,7 @@ $(document).ready(function() {
 	// Add result functions 3
 	$(document).on("pagebeforecreate","#uploadResult",function(){
 	populateOpponent();
-	// populateUserPlayer();
+	populateUserPlayer();
 	});
 
 	// Add result function 1 populate Opponent field
@@ -92,7 +92,7 @@ $(document).ready(function() {
 		var select = document.getElementById("selectOpponentPlayer2");
 		var opponentUsername = Parse.Object.extend("User");
 		var query = new Parse.Query(opponentUsername);
-		query.notEqualTo("objectId", currentUser.id); //need to change so the objectId is whoever the current user is
+		query.notEqualTo("objectId", currentUser.id);
 		query.find({
 			success: function(results) {
 				for(var i = 0; i < results.length; i++) {
@@ -100,7 +100,6 @@ $(document).ready(function() {
 					var opt2 = results[i].get("username");
 					var el = document.createElement("option");
 					
-			
 					var elId = "el" + i;
 					el.setAttribute("id", elId);
 					el.value = opt;
@@ -128,41 +127,28 @@ $(document).ready(function() {
 	};
 	
 	//addresult populate opponent 1 //not working just yet
-	/*function populateUserPlayer(){
+	function populateUserPlayer(){
 		//add comment about challenges here
-		var select = document.getElementById("selectOpponentPlayer2");
-		var opponentUsername = Parse.Object.extend("User");
-		var query = new Parse.Query(opponentUsername);
-		query.notEqualTo("objectId", "pHtwexlcv6"); //need to change so the objectId is whoever the current user is
-		query.find({
-			success: function(results) {
-			//do something with this object,,,, list it
-			  for (var i = 0; i < results.length; i++) {
-				var object = results[i];
-				//add select list elements 
-				var playerUserId = object.get('playerID');
-				var z = document.createElement("option");
-				z.textContent = playerUserId;
-				z,value = playerUserId;
-				select.appendChild(z);
-			  }
-			},
-			error: function(error) {
-				alert("Error: playerId couldnt be collected");
-			}
-		});
-	});*/
+		var player1 = document.getElementById("selectOpponentPlayer1");
+		
+		//add select list elements 
+		var z = document.createElement("option");
+		z.textContent = currentUser.get("username");
+		z.value = currentUser.id;
+		player1.appendChild(z);
+		};
 	
 	//Add Result Function 3 submit Form
 	$('.btn-addResult').click(function(e) {
+	var selectOpponentPlayer1 = document.getElementById("selectOpponentPlayer1").value;
 	var selectOpponentPlayer2 = document.getElementById("selectOpponentPlayer2").value;
 	var player1Score = document.getElementById("player1Score").value;
 	var player2Score = document.getElementById("player2Score").value;
 	var matchWinner = document.getElementById("matchWinner").value;
-	
+			
 	var MatchScore = Parse.Object.extend("MatchScore");
     var matchScore = new MatchScore();
-	  matchScore.save({Player1ID: 1, Player2ID: selectOpponentPlayer2, P1score: player1Score, P2Score: player2Score, victor:matchWinner}, {
+	  matchScore.save({Player1ID: selectOpponentPlayer1, Player2ID: selectOpponentPlayer2, P1Score: player1Score, P2Score: player2Score, victor:matchWinner}, {
 		  success: function(object) {
 			alert("Score Successfully Added");
 		  },
