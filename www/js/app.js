@@ -49,7 +49,7 @@ $(document).ready(function() {
 		});
 	}
 	
-	
+	//MyProfile Functions 
 	//logout
 	$('.btn-logout').click(function(e) {
       // execute logout script
@@ -57,10 +57,43 @@ $(document).ready(function() {
         //var widget = new Auth0Lock(cid, domain);
 		localStorage.removeItem('token');
 		userProfile = null;
-        $('.logged-in-box').hide();
+        $('logged-in-box').hide();
 		$('.login-box').show();
     });
 	
+	
+	$('.btn-joinLeaderboard').click(function(e) {
+		alert("Join");
+		Parse.Cloud.run('hello', {}, {
+		success: function(result) {
+			// result is 'My Cloud Code!'
+			alert(result);
+			$('#joinLeaderboard').hide();
+			$('#leaveLeaderboard').show();
+		  },
+		  error: function(error) {
+		    alert(error);
+		  }
+		});
+    });
+	
+	$('.btn-leaveLeaderboard').click(function(e) {
+		alert("Leave");
+		Parse.Cloud.run('hello', {}, {
+		success: function(result) {
+			// result is 'My Cloud Code!'
+			alert(result);
+			$('#leaveLeaderboard').hide();
+			$('#joinLeaderboard').show();
+		  },
+		  error: function(error) {
+		    alert(error);
+		  }
+		});
+    });
+	//end of My Profile Function
+	
+	//Home Test Functions
 	$('.btn-ShowTextPopup').click(function(e) {
 		alert("Hello");
 		
@@ -93,6 +126,7 @@ $(document).ready(function() {
 	var input2 = document.getElementById("selectInput").value;
 	alert("input");
 	}
+	//End OF home Test functions
 
 	// Add result functions 3
 	$(document).on("pagebeforecreate","#uploadResult",function(){
@@ -170,6 +204,7 @@ $(document).ready(function() {
 		  }
       });
 	});
+	//end of add result functions
 	
 	//Leaderboard
 	$(document).on("pagebeforecreate","#leaderboard",function(){
@@ -218,6 +253,7 @@ $(document).ready(function() {
 		  }
 		});
 	});
+	//end of leaderboard functions
 	
 	//parse intilaisation
 	Parse.initialize("5N1zo8DBnukiwCvOwuSiXByNtVNefFr7DS6YKvoy", "JbmB3R9Rj7ld8sAN7un9lTqI4PUQB4W1JIt5qLSQ");
