@@ -63,7 +63,7 @@ $(document).ready(function() {
 	
 	//adds user to the leaderboard
 	$('.btn-joinLeaderboard').click(function(e) {
-		Parse.Cloud.run('joinLeaderboard', {objectId: currentUser.id }, {
+		Parse.Cloud.run('joinLeaderboard', {}, {
 		success: function(result) {
 			// result is 'My Cloud Code!'
 			alert(result);
@@ -78,8 +78,7 @@ $(document).ready(function() {
 	
 	//removes user from the leaderboard
 	$('.btn-leaveLeaderboard').click(function(e) {
-		alert("Leave");
-		Parse.Cloud.run('hello', {}, {
+		Parse.Cloud.run('leaveLeaderboard', {}, {
 		success: function(result) {
 			// result is 'My Cloud Code!'
 			alert(result);
