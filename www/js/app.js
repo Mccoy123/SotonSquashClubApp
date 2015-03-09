@@ -57,7 +57,7 @@ $(document).ready(function() {
         //var widget = new Auth0Lock(cid, domain);
 		localStorage.removeItem('token');
 		userProfile = null;
-        $('logged-in-box').hide();
+        $('.logged-in-box').hide();
 		$('.login-box').show();
     });
 	
