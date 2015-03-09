@@ -61,10 +61,9 @@ $(document).ready(function() {
 		$('.login-box').show();
     });
 	
-	
+	//adds user to the leaderboard
 	$('.btn-joinLeaderboard').click(function(e) {
-		alert("Join");
-		Parse.Cloud.run('hello', {}, {
+		Parse.Cloud.run('joinLeaderboard', {objectId: currentUser.id }, {
 		success: function(result) {
 			// result is 'My Cloud Code!'
 			alert(result);
@@ -77,6 +76,7 @@ $(document).ready(function() {
 		});
     });
 	
+	//removes user from the leaderboard
 	$('.btn-leaveLeaderboard').click(function(e) {
 		alert("Leave");
 		Parse.Cloud.run('hello', {}, {
@@ -109,8 +109,8 @@ $(document).ready(function() {
 		    alert(error);
 		  }
 		});
-    });
-	
+	});
+
 	$('.btn-ShowSelectPopup').click(function(e) {
 		var input2 = document.getElementById("selectInput").value;
 		alert("input2");
@@ -161,7 +161,7 @@ $(document).ready(function() {
 					*/
 								
 					try { 
-					select.appendChild(el); //executes fine apparently???
+					select.appendChild(el);
 					} catch(err) {
 					alert (err.message);
 					}
