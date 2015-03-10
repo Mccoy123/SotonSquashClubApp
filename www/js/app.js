@@ -50,6 +50,35 @@ $(document).ready(function() {
 	}
 	
 	//MyProfile Functions 
+	//show correct button
+	$(document).on("pagebeforeshow","#profile",function(){
+		if (currentUser.get("Leaderboard") == true) {
+			$('#joinLeaderboard').hide();
+			$('#leaveLeaderboard').show();
+		}
+		else {
+			$('#joinLeaderboard').show();
+			$('#leaveLeaderboard').hide();
+		}
+		/*currentUser.fetch({ //prevents error if logging in logging out but is very slow, come back to later.
+			success: function(currentUser) {
+				if (currentUser.get("Leaderboard") == true) {
+					$('#joinLeaderboard').hide();
+					$('#leaveLeaderboard').show();
+					alert("true");
+				}
+				else {
+					$('#joinLeaderboard').show();
+					$('#leaveLeaderboard').hide();
+					alert("false");
+				}
+			},
+			error: function(currentUser, error) {
+				alert("error");
+			}
+		});*/
+	});
+	
 	//logout
 	$('.btn-logout').click(function(e) {
       // execute logout script
@@ -95,7 +124,12 @@ $(document).ready(function() {
 	//Home Test Functions
 	$('.btn-ShowTextPopup').click(function(e) {
 		alert("Hello");
-		
+		if (currentUser.id == currentUser.id){
+			alert("yes");
+		}
+		else {
+			alert("no");
+		}
     });
 	$('.btn-ParseCloudCode').click(function(e) {
 		alert("Hello");
