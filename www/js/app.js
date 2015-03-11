@@ -7,8 +7,9 @@ $(document).ready(function() {
 	
 	window.location.href = '#one'; //set navigation on login maybe put inside a function??
 	
-    var userProfile;
+    var userProfile; //declere userProfile
 
+	//log-in
     $('.btn-login').click(function(e) {
       e.preventDefault();
       lock.show(function(err, profile, token) {
@@ -23,7 +24,7 @@ $(document).ready(function() {
           localStorage.setItem('userToken', token);
 
           // Save the profile
-          userProfile = profile;
+          userProfile = profile; //set userProfile
           $('.login-box').hide();
           $('.logged-in-box').show();
           $('.nickname').text(profile.nickname);
@@ -49,8 +50,8 @@ $(document).ready(function() {
 		});
 	}
 	
-	//MyProfile Functions 
-	//show correct button
+	//MyProfile Functions 4
+	//show correct button 1
 	$(document).on("pagebeforeshow","#profile",function(){
 		if (currentUser.get("Leaderboard") == true) {
 			$('#joinLeaderboard').hide();
@@ -60,26 +61,9 @@ $(document).ready(function() {
 			$('#joinLeaderboard').show();
 			$('#leaveLeaderboard').hide();
 		}
-		/*currentUser.fetch({ //prevents error if logging in logging out but is very slow, come back to later.
-			success: function(currentUser) {
-				if (currentUser.get("Leaderboard") == true) {
-					$('#joinLeaderboard').hide();
-					$('#leaveLeaderboard').show();
-					alert("true");
-				}
-				else {
-					$('#joinLeaderboard').show();
-					$('#leaveLeaderboard').hide();
-					alert("false");
-				}
-			},
-			error: function(currentUser, error) {
-				alert("error");
-			}
-		});*/
 	});
 	
-	//logout
+	//logout 2
 	$('.btn-logout').click(function(e) {
       // execute logout script
 		
@@ -90,7 +74,7 @@ $(document).ready(function() {
 		$('.login-box').show();
     });
 	
-	//adds user to the leaderboard
+	//adds user to the leaderboard 3
 	$('.btn-joinLeaderboard').click(function(e) {
 		Parse.Cloud.run('joinLeaderboard', {}, {
 		success: function(result) {
@@ -105,7 +89,7 @@ $(document).ready(function() {
 		});
     });
 	
-	//removes user from the leaderboard
+	//removes user from the leaderboard 4
 	$('.btn-leaveLeaderboard').click(function(e) {
 		Parse.Cloud.run('leaveLeaderboard', {}, {
 		success: function(result) {
@@ -160,14 +144,20 @@ $(document).ready(function() {
 	alert("input");
 	}
 	//End OF home Test functions
+	
+	//Add Result functions 2
+	// reset the form on hide 1
+	$(document).on("pagehide","#uploadResult",function(){
+	document.getElementById("addResultForm").reset();
+	});
 
-	// Add result functions 3
+	// uploadresult functions 2
 	$(document).on("pagebeforecreate","#uploadResult",function(){
-	populateOpponent();
+	populateOpponent(); 
 	populateUserPlayer();
 	});
 
-	// Add result function 1 populate Opponent field
+	// populate Opponent field 2.1
 	function populateOpponent(){
 		var select = document.getElementById("selectOpponentPlayer2");
 		var opponentUsername = Parse.Object.extend("User");
@@ -201,17 +191,15 @@ $(document).ready(function() {
 				}
 			},
 			error: function(error) {
-				alert("Error: playerId couldn't be collected");
+				alert("Error 105: playerId couldn't be collected");
 				}
 		});
 	};
 	
-	//addresult populate opponent 1 //not working just yet
+	//addresult populate opponent 2.2
 	function populateUserPlayer(){
 		//add comment about challenges here
 		var player1 = document.getElementById("selectOpponentPlayer1");
-		
-		//add select list elements 
 		var z = document.createElement("option");
 		z.textContent = currentUser.get("username");
 		z.value  = currentUser.id;
@@ -220,28 +208,59 @@ $(document).ready(function() {
 	
 	//Add Result Function 3 submit Form
 	$('.btn-addResult').click(function(e) {
-		var player2Id = document.getElementById("selectOpponentPlayer2").value;
+		var player2Id = document.getElementById("selectOpponentPlayer2").value;//Gets the opponents user ObjectID
 		var opponent = Parse.Object.extend("User");
 		var query = new Parse.Query(opponent);
+		//queries user class returning the opponents user object
 		query.get(player2Id, {
 			success: function(player2) {
-				var player1Score = document.getElementById("player1Score").value;
-				var player2Score = document.getElementById("player2Score").value;
-				var matchWinner = document.getElementById("matchWinner").value;
-				
-				var MatchScore = Parse.Object.extend("MatchScore");
-				var matchScore = new MatchScore();
-				matchScore.save({Player1ID: currentUser, Player2ID: player2, P1Score: player1Score, P2Score: player2Score, victor: matchWinner}, {
-					  success: function(object) {
-						alert("Score Successfully Added");
-					  },
-					  error: function(model, error) {
-						alert("Error Score not uploaded. Please try again later!");
-					  }
-				});
+				var player1Score = document.getElementById("player1Score").value; //get player1s score
+				var player2Score = document.getElementById("player2Score").value; //get player2s score
+				var matchWinner = document.getElementById("matchWinner").value; //get the matchWinner value player1 or player2
+				//validation
+					if (player1Score == 3 || player2Score == 3){ //Validation1: Check someone won to 3
+						if (player1Score <= 3 && player1Score >= 0 && player2Score <= 3 && player2Score >= 0){ //Validation 2 check both score are in correct range
+							if (player1Score == 3 && player2Score == 3){ //Validation 3 Check match is not a draw
+								alert("Error 106: Match cannot be a draw");
+							}
+							else {
+								//set match winner validate
+								if (player1Score > player2Score){
+									var matchWinnerValidate = 1;
+								}
+								else {
+									var matchWinnerValidate = 2;
+								}
+								if (matchWinner == matchWinnerValidate) { //validation 4: check winner is correct
+									//submit result
+									var MatchScore = Parse.Object.extend("MatchScore");
+									var matchScore = new MatchScore(); //create a new matchScore object
+									//save the result
+									matchScore.save({Player1ID: currentUser, Player2ID: player2, P1Score: player1Score, P2Score: player2Score, victor: matchWinner}, {
+										  success: function(object) {
+											alert("Score Successfully Added"); //User success message
+											window.location.href = '#leaderboard'; //navigate the user to the leaderboard page
+										  },
+										  error: function(model, error) {
+											alert("Error 104: Score not uploaded. Please Make sure an opponent is selected. Or try again later!"); //user error message
+										  }
+									});
+								}
+								else {
+									alert("Error 107: Scores do not match winner");
+								}
+							}
+						}
+						else {
+							alert("Error 101: Matches are first to 3 games");
+						}
+					}
+					else {
+						alert("Error 102: Matches are first to 3 games");
+					}
 			},
 			error: function(object, error) {
-				alert("Error: Opponent could not be found");
+				alert("Error 103: Opponent could not be found");
 			}
 		});
 	});
