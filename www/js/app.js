@@ -214,28 +214,36 @@ $(document).ready(function() {
 		//add select list elements 
 		var z = document.createElement("option");
 		z.textContent = currentUser.get("username");
-		z.value = currentUser.id;
+		z.value  = currentUser.id;
 		player1.appendChild(z);
 		};
 	
 	//Add Result Function 3 submit Form
 	$('.btn-addResult').click(function(e) {
-	var selectOpponentPlayer1 = document.getElementById("selectOpponentPlayer1").value;
-	var selectOpponentPlayer2 = document.getElementById("selectOpponentPlayer2").value;
-	var player1Score = document.getElementById("player1Score").value;
-	var player2Score = document.getElementById("player2Score").value;
-	var matchWinner = document.getElementById("matchWinner").value;
-			
-	var MatchScore = Parse.Object.extend("MatchScore");
-    var matchScore = new MatchScore();
-	  matchScore.save({Player1ID: selectOpponentPlayer1, Player2ID: selectOpponentPlayer2, P1Score: player1Score, P2Score: player2Score, victor:matchWinner}, {
-		  success: function(object) {
-			alert("Score Successfully Added");
-		  },
-		  error: function(model, error) {
-			alert("Error Score not uploaded. Please try again later");
-		  }
-      });
+		var player2Id = document.getElementById("selectOpponentPlayer2").value;
+		var opponent = Parse.Object.extend("User");
+		var query = new Parse.Query(opponent);
+		query.get(player2Id, {
+			success: function(player2) {
+				var player1Score = document.getElementById("player1Score").value;
+				var player2Score = document.getElementById("player2Score").value;
+				var matchWinner = document.getElementById("matchWinner").value;
+				
+				var MatchScore = Parse.Object.extend("MatchScore");
+				var matchScore = new MatchScore();
+				matchScore.save({Player1ID: currentUser, Player2ID: player2, P1Score: player1Score, P2Score: player2Score, victor: matchWinner}, {
+					  success: function(object) {
+						alert("Score Successfully Added");
+					  },
+					  error: function(model, error) {
+						alert("Error Score not uploaded. Please try again later!");
+					  }
+				});
+			},
+			error: function(object, error) {
+				alert("Error: Opponent could not be found");
+			}
+		});
 	});
 	//end of add result functions
 	
