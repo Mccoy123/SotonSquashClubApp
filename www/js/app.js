@@ -6,6 +6,7 @@ $(document).ready(function() {
     );
 	
 	window.location.href = '#one'; //set navigation on login maybe put inside a function??
+	makePageScrollable(); //sets up making pages scrollable
 	
     var userProfile; //declere userProfile
 
@@ -49,6 +50,15 @@ $(document).ready(function() {
 		  alert("parse user could not be set");
 		});
 	}
+	
+	//GlobalFunctions
+	function makePageScrollable(){
+		//any page of class scrollable will be scrollable
+		$(".scrollable5").css({
+			height: (window.innerHeight - 30)
+		});
+	}
+	
 	
 	//MyProfile Functions 4
 	//show correct button 1
@@ -108,12 +118,11 @@ $(document).ready(function() {
 	//Home Test Functions
 	$('.btn-ShowTextPopup').click(function(e) {
 		alert("Hello");
-		if (currentUser.id == currentUser.id){
-			alert("yes");
-		}
-		else {
-			alert("no");
-		}
+		makePageScrollable();
+		//var pageHeight = document.getElementById("page1Content");
+		//alert(pageHeight.offsetHeight);
+		//alert($(window).height());
+		//alert($(window).innerHeight());
     });
 	$('.btn-ParseCloudCode').click(function(e) {
 		alert("Hello");
@@ -145,7 +154,7 @@ $(document).ready(function() {
 	}
 	//End OF home Test functions
 	
-	//Add Result functions 2
+	//Add Result functions 3
 	// reset the form on hide 1
 	$(document).on("pagehide","#uploadResult",function(){
 	document.getElementById("addResultForm").reset();
@@ -157,7 +166,7 @@ $(document).ready(function() {
 	populateUserPlayer();
 	});
 
-	// populate Opponent field 2.
+	// populate Opponent field 2.1
 	function populateOpponent(){
 		var select = document.getElementById("selectOpponentPlayer2");
 		var opponentUsername = Parse.Object.extend("User");

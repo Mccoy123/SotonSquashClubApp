@@ -36,7 +36,7 @@
       </div>
 	
 	<div class="logged-in-box auth0-box logged-in" style="display: none;">
-	<!-- Start of first page -->
+	<!-- Start of home page -->
 		<section data-role="page" id="one">
 		
 		<div data-role="header">
@@ -44,9 +44,8 @@
 				<a href="#left-panel" data-icon="bars" data-iconpos="notext" data-shadow="false" data-iconshadow="false">Menu</a>
 			</div><!-- /header -->
 
-			<div data-role="content">	
+			<div id="page1Content" class="scrollable5" data-role="content">	
 				<h2>Home</h2>
-				
 				<p>Welcome <span class="sessionIdTest"></span></p>
 				<p>I'm first in the source order so I'm shown as the page.</p>		
 				<input style="text" id="textInput">
@@ -68,7 +67,7 @@
 				<button class="btn btn-lg btn-primary btn-api">Call API</button>
 				
 
-				<p class = "scroll46">
+				<p>
 				This is some scrollable content set as scrollable by the class
 				Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 				Mauris at mi non est interdum tempor. In hac habitasse 
@@ -124,8 +123,7 @@
 			
 		</section><!-- /end page 1-->
 
-
-		<!-- Start of second page -->
+		<!-- Start of club page -->
 		<section data-role="page" id="club">
 
 			<div data-role="header">
@@ -134,8 +132,28 @@
 			</div><!-- /header -->
 
 			<div data-role="content">	
-				<h2>Page 2</h2>
-				<p>I'm the second in the source order so I'm hidden when the page loads. I'm just shown if a link that references my ID is being clicked.</p>		
+				<h2>About The Club</h2>
+				<p>
+					SUSC caters for players of all abilities: from complete beginners to the seasoned pro! 
+					With 4 Hampshire Squash Mens Teams, 2 Mens BUCS, a Ladies Team, Club Night and our new 
+					online squash ladder there is a place for everyone!. 
+				</p>
+				<img src="img/SotonSquashLogoSmall.jpg" />
+				<p>
+					<h3>Club Night</h3>
+					We have Club Night every Monday night from 6-10pm at the SUSU Squash Courts. It's a drop 
+					in/out session. So come along at any point in the night. We always have a minimum of 3 
+					courts with a beginner,intermediate and advance courts.
+				</p>
+				<p>
+					<h3>Socials</h3>
+					We have a weekly social every Wednesday evening. They're for all our members and always good fun. 
+					They are usually themed and start somewhere in Portswood at 7.30pm, join the Facebook group for up-to-date information! 
+				</p>
+				<p>
+					<img src="img/squashSocial.jpg" />
+				</p>
+
 			</div><!-- /content -->
 
 			<!-- Panel -->
@@ -174,7 +192,7 @@
 				<section>
 					<p>Are you sure you want to log out?</p>		
 					<button class="btn btn-lg btn-primary btn-logout">logout</button>
-				<section>
+				</section>
 				<section>
 					<div id="joinLeaderboard">
 						<p>Click the button below to join the leaderboard</p>
@@ -184,7 +202,7 @@
 						<p>Click the button below to leave the leaderboard</p>
 						<button class="btn btn-lg btn-primary btn-leaveLeaderboard"> Leave the Leaderboard</button>
 					</div>
-				<section>
+				</section>
 			</div><!-- /content -->
 
 			<!-- Panel -->
