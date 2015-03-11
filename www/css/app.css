@@ -5,16 +5,45 @@
 body {
   text-align: center;
 }
-
+#squashTeamPic{
+  height: 50%;
+  width: 90%;
+}
+#squashSocialPic{
+  height: 50%;
+  width: 90%;
+}
 .clubLogoVerySmall{
   height: 55px;
   width: 40px;
 }
-
 .clubLogoMedium{
   height: 40%;
   width: 40%;
 }
+
+.image30 {
+  height: 30%;
+  width: 30%;
+}
+.image45 {
+  height: 45%;
+  width: 45%;
+}
+.image60 {
+  height: 60%;
+  width: 60%;
+}
+.image90 {
+  height: 90%;
+  width: 90%;
+}
+.image30 {
+  height: 30%;
+  width: 30%;
+}
+
+
 
 .pageContentPadding{
 padding-top: 20px; 
@@ -27,7 +56,6 @@ padding-top: 20px;
 	}
 	
 .scrollable5 {
-	background-color: #00FFFF;
 	height: 100%;
     overflow: scroll;
 	}
