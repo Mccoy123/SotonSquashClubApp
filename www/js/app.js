@@ -157,7 +157,7 @@ $(document).ready(function() {
 	populateUserPlayer();
 	});
 
-	// populate Opponent field 2.1
+	// populate Opponent field 2.
 	function populateOpponent(){
 		var select = document.getElementById("selectOpponentPlayer2");
 		var opponentUsername = Parse.Object.extend("User");
@@ -267,8 +267,7 @@ $(document).ready(function() {
 	//end of add result functions
 	
 	//Leaderboard
-	$(document).on("pagebeforecreate","#leaderboard",function(){
-		
+	$(document).on("pagebeforeshow","#leaderboard",function(){
 		var LeaderBoard = Parse.Object.extend("LeaderBoard");
 		var query = new Parse.Query(LeaderBoard);
 		query.notEqualTo("Ranking", 0); //when having opting include a function that sets new (and if you opt out) to 0
@@ -312,6 +311,13 @@ $(document).ready(function() {
 			alert("Error: " + error.code + " " + error.message);
 		  }
 		});
+	});
+	$(document).on("pagebeforehide","#leaderboard",function(){
+		var rowCount = $('#LeaderboardTable tr').length; //return number of rows in table
+		var ladderTable = document.getElementById("LeaderboardTable"); //get table element
+		for (i=1; i < rowCount; i++){
+			ladderTable.deleteRow(1); //delete all table rows except header
+		}
 	});
 	//end of leaderboard functions
 	
