@@ -133,20 +133,43 @@
 
 			<div id="profileContent" class="scrollable5" data-role="content">	
 				<h2>My Profile</h2>
-				<section>
-					<p>Are you sure you want to log out?</p>		
-					<button class="btn btn-lg btn-primary btn-logout">logout</button>
-				</section>
+				<p>
+					<hr />
+				</p>
 				<section>
 					<div id="joinLeaderboard">
-						<p>Click the button below to join the leaderboard</p>
-						<button class="btn btn-lg btn-primary btn-joinLeaderboard"> Join the Leaderboard</button>
+						<div data-role="collapsible" data-collapsed-icon="plus">
+							<h3>Join the Leaderboard</h3>
+							<p>
+								Are you sure you want to join the leaderboard?
+							</p>
+							<button class="btn btn-lg btn-primary btn-joinLeaderboard"> Yes I Want To Join The Leaderboard</button>
+						</div>
 					</div >
 					<div id="leaveLeaderboard">
-						<p>Click the button below to leave the leaderboard</p>
-						<button class="btn btn-lg btn-primary btn-leaveLeaderboard"> Leave the Leaderboard</button>
-					</div>
+						<div data-role="collapsible" data-collapsed-icon="delete">
+							<h3>Leave the Leaderboard</h3>
+							<p>
+								WARNING: If you leave the leaderboard you will lose your position and have to rejoin from bottom!
+							</p>
+							<p>
+								Are you sure you want to leave the leaderboard?
+							</p>
+							<button class="btn btn-lg btn-primary btn-leaveLeaderboard"> Yes I Want To Leave The Leaderboard</button>
+						</div>
+					</div >
 				</section>
+				<p>
+					<hr />
+				</p>
+				<div data-role="collapsible" data-collapsed-icon="power">
+					<h3>Logout</h3>
+					<p>
+						Are you sure you want to log out?
+					</p>
+					<button class="btn btn-lg btn-primary btn-logout">Yes I Want To Logout</button>
+				</div>
+				
 			</div><!-- /content -->
 
 			<!-- Panel -->

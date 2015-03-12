@@ -63,7 +63,10 @@ padding-top: 20px;
 .RulesStylings {
 	text-align: left;
 }
-	
+
+.borderSmall{
+    border:3px;
+}
 
 #LeaderboardTable{
     border: 1px solid Red;
