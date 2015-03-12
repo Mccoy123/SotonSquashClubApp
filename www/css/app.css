@@ -68,6 +68,16 @@ padding-top: 20px;
     border:3px;
 }
 
+#NewsFeedTable{
+	padding: 5px;
+	margin-left: auto;
+    margin-right: auto;
+	width:95%;
+}
+.userMatchResult{
+	padding:5px
+}
+
 #LeaderboardTable{
     border: 1px solid Red;
     padding: 5px;
@@ -75,7 +85,6 @@ padding-top: 20px;
     margin-right: auto;
 	width:95%;
 }
-
 #LeaderboardTable th{
 	background-color: Red;
     color: white;
