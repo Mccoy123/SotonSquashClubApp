@@ -277,48 +277,34 @@ $(document).ready(function() {
 	
 	//Newsfeed
 	$(document).on("pagebeforeshow","#homeTest",function(){
-		
-		//calling cloud code to get array would go here
-		
-		var newsFeed = [{id:"1", p1Name:"1A", p2Name:"2A"},{id:"2", p1Name:"1B", p2Name:"2B"},{id:"3", p1Name:"1C", p2Name:"2C"},{id:"4", p1Name:"1D", p2Name:"2D"}];
-		//alert(newsFeed);
-		//alert(JSON.stringify(newsFeed));
-		//alert(newsFeed[0].id);
-		//alert(newsFeed[1].id);
-		alert(newsFeed.length);
-		for (i=0; i<newsFeed.length; i++){
-						
-			//create newsfeed table row
-			var newsFeedRow = document.createElement("TR");
-			var newsFeedRowId = "newsFeedRow" + i;
-			newsFeedRow.setAttribute("id", newsFeedRowId);
-			document.getElementById("NewsfeedTable").appendChild(newsFeedRow); //append to table in DOM
+		Parse.Cloud.run('newsfeed', {}, {
+			success: function(newsFeed) {
+				//alert(newsFeed);
+				//alert(newsFeed[0]);
+				//alert(JSON.stringify(newsFeed));
+				//alert(JSON.stringify(newsFeed[0]));
+				//alert(newsFeed[0].content);
+				//alert(newsFeed[0].get("content"));
+				
+				for (i=0; i<newsFeed.length; i++){
+					var newsFeedRow = document.createElement("TR");
+					var newsFeedRowId = "newsFeedRow" + i;
+					newsFeedRow.setAttribute("id", newsFeedRowId);
+					document.getElementById("NewsfeedTable").appendChild(newsFeedRow); //append to table in DOM
+					
+					//populate newsfeed row
+					var newsFeedItem = document.createElement("TD");
+					
+					var newsFeedData = document.createTextNode(newsFeed[i].content);
+					newsFeedItem.appendChild(newsFeedData);	
+					document.getElementById(newsFeedRowId).appendChild(newsFeedItem); //append to newsfeed table in dom
+					alert(newsFeed[i].content);
+				}
+			},
+			error: function(error){
 			
-			//populate newsfeed row
-			var newsFeedItem = document.createElement("TD");
-			
-			//matchscore item
-			var p1Score = newsFeed[i].id;
-			var p2Score = newsFeed[i].id;
-			var p1Name = newsFeed[i].p1Name;
-			var p2Name = newsFeed[i].p2Name;
-			//tests
-			//alert(p1Score);
-			//alert(p2Score);
-			//alert(p1Name);
-			//alert(p2Name);
-			//Add Data------------------
-			var newsFeedData = document.createTextNode((i+1) + " " + p1Name + " played " + p2Name + " score: " + p1Score + "-" + p2Score);
-			newsFeedItem.setAttribute("class", "userMatchResult");
-			
-			
-			
-			newsFeedItem.appendChild(newsFeedData);	
-			document.getElementById(newsFeedRowId).appendChild(newsFeedItem); //append to newsfeed table in dom
-			
-			
-		
-		}
+			}
+		});
 	});
 	
 	//Leaderboard
