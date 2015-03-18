@@ -298,13 +298,20 @@ $(document).ready(function() {
 					var newsFeedData = document.createTextNode(newsFeed[i].content);
 					newsFeedItem.appendChild(newsFeedData);	
 					document.getElementById(newsFeedRowId).appendChild(newsFeedItem); //append to newsfeed table in dom
-					alert(newsFeed[i].content);
+					//alert(newsFeed[i].content);
 				}
 			},
 			error: function(error){
 			
 			}
 		});
+	});
+	$(document).on("pagebeforehide","#homeTest",function(){
+		var rowCount = $('#NewsfeedTable tr').length; //return number of rows in table
+		var NewsfeedTable = document.getElementById("NewsfeedTable"); //get table element
+		for (i=0; i < rowCount; i++){
+			NewsfeedTable.deleteRow(0); //delete all table rows except header
+		}
 	});
 	
 	//Leaderboard
