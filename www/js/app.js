@@ -279,26 +279,31 @@ $(document).ready(function() {
 	$(document).on("pagebeforeshow","#homeTest",function(){
 		Parse.Cloud.run('newsfeed', {}, {
 			success: function(newsFeed) {
-				//alert(newsFeed);
-				//alert(newsFeed[0]);
-				//alert(JSON.stringify(newsFeed));
-				//alert(JSON.stringify(newsFeed[0]));
-				//alert(newsFeed[0].content);
-				//alert(newsFeed[0].get("content"));
-				
+				alert(newsFeed);
+				alert(newsFeed.length); //works perfectly
+				alert(newsFeed[0]); //works perfectly
+				alert(newsFeed[0].content); //works perfectly
+				newsFeed.sort();
+				//alert(newsFeed[0].length); //undefined
 				for (i=0; i<newsFeed.length; i++){
+					
 					var newsFeedRow = document.createElement("TR");
 					var newsFeedRowId = "newsFeedRow" + i;
 					newsFeedRow.setAttribute("id", newsFeedRowId);
+					newsFeedRow.setAttribute("class", "newsfeedRow");
 					document.getElementById("NewsfeedTable").appendChild(newsFeedRow); //append to table in DOM
 					
 					//populate newsfeed row
 					var newsFeedItem = document.createElement("TD");
-					
-					var newsFeedData = document.createTextNode(newsFeed[i].content);
-					newsFeedItem.appendChild(newsFeedData);	
+					newsFeedItem.innerHTML = '<img class="newsfeedlogoImage" id="newsfeedLogo" src="' + newsFeed[i].userThumbnail + '" />';
 					document.getElementById(newsFeedRowId).appendChild(newsFeedItem); //append to newsfeed table in dom
-					//alert(newsFeed[i].content);
+					
+					var newsFeedItem2 = document.createElement("TD");
+					newsFeedItem2.setAttribute("class", "newsfeedContent");
+					var newsFeedData = document.createTextNode(newsFeed[i].content);
+					newsFeedItem2.appendChild(newsFeedData);	
+					document.getElementById(newsFeedRowId).appendChild(newsFeedItem2); //append to newsfeed table in dom
+				
 				}
 			},
 			error: function(error){

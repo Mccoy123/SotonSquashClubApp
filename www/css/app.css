@@ -75,7 +75,7 @@ padding-top: 20px;
 	width:95%;
 }
 .userMatchResult{
-	padding:5px
+	padding:5px;
 }
 
 #LeaderboardTable{
@@ -97,4 +97,24 @@ padding-top: 20px;
    background-color:#fff;
   }
 
+#NewsfeedTable{
+	width: 90%;
+	margin: 0 auto;
+	border-collapse: separate;
+    border-spacing: 0 1em;
+}
+.newsfeedlogoImage{
+	height: 30px;
+	width: 30px;
+}
+/*   */
+.newsfeedContent{
+	text-align: left;
+	padding-left: 20px;
+}
+.newsfeedRow{
+	background: white;
+    box-shadow: 3px 3px 5px #666;
+    padding: 12px
+}
 
