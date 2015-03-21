@@ -279,11 +279,11 @@ $(document).ready(function() {
 	$(document).on("pagebeforeshow","#homeTest",function(){
 		Parse.Cloud.run('newsfeed', {}, {
 			success: function(newsFeed) {
-				alert(newsFeed);
-				alert(newsFeed.length); //works perfectly
-				alert(newsFeed[0]); //works perfectly
-				alert(newsFeed[0].content); //works perfectly
-				newsFeed.sort();
+				//alert(newsFeed);
+				//alert(newsFeed.length); //works perfectly
+				//alert(newsFeed[0]); //works perfectly
+				//alert(newsFeed[0].content); //works perfectly
+				//newsFeed.sort();
 				//alert(newsFeed[0].length); //undefined
 				for (i=0; i<newsFeed.length; i++){
 					
@@ -303,7 +303,20 @@ $(document).ready(function() {
 					var newsFeedData = document.createTextNode(newsFeed[i].content);
 					newsFeedItem2.appendChild(newsFeedData);	
 					document.getElementById(newsFeedRowId).appendChild(newsFeedItem2); //append to newsfeed table in dom
-				
+					
+					if (newsFeed[i].media !== "1") { 
+						//if an attachment has been added display it
+						var newsFeedRowMedia = document.createElement("TR");
+						var newsFeedMediaRowId = "newsFeedRowMedia" + i;
+						newsFeedRowMedia.setAttribute("id", newsFeedMediaRowId);
+						newsFeedRowMedia.setAttribute("class", "newsFeedRowMedia");
+						document.getElementById("NewsfeedTable").appendChild(newsFeedRowMedia); //append to table in DOM
+						//add the attachement
+						var newsFeedMediaItem = document.createElement("TD");
+						newsFeedMediaItem.setAttribute("colspan", "2");
+						newsFeedMediaItem.innerHTML = '<img class="newsFeedMediaImage" id="newsFeedMediaItem" src="' + newsFeed[i].media + '" />';
+						document.getElementById(newsFeedMediaRowId).appendChild(newsFeedMediaItem); //append to newsfeed table in dom
+					}
 				}
 			},
 			error: function(error){
