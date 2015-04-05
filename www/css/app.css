@@ -1,10 +1,22 @@
 .bar.bar-nav {
   position: static;
 }
+/*Global CSS*/
 
 body {
   text-align: center;
 }
+
+/*Page Specific CSS*/
+
+/*Challenge Player*/
+
+
+/*end of challenge player CSS*/
+
+
+/*need to sort out*/
+
 .clubPicture{
   height: 50%;
   width: 90%;

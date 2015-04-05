@@ -17,6 +17,7 @@
 	<link rel="stylesheet" href="css/index.css" />	
 	<link rel="stylesheet" href="css/app.css" />
 	
+	
 	<!--Javascript,,, some extra for auth0 at the bottom-->
 	<script src="js/index.js"></script>
 	<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
@@ -319,6 +320,57 @@
 			</div>
 			
 		</section><!-- /add result page -->
+		
+		<!-- Start of challenge player Page -->
+		<section data-role="page"  id="challengePlayer">
+
+			<div data-role="header">
+				<h1>Soton Squash Club</h1>
+				<a href="#left-panel7" data-icon="bars" data-iconpos="notext" data-shadow="false" data-iconshadow="false">Menu</a>
+			</div><!-- /header -->
+
+			<div data-role="content" class="scrollable5" >	
+				<h2>Challenge Player</h2>
+				<p>Please Select your opponent below</p>
+				<p>Remember challenges are limited to 3 above your current position!</p>
+				
+				<!--Challenge Player form-->
+				<form id="challengePlayerForm" method="post" action="">
+				
+				  <fieldset class="ui-field-contain">
+					<label for="selectOpponentChallenge">Select Opponent</label>
+					<select name="selectOpponentChallenge" id="selectOpponentChallenge" data-native-menu="true">
+					</select>
+				  </fieldset>
+				  
+				  
+				</form>
+				<button data-inline="true" class="btn btn-primary btn-challengePlayer">Challenge Player</button>	
+				
+			</div><!-- /content -->
+
+			<!-- Panel -->
+			<div data-role="panel" id="left-panel7" data-display="push" data-theme="a">
+              <ul data-role="listview" class="scrollable5" data-theme="a">
+                <li data-icon="delete"><a href="#" data-rel="close">Close</a></li>
+                <li data-role="list-divider">Menu</li>
+				<li data-icon="grid"><a href="#one">Home</a></li>
+				<li data-icon="alert"><a href="#leaderboard">Leaderboard</a></li>
+				<li data-role="list-divider">My Matches</li>
+				<li data-icon="home"><a href="#challengePlayer">Challenge Player</a></li>
+				<li data-icon="home"><a href="#uploadResult">Add Result</a></li>
+				<li data-icon="home"><a href="#myChallenges">My Challenges</a></li>
+				<li data-icon="home"><a href="#profile">My profile</a></li>
+				<li data-role="list-divider">About</li>
+                <li data-icon="grid"><a href="#club">The Club</a></li>
+				<li data-icon="home"><a href="#squash">Squash</a></li>
+				<li data-role="list-divider">Other</li>
+				<li data-icon="home"><a href="#twtter">Twitter</a></li>
+				<li data-icon="home"><a href="#feedback">Send Feedback</a></li>
+              </ul>
+			</div>
+			
+		</section><!-- /challenge player page -->
 		
 		<!-- Start of Leaderboard page -->
 		<section data-role="page"  id="leaderboard">

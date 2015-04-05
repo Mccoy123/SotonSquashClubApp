@@ -154,20 +154,152 @@ $(document).ready(function() {
 	}
 	//End OF home Test functions
 	
+	//chalengePlayer Functions
+	$(document).on("pagebeforecreate","#challengePlayer",function(){
+		populateOpponentChallenge();
+		
+	});
+	
+	function populateOpponentChallenge(){
+		Parse.Cloud.run('fetchOpponents', {}, {
+			success: function(opponentArray) {
+				var select = document.getElementById('selectOpponentChallenge');
+				for(var i = 0; i < opponentArray.length; i++) {
+					var oppObj = opponentArray[i].value;
+					var oppName = opponentArray[i].text;
+					select.options[select.options.length] = new Option(oppName, oppObj);
+				} 
+				
+				/*for(var i = 0; i < results.length; i++) {
+					
+					var el = document.createElement("option");
+					
+					var elId = "el" + i;
+					el.setAttribute("id", elId);
+					el.value = oppObj;
+					el.textContent = oppName;
+					var select = document.getElementById("selectOpponentChallenge");
+					
+					select.appendChild(el);
+					try { 
+					select.appendChild(el);
+					} catch(err) {
+					alert ("error");
+					}
+				}*/
+			},
+			error: function(error) {
+				alert("Error 105: playerId couldn't be collected");
+			}
+		});
+	}
+	
+	
+	/*function populateOpponentChallenge(){
+		var select = document.getElementById("selectOpponentChallenge");
+		var opponentUsername = Parse.Object.extend("User");
+		var query = new Parse.Query(opponentUsername);
+		query.notEqualTo("objectId", currentUser.id);
+		query.find({
+			success: function(results) {
+				for(var i = 0; i < results.length; i++) {
+					var oppObj = results[i];
+					var oppName = results[i].get("username");
+					var el = document.createElement("option");
+					
+					var elId = "el" + i;
+					el.setAttribute("id", elId);
+					el.value = oppObj;
+					el.textContent = oppName;
+					var select = document.getElementById("selectOpponentChallenge");
+								
+					try { 
+					select.appendChild(el);
+					} catch(err) {
+					alert (err.message);
+					}
+				}
+			},
+			error: function(error) {
+				alert("Error 105: playerId couldn't be collected");
+				}
+		});
+	};*/
+	
+	$('.btn-challengePlayer').click(function(e) {
+		/* var player2Id = document.getElementById("selectOpponentPlayer2").value;//Gets the opponents user Object
+		var opponent = Parse.Object.extend("User");
+		var query = new Parse.Query(opponent);
+		//queries user class returning the opponents user object
+		query.get(player2Id, {
+			success: function(player2) {
+				var player1Score = document.getElementById("player1Score").value; //get player1s score
+				var player2Score = document.getElementById("player2Score").value; //get player2s score
+				var matchWinner = document.getElementById("matchWinner").value; //get the matchWinner value player1 or player2
+				//validation
+					if (player1Score == 3 || player2Score == 3){ //Validation1: Check someone won to 3
+						if (player1Score <= 3 && player1Score >= 0 && player2Score <= 3 && player2Score >= 0){ //Validation 2 check both score are in correct range
+							if (player1Score == 3 && player2Score == 3){ //Validation 3 Check match is not a draw
+								alert("Error 106: Match cannot be a draw");
+							}
+							else {
+								//set match winner validate
+								if (player1Score > player2Score){
+									var matchWinnerValidate = 1;
+								}
+								else {
+									var matchWinnerValidate = 2;
+								}
+								if (matchWinner == matchWinnerValidate) { //validation 4: check winner is correct
+									//submit result
+									var MatchScore = Parse.Object.extend("MatchScore");
+									var matchScore = new MatchScore(); //create a new matchScore object
+									//save the result
+									matchScore.save({Player1ID: currentUser, Player2ID: player2, P1Score: player1Score, P2Score: player2Score, victor: matchWinner}, {
+										  success: function(object) {
+											alert("Score Successfully Added"); //User success message
+											window.location.href = '#leaderboard'; //navigate the user to the leaderboard page
+										  },
+										  error: function(model, error) {
+											alert("Error 104: Score not uploaded. Please Make sure an opponent is selected. Or try again later!"); //user error message
+										  }
+									});
+								}
+								else {
+									alert("Error 107: Scores do not match winner");
+								}
+							}
+						}
+						else {
+							alert("Error 101: Matches are first to 3 games");
+						}
+					}
+					else {
+						alert("Error 102: Matches are first to 3 games");
+					}
+			},
+			error: function(object, error) {
+				alert("Error 103: Opponent could not be found");
+			}
+		});*/
+	});
+	
+	//end of challenge player functions
+	
 	//Add Result functions 3
 	// reset the form on hide 1
 	$(document).on("pagehide","#uploadResult",function(){
-	document.getElementById("addResultForm").reset();
+		document.getElementById("addResultForm").reset();
 	});
 
 	// uploadresult functions 2
 	$(document).on("pagebeforecreate","#uploadResult",function(){
-	populateOpponent(); 
-	populateUserPlayer();
+		populateOpponent(); 
+		populateUserPlayer();
 	});
 
 	// populate Opponent field 2.1
-	function populateOpponent(){
+	function populateOpponentResult(){
 		var select = document.getElementById("selectOpponentPlayer2");
 		var opponentUsername = Parse.Object.extend("User");
 		var query = new Parse.Query(opponentUsername);
