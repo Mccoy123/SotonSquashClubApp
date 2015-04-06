@@ -37,7 +37,7 @@
       </div>
 	
 	<div class="logged-in-box auth0-box logged-in" style="display: none;">
-	<!-- Start of home page -->
+		<!-- Start of test home page -->
 		<section data-role="page" id="one">
 		
 		<div data-role="header">
@@ -125,7 +125,7 @@
 			
 		</section><!-- /end page 1-->
 		
-		<!-- Start of home Test page -->
+		<!-- Start of home page -->
 		<section data-role="page" id="homeTest">
 		
 		<div data-role="header">
@@ -372,6 +372,49 @@
 			
 		</section><!-- /challenge player page -->
 		
+		<!-- Start of myChallenges Page -->
+		<section data-role="page"  id="myChallenges">
+
+			<div data-role="header">
+				<h1>Soton Squash Club</h1>
+				<a href="#left-panel8" data-icon="bars" data-iconpos="notext" data-shadow="false" data-iconshadow="false">Menu</a>
+			</div><!-- /header -->
+
+			<div data-role="content" class="scrollable5" >	
+				<h2>My Challenges Page</h2>
+				<p>Accept and decline Challenges below</p>
+				<p>Remember if you decline a challenge your opponent is awarded a 3-0 walkover</p>
+				
+				<!--My Challenges Table-->
+				<table id="myChallengesTable">
+				
+				</table>
+			</div><!-- /content -->
+
+			<!-- Panel -->
+			<div data-role="panel" id="left-panel8" data-display="push" data-theme="a">
+              <ul data-role="listview" class="scrollable5" data-theme="a">
+                <li data-icon="delete"><a href="#" data-rel="close">Close</a></li>
+                <li data-role="list-divider">Menu</li>
+				<li data-icon="grid"><a href="#one">Home</a></li>
+				<li data-icon="alert"><a href="#leaderboard">Leaderboard</a></li>
+				<li data-role="list-divider">My Matches</li>
+				<li data-icon="home"><a href="#challengePlayer">Challenge Player</a></li>
+				<li data-icon="home"><a href="#uploadResult">Add Result</a></li>
+				<li data-icon="home"><a href="#myChallenges">My Challenges</a></li>
+				<li data-icon="home"><a href="#profile">My profile</a></li>
+				<li data-role="list-divider">About</li>
+                <li data-icon="grid"><a href="#club">The Club</a></li>
+				<li data-icon="home"><a href="#squash">Squash</a></li>
+				<li data-role="list-divider">Other</li>
+				<li data-icon="home"><a href="#twtter">Twitter</a></li>
+				<li data-icon="home"><a href="#feedback">Send Feedback</a></li>
+              </ul>
+			</div>
+			
+		</section><!-- /end of myChallenges page -->
+		
+		
 		<!-- Start of Leaderboard page -->
 		<section data-role="page"  id="leaderboard">
 
@@ -382,7 +425,8 @@
 
 			<div data-role="content" class="scrollable5">	
 				<h2>LeaderBoard</h2>
-				<p>Blank Text</p>
+				<p>The Official Club Ladder is shown below</p>
+				<p>Challenge Other members to games to move up the ladder and become the club champion!<p>
 				
 				<button class="btn btn-lg btn-primary btn-pageRefresh">refresh Page</button>
 				
