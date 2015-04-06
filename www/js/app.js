@@ -174,7 +174,6 @@ $(document).ready(function() {
 	//chalengePlayer Functions
 	$(document).on("pagebeforecreate","#challengePlayer",function(){
 		populateOpponentChallenge();
-		
 	});
 	
 	function populateOpponentChallenge(){
@@ -224,6 +223,7 @@ $(document).ready(function() {
 	
 	//end of challenge player functions
 	
+	
 	//Add Result functions 3
 	// reset the form on hide 1
 	$(document).on("pagehide","#uploadResult",function(){
@@ -237,7 +237,23 @@ $(document).ready(function() {
 	});
 
 	// populate Opponent field 2.1
-	function populateOpponentResult(){
+	function populateOpponent(){
+		Parse.Cloud.run('fetchOpponentsAddResult', {}, {
+			success: function(opponentArray) {
+				var select = document.getElementById('selectOpponentPlayer2');				
+				for(var i = 0; i < opponentArray.length; i++) {
+					var value = {oppnentId: opponentArray[i].opponentId, challengeId: opponentArray[i].challengeObbID};
+					var text = opponentArray[i].opponentName;
+					select.options[select.options.length] = new Option(text, value);
+				} 
+			},
+			error: function(error) {
+				alert("Error 105: Opponent data couldn't be collected");
+			}
+		});
+	}
+	
+	/*function populateOpponentResult(){
 		var select = document.getElementById("selectOpponentPlayer2");
 		var opponentUsername = Parse.Object.extend("User");
 		var query = new Parse.Query(opponentUsername);
@@ -260,7 +276,7 @@ $(document).ready(function() {
 					alert(el); // returns a object html option element
 					alert(el.value); //returns the user objectId
 					alert(el.textContent); //returns the username
-					*/
+					
 								
 					try { 
 					select.appendChild(el);
@@ -273,7 +289,7 @@ $(document).ready(function() {
 				alert("Error 105: playerId couldn't be collected");
 				}
 		});
-	};
+	};*/
 	
 	//addresult populate opponent 2.2
 	function populateUserPlayer(){
@@ -346,24 +362,74 @@ $(document).ready(function() {
 	//end of add result functions
 	
 	//myChallenges function
-	$(document).on("pagebeforeshow","#myChallenges",function(){
-		Parse.Cloud.run('newChallenges', {}, {
-			success: function(newsFeed) {
-				//code to display new challenges in a table and ability to accept and decline them 
+	
+	$(document).on("pagebeforecreate","#challengePlayer",function(){
+		populateOpponentChallenge();
+	});
+	
+	function populateOpponentChallenge(){
+		Parse.Cloud.run('fetchOpponents', {}, {
+			success: function(opponentArray) {
+				var select = document.getElementById('selectOpponentChallenge');
+				for(var i = 0; i < opponentArray.length; i++) {
+					var oppObj = opponentArray[i].value;
+					var oppName = opponentArray[i].text;
+					select.options[select.options.length] = new Option(oppName, oppObj);
+				} 
 			},
-			error: function(error){
-			
+			error: function(error) {
+				alert("Error 105: playerId couldn't be collected");
 			}
 		});
-		Parse.Cloud.run('activeChallenges', {}, {
+	}
+	
+	$(document).on("pagebeforeshow","#myChallenges",function(){
+		Parse.Cloud.run('newChallenges', {}, {
+			success: function(newChallengeArray) {
+				//Display to user number of new challenges
+				document.getElementById("numberNewChallenges").innerHTML = "You have " +  newChallengeArray.length + " outstanding challenges";
+				//code to display new challenges in a drop down box
+				var select = document.getElementById('newMatchChallenges');				
+				for(var i = 0; i < newChallengeArray.length; i++) {
+					var challengeSentDate = newChallengeArray[i].challengeSentDate;
+					var challengerName = newChallengeArray[i].challengerName;
+					var challengeObbID = newChallengeArray[i].challengeObbID;
+					//var challengeMatchDate = newChallengeArray[i].challengeMatchDate; //add when date picker implemented
+					//add data to drop down box
+					select.options[select.options.length] = new Option(challengerName, challengeObbID);
+				}
+			},
+			error: function(error){
+				alert("Error 177: New challenges could not be fetched. please check internet connction");
+			}
+		});
+		/*Parse.Cloud.run('activeChallenges', {}, {
 			success: function(newsFeed) {
 				//code to show active challenges in table
 			},
 			error: function(error){
 			
 			}
+		});*/
+	});
+	
+	$('.btn-AcceptChallenge').click(function(e) {
+		var challengeObjectID = document.getElementById("newMatchChallenges").value; //Gets the challenge ObjectId
+		var Challenge = Parse.Object.extend("Challenges");
+		var query = new Parse.Query(Challenge);
+		alert(challengeObjectID);
+		query.get(challengeObjectID, {
+			success: function(challengeObject) {
+				challengeObject.set("Accepted", true);
+				challengeObject.save();
+				alert("Challenge Accepted and Opponent has been notified");
+			},
+			error: function(error) {
+				alert("Challenge could not be Accepted check internet connection");
+			}
 		});
 	});
+	
 	
 	//Newsfeed
 	//note this is actually the newsfeed, just neeed to update the href once the test home page is removed

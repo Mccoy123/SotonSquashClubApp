@@ -336,15 +336,13 @@
 				
 				<!--Challenge Player form-->
 				<form id="challengePlayerForm" method="post" action="">
-				
 				  <fieldset class="ui-field-contain">
 					<label for="selectOpponentChallenge">Select Opponent</label>
 					<select name="selectOpponentChallenge" id="selectOpponentChallenge" data-native-menu="true">
 					</select>
 				  </fieldset>
-				  
-				  
 				</form>
+				
 				<button data-inline="true" class="btn btn-primary btn-challengePlayer">Challenge Player</button>	
 				
 			</div><!-- /content -->
@@ -383,11 +381,30 @@
 			<div data-role="content" class="scrollable5" >	
 				<h2>My Challenges Page</h2>
 				<p>Accept and decline Challenges below</p>
+				<hr />
+				<div>
+					<p id="numberNewChallenges">You have X outstanding challenges </p>
+				</div>
+				
+				<!--New Challenges form-->
+				<form id="newChallengeForm" method="post" action="">
+				  <fieldset class="ui-field-contain">
+					<label for="newMatchChallenges">Select Challenge</label>
+					<select name="newMatchChallenges" id="newMatchChallenges" data-native-menu="true">
+					</select>
+				  </fieldset>
+				</form>
+				
+				<p>
+					<button data-inline="true" class="btn btn-primary btn-AcceptChallenge">Accept Challenge</button>
+					<button data-inline="true" class="btn btn-primary btn-DeclineChallenge">Decline Challenge</button>
+				</p>
 				<p>Remember if you decline a challenge your opponent is awarded a 3-0 walkover</p>
 				
-				<!--My Challenges Table-->
-				<table id="myChallengesTable">
-				
+				</table>
+				<!--My Active Challenges Table-->
+				<table id="myActiveChallengesTable">
+					<tr></tr>
 				</table>
 			</div><!-- /content -->
 
