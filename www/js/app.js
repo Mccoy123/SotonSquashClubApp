@@ -59,20 +59,23 @@ $(document).ready(function() {
 		});
 	}
 	
+	
+	
+	$('.btn-pageRefresh').click(function(e) {
+		pageRefresh();
+	});
+	
+	//did kind of work once look into more if cant resolve
+	//only works once, why????
 	function pageRefresh() {
 		var originalPage = window.location.href;
-		jQuery.mobile.changePage(window.location.href, {
+		jQuery.mobile.changePage(window.location.href="#one", {
 			allowSamePageTransition: true,
 			transition: 'fade',
 			reloadPage: true
 		});
 		window.location.href = originalPage;
 	}
-	
-	$('.btn-pageRefresh').click(function(e) {
-		pageRefresh();
-	});
-	
 	
 	//MyProfile Functions 4
 	//show correct button 1
@@ -342,7 +345,28 @@ $(document).ready(function() {
 	});
 	//end of add result functions
 	
+	//myChallenges function
+	$(document).on("pagebeforeshow","#myChallenges",function(){
+		Parse.Cloud.run('newChallenges', {}, {
+			success: function(newsFeed) {
+				//code to display new challenges in a table and ability to accept and decline them 
+			},
+			error: function(error){
+			
+			}
+		});
+		Parse.Cloud.run('activeChallenges', {}, {
+			success: function(newsFeed) {
+				//code to show active challenges in table
+			},
+			error: function(error){
+			
+			}
+		});
+	});
+	
 	//Newsfeed
+	//note this is actually the newsfeed, just neeed to update the href once the test home page is removed
 	$(document).on("pagebeforeshow","#homeTest",function(){
 		Parse.Cloud.run('newsfeed', {}, {
 			success: function(newsFeed) {
@@ -387,7 +411,7 @@ $(document).ready(function() {
 				}
 			},
 			error: function(error){
-			
+				alert("Newsfeed could not be loaded check internet connection");
 			}
 		});
 	});
@@ -398,9 +422,25 @@ $(document).ready(function() {
 			NewsfeedTable.deleteRow(0); //delete all table rows except header
 		}
 	});
+	//end of Newsfeed functions
 	
 	//Leaderboard
 	$(document).on("pagebeforeshow","#leaderboard",function(){
+		Parse.Cloud.run('fetchLeaderboard', {}, {
+			success: function(leaderboardArray) {
+				for(var i = 0; i < leaderboardArray.length; i++) {
+					var playerRank = leaderboardArray[i].playerRank;
+					var playerName = leaderboardArray[i].playerName;
+					//add data to table
+					$('#LeaderboardTable tr:last').after('<tr><td>'+ playerRank +'</td><td>'+ playerName +'</td></tr>');
+				} 
+			},
+			error: function(error) {
+				alert("Error 137: leaderboard couldn't be generated");
+			}
+		});
+	});
+	/*$(document).on("pagebeforeshow","#leaderboard",function(){
 		var LeaderBoard = Parse.Object.extend("LeaderBoard");
 		var query = new Parse.Query(LeaderBoard);
 		query.notEqualTo("Ranking", 0); //when having opting include a function that sets new (and if you opt out) to 0
@@ -444,7 +484,7 @@ $(document).ready(function() {
 			alert("Error: " + error.code + " " + error.message);
 		  }
 		});
-	});
+	});*/
 	$(document).on("pagebeforehide","#leaderboard",function(){
 		var rowCount = $('#LeaderboardTable tr').length; //return number of rows in table
 		var ladderTable = document.getElementById("LeaderboardTable"); //get table element
