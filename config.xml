@@ -20,11 +20,6 @@
     <preference name="detect-data-types" value="true" />
     <preference name="exit-on-suspend" value="false" />
     <preference name="show-splash-screen-spinner" value="true" />
-	
-	<preference name="SplashScreen" value="foo" />
-	<preference name="SplashScreenDelay" value="10000" />
-	<preference name="SplashMaintainAspectRatio" value="true|false" />
-	
     <preference name="auto-hide-splash-screen" value="true" />
     <preference name="disable-cursor" value="false" />
     <preference name="android-minSdkVersion" value="7" />
@@ -61,10 +56,10 @@
     <icon gap:platform="webos" src="www/res/icon/webos/icon-64.png" />
     <icon gap:platform="winphone" src="www/res/icon/windows-phone/icon-48.png" />
     <icon gap:platform="winphone" gap:role="background" src="www/res/icon/windows-phone/icon-173-tile.png" />
-    <gap:splash gap:platform="android" gap:qualifier="port-ldpi" src="www/img/SotonSquashLogo.png" />
-    <gap:splash gap:platform="android" gap:qualifier="port-mdpi" src="www/img/SotonSquashLogo.png" />
-    <gap:splash gap:platform="android" gap:qualifier="port-hdpi" src="www/img/SotonSquashLogo.png" />
-    <gap:splash gap:platform="android" gap:qualifier="port-xhdpi" src="www/img/SotonSquashLogo.png" />
+    <gap:splash gap:platform="android" gap:qualifier="port-ldpi" src="www/res/screen/android/screen-ldpi-portrait.png" />
+    <gap:splash gap:platform="android" gap:qualifier="port-mdpi" src="www/res/screen/android/screen-mdpi-portrait.png" />
+    <gap:splash gap:platform="android" gap:qualifier="port-hdpi" src="www/res/screen/android/screen-hdpi-portrait.png" />
+    <gap:splash gap:platform="android" gap:qualifier="port-xhdpi" src="www/res/screen/android/screen-xhdpi-portrait.png" />
     <gap:splash gap:platform="blackberry" src="www/res/screen/blackberry/screen-225.png" />
     <gap:splash gap:platform="ios" height="480" src="www/res/screen/ios/screen-iphone-portrait.png" width="320" />
     <gap:splash gap:platform="ios" height="960" src="www/res/screen/ios/screen-iphone-portrait-2x.png" width="640" />
@@ -72,19 +67,5 @@
     <gap:splash gap:platform="ios" height="1024" src="www/res/screen/ios/screen-ipad-portrait.png" width="768" />
     <gap:splash gap:platform="ios" height="768" src="www/res/screen/ios/screen-ipad-landscape.png" width="1024" />
     <gap:splash gap:platform="winphone" src="www/res/screen/windows-phone/screen-portrait.jpg" />
-	
-	<platform name="android">
-    <!-- you can use any density that exists in the Android project -->
-    <splash src="www/img/SotonSquashLogo.png" density="land-hdpi"/>
-    <splash src="www/img/SotonSquashLogo.png" density="land-ldpi"/>
-    <splash src="www/img/SotonSquashLogo.png" density="land-mdpi"/>
-    <splash src="www/img/SotonSquashLogo.png" density="land-xhdpi"/>
-
-    <splash src="www/img/SotonSquashLogo.png" density="port-hdpi"/>
-    <splash src="www/img/SotonSquashLogo.png" density="port-ldpi"/>
-    <splash src="www/img/SotonSquashLogo.png" density="port-mdpi"/>
-    <splash src="www/img/SotonSquashLogo.png" density="port-xhdpi"/>
-</platform>
-	
     <access origin="*" />
 </widget>
