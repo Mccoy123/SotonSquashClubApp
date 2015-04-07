@@ -57,7 +57,7 @@ $(document).ready(function() {
 		$(".scrollable5").css({
 			height: (window.innerHeight - 30)
 		});
-	}
+	} 
 	
 	//reuseable function to make a given make a page reload and update the content
 	function pageRefresh(currentPage) {

@@ -58,7 +58,6 @@ body {
 	background: white;
     box-shadow: 3px 3px 5px #666;
     padding: 12px;
-	border-radius: 25px;
 }
 .challengeAccepted {
 	background: green;
