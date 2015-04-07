@@ -55,7 +55,8 @@ $(document).ready(function() {
 	function makePageScrollable(){
 		//any page of class scrollable will be scrollable
 		$(".scrollable5").css({
-			height: (window.innerHeight - 30)
+			height: (window.innerHeight - 60)
+			alert("test");
 		});
 	} 
 	
