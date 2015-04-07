@@ -400,16 +400,38 @@ $(document).ready(function() {
 		var challengeObjectID = document.getElementById("newMatchChallenges").value; //Gets the challenge ObjectId
 		var Challenge = Parse.Object.extend("Challenges");
 		var query = new Parse.Query(Challenge);
+		//retrieve the challenge object
 		query.get(challengeObjectID, {
 			success: function(challengeObject) {
-				challengeObject.set("Accepted", true);
+				challengeObject.set("Accepted", true); //set accepted flag to true
 				challengeObject.save();
 				alert("Challenge Accepted and Opponent has been notified");
 				var currentPage = "#myChallenges";
-				pageRefresh(currentPage);
+				pageRefresh(currentPage); //refresh page
 			},
 			error: function(error) {
 				alert("Challenge could not be Accepted check internet connection");
+			}
+		});
+	});
+	$('.btn-DeclineChallenge').click(function(e) {
+		 $('.confirmDecline').show();
+	});
+	$('.btn-DeclineChallengeCancel').click(function(e) {
+		 $('.confirmDecline').hide();
+	});
+	$('.btn-DeclineChallengeConfirm').click(function(e) {
+		var challengeObjectID = document.getElementById("newMatchChallenges").value; //Gets the challenge ObjectId
+		Parse.Cloud.run('declineChallenge', {challengeObjectID: challengeObjectID}, {
+			success: function(result) {
+				//Display success/error message
+				alert(result);
+				$('.confirmDecline').hide();
+				var currentPage = "#myChallenges";
+				pageRefresh(currentPage);
+			},
+			error: function(error){
+				alert("Error 207: Challenged could not be declined. please check internet connection");
 			}
 		});
 	});

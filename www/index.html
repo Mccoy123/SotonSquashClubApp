@@ -395,11 +395,18 @@
 				</form>
 				
 				<p>
-					<button data-inline="true" class="btn btn-primary btn-AcceptChallenge">Accept Challenge</button>
-					<button data-inline="true" class="btn btn-primary btn-DeclineChallenge">Decline Challenge</button>
+					<a data-role="button" data-inline="true" class="btn-AcceptChallenge">Accept Challenge</a>	
+					<a data-role="button" data-inline="true" class="btn-DeclineChallenge">Decline Challenge</a>	
 				</p>
-				<p>Remember if you decline a challenge your opponent is awarded a 3-0 walkover</p>
 				<hr />
+				<!-- Hidden confirm delete field -->
+				<div class="confirmDecline" style="display: none;">
+					<p>Remember if you decline a challenge your opponent is awarded a 3-0 walkover</p>
+					<a data-role="button" data-inline="true" class="btn-DeclineChallengeCancel">Cancel</a>
+					<a data-role="button" data-inline="true" class="btn-DeclineChallengeConfirm">Confirm Decline Challenge</a>	
+					<hr />
+				</div>
+				
 				<!--My Active Challenges Table-->
 				<table id="myActiveChallengesTable">
 					<tr><th>Open Challenges</th></tr>
@@ -427,7 +434,9 @@
               </ul>
 			</div>
 			
-		</section><!-- /end of myChallenges page -->		
+			</section><!-- /end of myChallenges page -->	
+			
+			
 		
 		<!-- Start of Leaderboard page -->
 		<section data-role="page"  id="leaderboard">
