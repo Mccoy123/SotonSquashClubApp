@@ -4,13 +4,13 @@
     <description>
         A mobile application for the University of Southampton squash club
     </description>
-    <author email="support@phonegap.com" href="http://phonegap.com">
+    <author email="dominic91@hotmail.co.uk" href="">
         PhoneGap Team
     </author>
     <content src="index.html" />
     <preference name="permissions" value="none" />
     <preference name="phonegap-version" value="3.5.0" />
-    <preference name="orientation" value="default" />
+    <preference name="orientation" value="portrait" />
     <preference name="target-device" value="universal" />
     <preference name="fullscreen" value="true" />
     <preference name="webviewbounce" value="true" />
