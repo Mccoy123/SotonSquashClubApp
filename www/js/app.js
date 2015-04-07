@@ -207,6 +207,7 @@ $(document).ready(function() {
 				challenge.save({ChallengerID: challengerObj, ChallengeeID: challengeeObj, Active: true, Accepted: false}, {
 					success: function(challenge) {
 						alert("Challenge Successfully Sent");
+						 window.location.href = '#myChallenges'; //navigate the user to the myChallenges page
 					},
 					error: function(challenge, error) {
 						alert("Error 109: Challenge not recorded. Please try again later"); //user error message						  
@@ -399,12 +400,13 @@ $(document).ready(function() {
 		var challengeObjectID = document.getElementById("newMatchChallenges").value; //Gets the challenge ObjectId
 		var Challenge = Parse.Object.extend("Challenges");
 		var query = new Parse.Query(Challenge);
-		alert(challengeObjectID);
 		query.get(challengeObjectID, {
 			success: function(challengeObject) {
 				challengeObject.set("Accepted", true);
 				challengeObject.save();
 				alert("Challenge Accepted and Opponent has been notified");
+				var currentPage = "#myChallenges";
+				pageRefresh(currentPage);
 			},
 			error: function(error) {
 				alert("Challenge could not be Accepted check internet connection");

@@ -59,6 +59,16 @@ body {
     box-shadow: 3px 3px 5px #666;
     padding: 12px;
 }
+.challengeAccepted {
+	background: green;
+}
+.awaitingResponseOpponent{
+	background: yellow;
+}
+
+.awaitingResponseUser{
+	background: orange;
+}
 
 /*end of MyChallenge Page CSS*/
 
