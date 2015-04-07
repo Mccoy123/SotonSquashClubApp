@@ -250,16 +250,15 @@
 
 			<div data-role="content" class="scrollable5" >	
 				<h2>Add Result</h2>
+				<hr />
+				<div>
+					<p id="numberOpenChallenges">You have X open challenges </p>
+				</div>
+				<hr />
 				<p>Please Fill in the match details below</p>
 				
 				<!--Add result form-->
 				<form id="addResultForm" method="post" action="">
-				
-				  <fieldset class="ui-field-contain">
-					<label for="selectOpponentPlayer1">Player 1</label>
-					<select name="selectOpponentPlayer1" id="selectOpponentPlayer1" data-native-menu="true">
-					</select>
-				  </fieldset>
 				
 				  <fieldset class="ui-field-contain">
 					<label for="selectOpponentPlayer2">Select Opponent</label>
@@ -267,7 +266,7 @@
 				  </fieldset>
 				  
 				  <fieldset class="ui-field-contain">
-					<label for="player1Score">Player1 Score</label>
+					<label for="player1Score">Your Score</label>
 					<select name="player1Score" id="player1Score" data-native-menu="false">
 					  <option value= 0 >0</option>
 					  <option value= 1 >1</option>
@@ -277,7 +276,7 @@
 				  </fieldset>
 				  
 				  <fieldset class="ui-field-contain">
-					<label for="player2Score">Player2</label>
+					<label for="player2Score">Opponents Score</label>
 					<select name="player2Score" id="player2Score" data-native-menu="false">
 					  <option value= 0 >0</option>
 					  <option value= 1 >1</option>
@@ -401,7 +400,6 @@
 				</p>
 				<p>Remember if you decline a challenge your opponent is awarded a 3-0 walkover</p>
 				
-				</table>
 				<!--My Active Challenges Table-->
 				<table id="myActiveChallengesTable">
 					<tr></tr>
@@ -429,8 +427,7 @@
               </ul>
 			</div>
 			
-		</section><!-- /end of myChallenges page -->
-		
+		</section><!-- /end of myChallenges page -->		
 		
 		<!-- Start of Leaderboard page -->
 		<section data-role="page"  id="leaderboard">

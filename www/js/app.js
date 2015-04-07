@@ -59,23 +59,23 @@ $(document).ready(function() {
 		});
 	}
 	
-	
-	
-	$('.btn-pageRefresh').click(function(e) {
-		pageRefresh();
-	});
-	
-	//did kind of work once look into more if cant resolve
-	//only works once, why????
-	function pageRefresh() {
+	//reuseable function to make a given make a page reload and update the content
+	function pageRefresh(currentPage) {
 		var originalPage = window.location.href;
-		jQuery.mobile.changePage(window.location.href="#one", {
+		$(":mobile-pagecontainer").pagecontainer("change", currentPage, {
 			allowSamePageTransition: true,
 			transition: 'fade',
-			reloadPage: true
+			showLoadMsg: true,
+			changeHash: false
 		});
-		window.location.href = originalPage;
 	}
+	//test example for a button on leaderboard page delete when no longer needed 
+	$('.btn-pageRefresh').click(function(e) {
+		var currentPage = "#leaderboard";
+		pageRefresh(currentPage);
+	});
+	
+	
 	
 	//MyProfile Functions 4
 	//show correct button 1
@@ -153,12 +153,10 @@ $(document).ready(function() {
 		  }
 		});
 	});
-
 	$('.btn-ShowSelectPopup').click(function(e) {
 		var input2 = document.getElementById("selectInput").value;
 		alert("input2");
-    });
-	
+    });	
 	//popup funstion
 	function showPopupText(){
 	var input = document.getElementById("textInput").value;
@@ -172,7 +170,7 @@ $(document).ready(function() {
 	//End OF home Test functions
 	
 	//chalengePlayer Functions
-	$(document).on("pagebeforecreate","#challengePlayer",function(){
+	$(document).on("pagebeforeshow","#challengePlayer",function(){
 		populateOpponentChallenge();
 	});
 	
@@ -221,28 +219,34 @@ $(document).ready(function() {
 		});
 	});
 	
+	$(document).on("pagebeforehide","#challengePlayer",function(){
+		var optionCount = $('#selectOpponentChallenge option').length; //return number of rows in table
+		$("#selectOpponentChallenge").find('option').remove();
+	});
+	
 	//end of challenge player functions
 	
 	
 	//Add Result functions 3
-	// reset the form on hide 1
-	$(document).on("pagehide","#uploadResult",function(){
-		document.getElementById("addResultForm").reset();
-	});
-
 	// uploadresult functions 2
-	$(document).on("pagebeforecreate","#uploadResult",function(){
+	$(document).on("pagebeforeshow","#uploadResult",function(){
 		populateOpponent(); 
-		populateUserPlayer();
+		resetForm();
 	});
-
+	function resetForm(){
+		document.getElementById("addResultForm").reset();
+	}
+	
 	// populate Opponent field 2.1
 	function populateOpponent(){
 		Parse.Cloud.run('fetchOpponentsAddResult', {}, {
 			success: function(opponentArray) {
+				//Display to user number of open challenges
+				document.getElementById("numberOpenChallenges").innerHTML = "You have " +  opponentArray.length + " outstanding challenges";
 				var select = document.getElementById('selectOpponentPlayer2');				
 				for(var i = 0; i < opponentArray.length; i++) {
-					var value = {oppnentId: opponentArray[i].opponentId, challengeId: opponentArray[i].challengeObbID};
+					var valueRaw = {opponentID: opponentArray[i].opponentId, challengeID: opponentArray[i].challengeObbID};
+					var value = JSON.stringify(valueRaw);
 					var text = opponentArray[i].opponentName;
 					select.options[select.options.length] = new Option(text, value);
 				} 
@@ -252,137 +256,98 @@ $(document).ready(function() {
 			}
 		});
 	}
-	
-	/*function populateOpponentResult(){
-		var select = document.getElementById("selectOpponentPlayer2");
-		var opponentUsername = Parse.Object.extend("User");
-		var query = new Parse.Query(opponentUsername);
-		query.notEqualTo("objectId", currentUser.id);
-		query.find({
-			success: function(results) {
-				for(var i = 0; i < results.length; i++) {
-					var opt = results[i].id;
-					var opt2 = results[i].get("username");
-					var el = document.createElement("option");
-					
-					var elId = "el" + i;
-					el.setAttribute("id", elId);
-					el.value = opt;
-					el.textContent = opt2;
-					var select = document.getElementById("selectOpponentPlayer2");
-					
-					/*tests
-					alert(select); // returns a object html select element
-					alert(el); // returns a object html option element
-					alert(el.value); //returns the user objectId
-					alert(el.textContent); //returns the username
-					
-								
-					try { 
-					select.appendChild(el);
-					} catch(err) {
-					alert (err.message);
-					}
-				}
-			},
-			error: function(error) {
-				alert("Error 105: playerId couldn't be collected");
-				}
-		});
-	};*/
-	
-	//addresult populate opponent 2.2
-	function populateUserPlayer(){
-		//add comment about challenges here
-		var player1 = document.getElementById("selectOpponentPlayer1");
-		var z = document.createElement("option");
-		z.textContent = currentUser.get("username");
-		z.value  = currentUser.id;
-		player1.appendChild(z);
-		};
+	$(document).on("pagebeforehide","#uploadResult",function(){
+		var optionCount = $('#selectOpponentPlayer2 option').length; //return number of rows in table
+		$("#selectOpponentPlayer2").find('option').remove();
+	});
 	
 	//Add Result Function 3 submit Form
 	$('.btn-addResult').click(function(e) {
-		var player2Id = document.getElementById("selectOpponentPlayer2").value;//Gets the opponents user ObjectID
+		var matchInfo = document.getElementById("selectOpponentPlayer2").value;//Gets the opponents user ObjectID
+		var matchInfoObj = JSON.parse(matchInfo); //convert the raw text back to valid JSON
+		var challengeID = matchInfoObj.challengeID //retrieve the matchID
+		var player2Id = matchInfoObj.opponentID; //retrieve the players id
 		var opponent = Parse.Object.extend("User");
 		var query = new Parse.Query(opponent);
 		//queries user class returning the opponents user object
 		query.get(player2Id, {
-			success: function(player2) {
-				var player1Score = document.getElementById("player1Score").value; //get player1s score
-				var player2Score = document.getElementById("player2Score").value; //get player2s score
-				var matchWinner = document.getElementById("matchWinner").value; //get the matchWinner value player1 or player2
-				//validation
-					if (player1Score == 3 || player2Score == 3){ //Validation1: Check someone won to 3
-						if (player1Score <= 3 && player1Score >= 0 && player2Score <= 3 && player2Score >= 0){ //Validation 2 check both score are in correct range
-							if (player1Score == 3 && player2Score == 3){ //Validation 3 Check match is not a draw
-								alert("Error 106: Match cannot be a draw");
-							}
-							else {
-								//set match winner validate
-								if (player1Score > player2Score){
-									var matchWinnerValidate = 1;
-								}
-								else {
-									var matchWinnerValidate = 2;
-								}
-								if (matchWinner == matchWinnerValidate) { //validation 4: check winner is correct
-									//submit result
-									var MatchScore = Parse.Object.extend("MatchScore");
-									var matchScore = new MatchScore(); //create a new matchScore object
-									//save the result
-									matchScore.save({Player1ID: currentUser, Player2ID: player2, P1Score: player1Score, P2Score: player2Score, victor: matchWinner}, {
-										  success: function(object) {
-											alert("Score Successfully Added"); //User success message
-											window.location.href = '#leaderboard'; //navigate the user to the leaderboard page
-										  },
-										  error: function(model, error) {
-											alert("Error 104: Score not uploaded. Please Make sure an opponent is selected. Or try again later!"); //user error message
-										  }
-									});
-								}
-								else {
-									alert("Error 107: Scores do not match winner");
-								}
-							}
-						}
-						else {
-							alert("Error 101: Matches are first to 3 games");
-						}
+		  success: function(player2) {
+			var player1Score = document.getElementById("player1Score").value; //get player1s score
+			var player2Score = document.getElementById("player2Score").value; //get player2s score
+			var matchWinner = document.getElementById("matchWinner").value; //get the matchWinner value player1 or player2
+			//validation
+			  if (player1Score == 3 || player2Score == 3){ //Validation1: Check someone won to 3
+				if (player1Score <= 3 && player1Score >= 0 && player2Score <= 3 && player2Score >= 0){ //Validation 2 check both score are in correct range
+				  if (player1Score == 3 && player2Score == 3){ //Validation 3 Check match is not a draw
+					alert("Error 106: Match cannot be a draw");
+				  }
+				  else {
+					//set match winner validate
+					if (player1Score > player2Score){
+					  var matchWinnerValidate = 1;
+					  var VictorID = Parse.User.current();
+					  var VictorScore = player1Score;
+					  var LoserID = player2;
+					  var LoserScore = player2Score;
 					}
 					else {
-						alert("Error 102: Matches are first to 3 games");
+					  var matchWinnerValidate = 2;
+					  var VictorID = player2;
+					  var VictorScore = player2Score;
+					  var LoserID = Parse.User.current();
+					  var LoserScore = player1Score;
 					}
-			},
+					if (matchWinner == matchWinnerValidate) { //validation 4: check winner is correct
+					  //submit result
+					  var MatchScore = Parse.Object.extend("MatchScore");
+					  var matchScore = new MatchScore(); //create a new matchScore object
+					  //save the result
+					  matchScore.save({VictorID: VictorID, LoserID: LoserID, VictorScore: VictorScore, LoserScore: LoserScore}, {
+					  success: function(object) {
+						  alert("Score Successfully Added"); //User success message
+						  closeChallenge(challengeID);
+						  window.location.href = '#leaderboard'; //navigate the user to the leaderboard page
+						},
+						error: function(model, error) {
+						  alert("Error 104: Score not uploaded. Please Make sure an opponent is selected. Or try again later!"); //user error message
+						}
+					  });
+					}
+					else {
+					  alert("Error 107: Scores do not match winner");
+					}
+				  }
+				}
+				else {
+				  alert("Error 101: Matches are first to 3 games");
+				}
+			  }
+			  else {
+				alert("Error 102: Matches are first to 3 games");
+			  }
+		    },
 			error: function(object, error) {
 				alert("Error 103: Opponent could not be found");
 			}
 		});
 	});
-	//end of add result functions
 	
-	//myChallenges function
-	
-	$(document).on("pagebeforecreate","#challengePlayer",function(){
-		populateOpponentChallenge();
-	});
-	
-	function populateOpponentChallenge(){
-		Parse.Cloud.run('fetchOpponents', {}, {
-			success: function(opponentArray) {
-				var select = document.getElementById('selectOpponentChallenge');
-				for(var i = 0; i < opponentArray.length; i++) {
-					var oppObj = opponentArray[i].value;
-					var oppName = opponentArray[i].text;
-					select.options[select.options.length] = new Option(oppName, oppObj);
-				} 
+	function closeChallenge(challengeID){
+		var Challenge = Parse.Object.extend("Challenges");
+		var queryChallenge = new Parse.Query(Challenge);
+		queryChallenge.get(challengeID, {
+			success: function(challengeObj) {
+				challengeObj.set("Active", false);
+				challengeObj.save();
 			},
-			error: function(error) {
-				alert("Error 105: playerId couldn't be collected");
+			error: function(object, error){
+				alert("Challenge not closed");
 			}
 		});
 	}
+	//end of add result functions
 	
+	//myChallenges function
 	$(document).on("pagebeforeshow","#myChallenges",function(){
 		Parse.Cloud.run('newChallenges', {}, {
 			success: function(newChallengeArray) {
@@ -411,6 +376,10 @@ $(document).ready(function() {
 			
 			}
 		});*/
+	});
+	$(document).on("pagebeforehide","#myChallenges",function(){
+		var optionCount = $('#newMatchChallenges option').length; //return number of rows in table
+		$("#newMatchChallenges").find('option').remove();
 	});
 	
 	$('.btn-AcceptChallenge').click(function(e) {
@@ -506,51 +475,6 @@ $(document).ready(function() {
 			}
 		});
 	});
-	/*$(document).on("pagebeforeshow","#leaderboard",function(){
-		var LeaderBoard = Parse.Object.extend("LeaderBoard");
-		var query = new Parse.Query(LeaderBoard);
-		query.notEqualTo("Ranking", 0); //when having opting include a function that sets new (and if you opt out) to 0
-		query.include("playerID");
-		query.find({
-		  success: function(results) {
-			//do something with this object,,,, list it
-			for (var i = 0; i < results.length; i++) {
-				var object = results[i];
-				//create a row in the table for each player with a unique ID 
-				var playerRow = document.createElement("TR");
-				var playerRowId = "playerRow" + i;
-				playerRow.setAttribute("id", playerRowId);
-				document.getElementById("LeaderboardTable").appendChild(playerRow);
-				
-				//create a data entry for column 1 Rank
-				//Generates a rank number based on the length of players to be inserted into the table
-				var z = document.createElement("TD");
-				var t = document.createTextNode(i+1);
-				z.appendChild(t);
-				document.getElementById(playerRowId).appendChild(z);
-				
-				//create a data entry for column 2 Player
-				//pulls the users unique objectID need to change this to their username
-				var playerUserId = object.get('playerID');
-				var z = document.createElement("TD");
-				var t = document.createTextNode(playerUserId.get('username'));
-				z.appendChild(t);
-				document.getElementById(playerRowId).appendChild(z);
-				
-				
-				//create a data entry for column 3 Points
-				//pulls the rank stored in the db probably will change this to wins and games played
-				var z = document.createElement("TD");
-				var t = document.createTextNode(object.get('Ranking'));
-				z.appendChild(t);
-				document.getElementById(playerRowId).appendChild(z);
-			}
-		  },
-		  error: function(error) {
-			alert("Error: " + error.code + " " + error.message);
-		  }
-		});
-	});*/
 	$(document).on("pagebeforehide","#leaderboard",function(){
 		var rowCount = $('#LeaderboardTable tr').length; //return number of rows in table
 		var ladderTable = document.getElementById("LeaderboardTable"); //get table element
