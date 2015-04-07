@@ -368,18 +368,31 @@ $(document).ready(function() {
 				alert("Error 177: New challenges could not be fetched. please check internet connction");
 			}
 		});
-		/*Parse.Cloud.run('activeChallenges', {}, {
-			success: function(newsFeed) {
-				//code to show active challenges in table
+		Parse.Cloud.run('activeChallenges', {}, {
+			success: function(activeChallengesArray) {
+				for(var i = 0; i < activeChallengesArray.length; i++) {
+					var challengeDetails = activeChallengesArray[i].challengeDetails;
+					var challengeStatus = activeChallengesArray[i].challengeStatus;
+					var challengeStatusMessage = activeChallengesArray[i].challengeStatusMessage;
+					//add data to table
+					//$('#myActiveChallengesTable tr:last').after('<tr class="' + challengeStatus + '"><td>'+ challengeDetails +'</td></tr><tr class="' + challengeStatus + '"><td>'+ challengeStatusMessage +'</td></tr>');
+					$('#myActiveChallengesTable tr:last').after('<tr class=" activeChallengeRow ' + challengeStatus + '"><td><p>'+ challengeDetails + '</p><p>' + challengeStatusMessage +'</p></td></tr>');
+				} 
 			},
-			error: function(error){
-			
+			error: function(error) {
+				alert("Error 187: Active Challenges could not be fetched");
 			}
-		});*/
+		});
 	});
 	$(document).on("pagebeforehide","#myChallenges",function(){
 		var optionCount = $('#newMatchChallenges option').length; //return number of rows in table
 		$("#newMatchChallenges").find('option').remove();
+		//new to remove active challenge table too.
+		var rowCount = $('#myActiveChallengesTable tr').length; //return number of rows in table
+		var activeChallengesTable = document.getElementById("myActiveChallengesTable"); //get table element
+		for (i=1; i < rowCount; i++){
+			activeChallengesTable.deleteRow(1); //delete all table rows except placeholder
+		}
 	});
 	
 	$('.btn-AcceptChallenge').click(function(e) {
@@ -424,6 +437,7 @@ $(document).ready(function() {
 					newsFeedItem.innerHTML = '<img class="newsfeedlogoImage" id="newsfeedLogo" src="' + newsFeed[i].userThumbnail + '" />';
 					document.getElementById(newsFeedRowId).appendChild(newsFeedItem); //append to newsfeed table in dom
 					
+					//create a newsfeed item
 					var newsFeedItem2 = document.createElement("TD");
 					newsFeedItem2.setAttribute("class", "newsfeedContent");
 					var newsFeedData = document.createTextNode(newsFeed[i].content);
@@ -437,7 +451,7 @@ $(document).ready(function() {
 						newsFeedRowMedia.setAttribute("id", newsFeedMediaRowId);
 						newsFeedRowMedia.setAttribute("class", "newsFeedRowMedia");
 						document.getElementById("NewsfeedTable").appendChild(newsFeedRowMedia); //append to table in DOM
-						//add the attachement
+						//add the attachment
 						var newsFeedMediaItem = document.createElement("TD");
 						newsFeedMediaItem.setAttribute("colspan", "2");
 						newsFeedMediaItem.innerHTML = '<img class="newsFeedMediaImage" id="newsFeedMediaItem" src="' + newsFeed[i].media + '" />';

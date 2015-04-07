@@ -7,21 +7,7 @@ body {
   text-align: center;
 }
 
-/*Page Specific CSS*/
-
-/*Challenge Player*/
-
-
-/*end of challenge player CSS*/
-
-
-/*need to sort out*/
-
-.clubPicture{
-  height: 50%;
-  width: 90%;
-}
-
+}/*pictures*/
 .clubLogoVerySmall{
   height: 55px;
   width: 40px;
@@ -47,10 +33,96 @@ body {
   height: 90%;
   width: 90%;
 }
-.image30 {
-  height: 30%;
-  width: 30%;
+
+/*Page Specific CSS*/
+
+/*Challenge Player*/
+
+
+/*end of challenge player CSS*/
+
+/*MyChallenge Page*/
+#myActiveChallengesTable{
+	padding: 5px;
+	margin-left: auto;
+    margin-right: auto;
+	width:95%;
 }
+#myActiveChallengesTable{
+	width: 90%;
+	margin: 0 auto;
+	border-collapse: separate;
+    border-spacing: 0 1em;
+}
+.activeChallengeRow{
+	background: white;
+    box-shadow: 3px 3px 5px #666;
+    padding: 12px;
+}
+
+/*end of MyChallenge Page CSS*/
+
+/*Newsfeed Page*/
+#NewsFeedTable{
+	padding: 5px;
+	margin-left: auto;
+    margin-right: auto;
+	width:95%;
+}
+#NewsfeedTable{
+	width: 90%;
+	margin: 0 auto;
+	border-collapse: separate;
+    border-spacing: 0 1em;
+}
+.newsfeedlogoImage{
+	height: 30px;
+	width: 30px;
+}
+/*   */
+.newsfeedContent{
+	text-align: left;
+	padding-left: 20px;
+}
+.newsfeedRow{
+	background: white;
+    box-shadow: 3px 3px 5px #666;
+    padding: 12px;
+}
+.newsFeedMediaImage{
+	max-width: 100%;
+    max-height: 100%;
+}
+
+/*End of Newsfeed Page CSS*/
+
+/*Leaderboard Page*/
+#LeaderboardTable{
+    border: 1px solid Red;
+    padding: 5px;
+	margin-left: auto;
+    margin-right: auto;
+	width:95%;
+}
+#LeaderboardTable th{
+	background-color: Red;
+    color: white;
+	text-align: center;
+}
+#LeaderboardTable tr:nth-child(odd) {
+    background-color: #eee;
+}
+#LeaderboardTable1 tr:nth-child(even) {
+   background-color:#fff;
+  }
+
+/*end of Leaderboard page CSS*/
+
+/*need to sort out*/
+
+.clubPicture{
+  height: 50%;
+  width: 90%;
 
 
 
@@ -77,57 +149,12 @@ padding-top: 20px;
     border:3px;
 }
 
-#NewsFeedTable{
-	padding: 5px;
-	margin-left: auto;
-    margin-right: auto;
-	width:95%;
-}
+
 .userMatchResult{
 	padding:5px;
 }
 
-#LeaderboardTable{
-    border: 1px solid Red;
-    padding: 5px;
-	margin-left: auto;
-    margin-right: auto;
-	width:95%;
-}
-#LeaderboardTable th{
-	background-color: Red;
-    color: white;
-	text-align: center;
-}
-#LeaderboardTable tr:nth-child(odd) {
-    background-color: #eee;
-}
-#LeaderboardTable1 tr:nth-child(even) {
-   background-color:#fff;
-  }
 
-#NewsfeedTable{
-	width: 90%;
-	margin: 0 auto;
-	border-collapse: separate;
-    border-spacing: 0 1em;
-}
-.newsfeedlogoImage{
-	height: 30px;
-	width: 30px;
-}
-/*   */
-.newsfeedContent{
-	text-align: left;
-	padding-left: 20px;
-}
-.newsfeedRow{
-	background: white;
-    box-shadow: 3px 3px 5px #666;
-    padding: 12px;
-}
-.newsFeedMediaImage{
-	max-width: 100%;
-    max-height: 100%;
-}
+
+
 
