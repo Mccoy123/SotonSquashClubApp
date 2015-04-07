@@ -56,8 +56,8 @@ $(document).ready(function() {
 		//any page of class scrollable will be scrollable
 		$(".scrollable5").css({
 			height: (window.innerHeight - 60)
-			alert("test");
 		});
+		alert("test");
 	} 
 	
 	//reuseable function to make a given make a page reload and update the content
