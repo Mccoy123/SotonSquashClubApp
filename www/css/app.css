@@ -7,8 +7,11 @@ body {
   text-align: center;
 }
 .scrollable5 {
-	height: 70%;
+	height: 50%;
     overflow: scroll;
+}
+.pageContentPadding{
+padding-top: 200px; 
 }
 
 }/*pictures*/
@@ -137,13 +140,9 @@ body {
 .clubPicture{
   height: 50%;
   width: 90%;
-  }
-
-
-
-.pageContentPadding{
-padding-top: 20px; 
 }
+
+
 
 .scroll46 {
 	background-color: #00FFFF;
