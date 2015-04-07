@@ -6,6 +6,10 @@
 body {
   text-align: center;
 }
+.scrollable5 {
+	height: 70%;
+    overflow: scroll;
+}
 
 }/*pictures*/
 .clubLogoVerySmall{
@@ -146,10 +150,7 @@ padding-top: 20px;
     overflow: scroll;
 }
 	
-.scrollable5 {
-	height: 90%;
-    overflow: scroll;
-}
+
 
 .RulesStylings {
 	text-align: left;
