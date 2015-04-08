@@ -57,9 +57,8 @@ $(document).ready(function() {
 		//when testing set to 30 phonegap test app detects screen size differently
 		//when deployed to device set to 260
 		$(".scrollable5").css({
-			height: (window.innerHeight - 260)
+			height: (window.innerHeight - 30)
 		});
-		alert("test");
 	} 
 	
 	//reuseable function to make a given make a page reload and update the content
@@ -72,7 +71,8 @@ $(document).ready(function() {
 			changeHash: false
 		});
 	}
-	//test example for a button on leaderboard page delete when no longer needed 
+	//test example for a button on leaderboard page delete when no longer needed
+	//maybe add to home page???
 	$('.btn-pageRefresh').click(function(e) {
 		var currentPage = "#leaderboard";
 		pageRefresh(currentPage);
@@ -92,7 +92,7 @@ $(document).ready(function() {
 			$('#leaveLeaderboard').hide();
 		}
 	});
-	
+		
 	//logout 2
 	$('.btn-logout').click(function(e) {
       // execute logout script
@@ -112,6 +112,14 @@ $(document).ready(function() {
 			alert(result);
 			$('#joinLeaderboard').hide();
 			$('#leaveLeaderboard').show();
+			$( "#joinLeaderboard" ).collapsible( "collapse" );
+			currentUser.fetch({
+				success: function(currentUser) {
+				},
+				error: function(currentUser, error) {
+					alert("current user could not be updated");
+				}
+			});
 		  },
 		  error: function(error) {
 		    alert(error);
@@ -127,6 +135,14 @@ $(document).ready(function() {
 			alert(result);
 			$('#leaveLeaderboard').hide();
 			$('#joinLeaderboard').show();
+			$( "#leaveLeaderboard" ).collapsible( "collapse" );
+			currentUser.fetch({
+				success: function(currentUser) {
+				},
+				error: function(currentUser, error) {
+					alert("current user could not be updated");
+				}
+			});
 		  },
 		  error: function(error) {
 		    alert(error);
