@@ -190,7 +190,16 @@ $(document).ready(function() {
 	
 	//chalengePlayer Functions
 	$(document).on("pagebeforeshow","#challengePlayer",function(){
-		populateOpponentChallenge();
+		if (currentUser.get("Leaderboard") == false) {
+			$('#challengePlayerJoinLeaderboard').show();
+		} else {
+			$('#challengePlayerArea').show();
+			populateOpponentChallenge();
+		}
+	});
+	$(document).on("pagebeforehide","#challengePlayer",function(){
+		$('#challengePlayerJoinLeaderboard').hide();
+		$('#challengePlayerArea').hide();
 	});
 	
 	function populateOpponentChallenge(){
@@ -243,6 +252,30 @@ $(document).ready(function() {
 		var optionCount = $('#selectOpponentChallenge option').length; //return number of rows in table
 		$("#selectOpponentChallenge").find('option').remove();
 	});
+	
+	$('.btn-challengePlayerJoinLeaderboard').click(function(e) {
+		Parse.Cloud.run('joinLeaderboard', {}, {
+		success: function(result) {
+			// result is 'My Cloud Code!'
+			alert(result);
+			//alert(currentUser.get("Leaderboard"));
+			//$('#newsfeedJoinLeaderboard').hide();
+			currentUser.fetch({
+				success: function(currentUser) {
+					//alert(currentUser.get("Leaderboard"));
+					var currentPage = "#challengePlayer";
+					pageRefresh(currentPage); //refresh page
+				},
+				error: function(currentUser, error) {
+					alert("current user could not be updated");
+				}
+			});
+		  },
+		  error: function(error) {
+		    alert(error);
+		  }
+		});
+    });
 	
 	//end of challenge player functions
 	
@@ -459,6 +492,12 @@ $(document).ready(function() {
 	//Newsfeed
 	//note this is actually the newsfeed, just neeed to update the href once the test home page is removed
 	$(document).on("pagebeforeshow","#homeTest",function(){
+		if (currentUser.get("Leaderboard") == true) {
+			$('#newsfeedJoinLeaderboard').hide();
+		}
+		else {
+			$('#newsfeedJoinLeaderboard').show();
+		}
 		Parse.Cloud.run('newsfeed', {}, {
 			success: function(newsFeed) {
 				//alert(newsFeed);
@@ -514,6 +553,26 @@ $(document).ready(function() {
 			NewsfeedTable.deleteRow(0); //delete all table rows except header
 		}
 	});
+	//adds user to the leaderboard 
+	$('.btn-newsfeedJoinLeaderboard').click(function(e) {
+		Parse.Cloud.run('joinLeaderboard', {}, {
+		success: function(result) {
+			// result is 'My Cloud Code!'
+			alert(result);
+			$('#newsfeedJoinLeaderboard').hide();
+			currentUser.fetch({
+				success: function(currentUser) {
+				},
+				error: function(currentUser, error) {
+					alert("current user could not be updated");
+				}
+			});
+		  },
+		  error: function(error) {
+		    alert(error);
+		  }
+		});
+    });
 	//end of Newsfeed functions
 	
 	//Leaderboard

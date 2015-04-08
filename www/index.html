@@ -138,6 +138,14 @@
 				<h2>Home NewsFeed</h2>
 				<p>This Page will display a newsfeed</p>		
 				
+				<div id="newsfeedJoinLeaderboard" style="display: none;">
+					<h3>Why not join the club Leaderboard?</h3>
+					<p>
+						You have not yet joined the club leaderboard, if you want to compete in the club league press the button below, or go settings, join leaderboard.
+					</p>
+					<a data-role="button" data-inline="true" class="btn-newsfeedJoinLeaderboard">Join The Leaderboard</a>
+				</div>
+				
 				<table id="NewsfeedTable">
 				
 				</table>
@@ -188,7 +196,7 @@
 						<p>
 							Are you sure you want to join the leaderboard?
 						</p>
-						<a data-role="button" data-inline="true" class="btn-joinLeaderboard">Yes I Want To Join The Leaderboard</a>
+						<a data-role="button" data-inline="true" class="btn-joinLeaderboard">Join The Leaderboard</a>
 					</div>
 					<div id="leaveLeaderboard" data-role="collapsible" data-collapsed-icon="delete">
 						<h3>Leave the Leaderboard</h3>
@@ -198,7 +206,7 @@
 						<p>
 							Are you sure you want to leave the leaderboard?
 						</p>
-						<a data-role="button" data-inline="true" class="btn-leaveLeaderboard">Yes I Want To Leave The Leaderboard</a>
+						<a data-role="button" data-inline="true" class="btn-leaveLeaderboard">Leave The Leaderboard</a>
 					</div>
 				</section>
 				<p>
@@ -328,19 +336,30 @@
 
 			<div data-role="content" class="scrollable5" >	
 				<h2>Challenge Player</h2>
-				<p>Please Select your opponent below</p>
-				<p>Remember challenges are limited to 3 above your current position!</p>
 				
-				<!--Challenge Player form-->
-				<form id="challengePlayerForm" method="post" action="">
-				  <fieldset class="ui-field-contain">
-					<label for="selectOpponentChallenge">Select Opponent</label>
-					<select name="selectOpponentChallenge" id="selectOpponentChallenge" data-native-menu="true">
-					</select>
-				  </fieldset>
-				</form>
+				<div id="challengePlayerJoinLeaderboard" style="display: none;">
+					<h3>Why not join the club Leaderboard?</h3>
+					<p>
+						You have not yet joined the club leaderboard, if you want to compete in the club league press the button below, or go settings, join leaderboard.
+					</p>
+					<a data-role="button" data-inline="true" class="btn-challengePlayerJoinLeaderboard">Join The Leaderboard</a>
+				</div>
 				
-				<a data-role="button" data-inline="true" class="btn-challengePlayer">Challenge Player</a>
+				<div id="challengePlayerArea" style="display: none;">
+					<p>Please Select your opponent below</p>
+					<p>Remember challenges are limited to 3 above your current position!</p>
+					
+					<!--Challenge Player form-->
+					<form id="challengePlayerForm" method="post" action="">
+					  <fieldset class="ui-field-contain">
+						<label for="selectOpponentChallenge">Select Opponent</label>
+						<select name="selectOpponentChallenge" id="selectOpponentChallenge" data-native-menu="true">
+						</select>
+					  </fieldset>
+					</form>
+					
+					<a data-role="button" data-inline="true" class="btn-challengePlayer">Challenge Player</a>
+				</div>
 				
 			</div><!-- /content -->
 
@@ -434,8 +453,6 @@
 			
 			</section><!-- /end of myChallenges page -->	
 			
-			
-		
 		<!-- Start of Leaderboard page -->
 		<section data-role="page"  id="leaderboard">
 
