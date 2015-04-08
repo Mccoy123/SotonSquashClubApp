@@ -54,6 +54,8 @@ $(document).ready(function() {
 	//GlobalFunctions
 	function makePageScrollable(){
 		//any page of class scrollable will be scrollable
+		//when testing set to 30 phonegap test app detects screen size differently
+		//when deployed to device set to 260
 		$(".scrollable5").css({
 			height: (window.innerHeight - 260)
 		});
