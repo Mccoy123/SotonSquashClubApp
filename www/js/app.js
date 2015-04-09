@@ -421,16 +421,20 @@ $(document).ready(function() {
 				alert("Error 177: New challenges could not be fetched. please check internet connction");
 			}
 		});
-		Parse.Cloud.run('activeChallenges', {}, {
+		Parse.Cloud.run('displayActiveChallenges', {}, {
 			success: function(activeChallengesArray) {
-				for(var i = 0; i < activeChallengesArray.length; i++) {
-					var challengeDetails = activeChallengesArray[i].challengeDetails;
-					var challengeStatus = activeChallengesArray[i].challengeStatus;
-					var challengeStatusMessage = activeChallengesArray[i].challengeStatusMessage;
-					//add data to table
-					//$('#myActiveChallengesTable tr:last').after('<tr class="' + challengeStatus + '"><td>'+ challengeDetails +'</td></tr><tr class="' + challengeStatus + '"><td>'+ challengeStatusMessage +'</td></tr>');
-					$('#myActiveChallengesTable tr:last').after('<tr class=" activeChallengeRow ' + challengeStatus + '"><td><p>'+ challengeDetails + '</p><p>' + challengeStatusMessage +'</p></td></tr>');
-				} 
+				if (activeChallengesArray.length == 0){
+					$('#myActiveChallengesTable tr:last').after('<tr class=" activeChallengeRow"><td><p> You do not have any open challenges! </p></td></tr>');
+				} else {
+					for(var i = 0; i < activeChallengesArray.length; i++) {
+						var challengeDetails = activeChallengesArray[i].challengeDetails;
+						var challengeStatus = activeChallengesArray[i].challengeStatus;
+						var challengeStatusMessage = activeChallengesArray[i].challengeStatusMessage;
+						//add data to table
+						//$('#myActiveChallengesTable tr:last').after('<tr class="' + challengeStatus + '"><td>'+ challengeDetails +'</td></tr><tr class="' + challengeStatus + '"><td>'+ challengeStatusMessage +'</td></tr>');
+						$('#myActiveChallengesTable tr:last').after('<tr class=" activeChallengeRow ' + challengeStatus + '"><td><p>'+ challengeDetails + '</p><p>' + challengeStatusMessage +'</p></td></tr>');
+					} 
+				}
 			},
 			error: function(error) {
 				alert("Error 187: Active Challenges could not be fetched");
