@@ -430,9 +430,10 @@ $(document).ready(function() {
 						var challengeDetails = activeChallengesArray[i].challengeDetails;
 						var challengeStatus = activeChallengesArray[i].challengeStatus;
 						var challengeStatusMessage = activeChallengesArray[i].challengeStatusMessage;
+						var opponentsEmail = activeChallengesArray[i].oppnentInfo;
 						//add data to table
 						//$('#myActiveChallengesTable tr:last').after('<tr class="' + challengeStatus + '"><td>'+ challengeDetails +'</td></tr><tr class="' + challengeStatus + '"><td>'+ challengeStatusMessage +'</td></tr>');
-						$('#myActiveChallengesTable tr:last').after('<tr class=" activeChallengeRow ' + challengeStatus + '"><td><p>'+ challengeDetails + '</p><p>' + challengeStatusMessage +'</p></td></tr>');
+						$('#myActiveChallengesTable tr:last').after('<tr class=" activeChallengeRow ' + challengeStatus + '"><td><p>'+ challengeDetails + '</p><p>' + challengeStatusMessage +'</p><p>' + opponentsEmail +'</p></td></tr>');
 					} 
 				}
 			},
