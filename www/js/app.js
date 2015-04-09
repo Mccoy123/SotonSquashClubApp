@@ -153,14 +153,12 @@ $(document).ready(function() {
 	
 	//Home Test Functions
 	$('.btn-ShowTextPopup').click(function(e) {
-		alert("Datepicker");
-		var options = {
-		  date: new Date(),
-		  mode: 'date'
-		};
-		datePicker.show(options, function(date){
-		  alert("date result " + date);  
-		});
+		alert("Hello");
+		makePageScrollable();
+		//var pageHeight = document.getElementById("page1Content");
+		//alert(pageHeight.offsetHeight);
+		//alert($(window).height());
+		//alert($(window).innerHeight());
     });
 	$('.btn-ParseCloudCode').click(function(e) {
 		alert("Hello");
