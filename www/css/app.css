@@ -121,6 +121,20 @@ body {
 
 /*End of Newsfeed Page CSS*/
 
+/*My Profile Page CSS*/
+#matchStatsTotalGames{
+	background:
+}
+#matchStatsTotalWins{
+	background: #4ACAB4;
+}
+#matchStatsTotalLoses{
+	background: #878BB6
+}
+
+/*End of My Profile Page*/
+
+
 /*Leaderboard Page*/
 #LeaderboardTable{
     border: 1px solid Red;

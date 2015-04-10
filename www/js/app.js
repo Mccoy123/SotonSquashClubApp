@@ -33,6 +33,9 @@ $(document).ready(function() {
           $('.avatar').attr('src', profile.picture);
 		  $('.sessionIdTest').text(profile.parse_session_token); //session token 
 		  
+		  //take user to homepage
+		  window.location.href = '#one';
+		  
 		  //set current user in Parse
 		  setParseUser(profile.parse_session_token);
         }
@@ -91,6 +94,57 @@ $(document).ready(function() {
 			$('#joinLeaderboard').show();
 			$('#leaveLeaderboard').hide();
 		}
+		//simple player stats function will be expanded in future releases
+		Parse.Cloud.run('playerStats', {userID: currentUser.id}, {
+			success: function(playerStats) {
+				var totalMatches = playerStats.totalMatches;
+				//var totalChallengesSent = playerStats.totalChallengesSent;
+				//var totalGamesChallengesRecieved = playerStats.totalGamesChallengesRecieved;
+				var totalWins = playerStats.totalWins;
+				var totalLoses = playerStats.totalLosses;
+				//display total matches
+				 $("#userTotalGames").html('<p id="matchStatsTotalGames">Total Games Played: '+ totalMatches + '</p>');
+				
+				// win/loss pie chart data
+				var MatchStatsData = [
+					{
+						value: totalWins,
+						color: "#4ACAB4"
+					},
+					{
+						value : totalLoses,
+						color : "#878BB6"
+					},
+				];
+				// pie chart options
+				var pieOptions = {
+					 segmentShowStroke : false,
+					 animateScale : true,
+					 responsive: true
+				};
+				// get pie chart canvas
+				var playerMatchStats= document.getElementById("countries").getContext("2d");
+				// draw pie chart
+				var pieChartMatchStats = new Chart(playerMatchStats).Pie(MatchStatsData, pieOptions);
+				//legend
+				
+				$('#userMatchStats tr:last').after('<tr id="matchStatsTotalWins"><td><p>You Have Won: '+ totalWins + '</p></td></tr>');
+				$('#userMatchStats tr:last').after('<tr id="matchStatsTotalLoses"><td><p>You have Lost: '+ totalLoses + '</p></td></tr>');		
+			},
+			error: function(error) {
+				alert(error);
+			}
+		});
+	});
+	$(document).on("pagebeforehide","#profile",function(){
+		//new to remove active challenge table too.
+		var rowCount = $('#userMatchStats tr').length; //return number of rows in table
+		var userMatchStatsTable = document.getElementById("userMatchStats"); //get table element
+		for (i=1; i < rowCount; i++){
+			userMatchStatsTable.deleteRow(1); //delete all table rows except placeholder
+		}
+		// Destroys a specific chart instance
+		//pieChartMatchStats.destroy();
 	});
 		
 	//logout 2

@@ -23,7 +23,8 @@
 	<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
 	<script src="js/jquery.mobile-1.4.5.js"></script>
 	<!--parse javascript-->
-	<script src="js/parse-1.3.4.min.js"></script> 
+	<script src="js/parse-1.3.4.min.js"></script>
+	<script src="js/Chart.min.js"></script> 	
 	
 </head> 
 
@@ -139,7 +140,10 @@
 				<p>This Page will display a newsfeed</p>		
 				
 				<div id="newsfeedJoinLeaderboard" style="display: none;">
-					<h3>Why not join the club Leaderboard?</h3>
+					<h3>
+						Why not join the club Leaderboard?
+						<a href="#" class="ui-btn ui-corner-all ui-icon-refresh ui-btn-icon-notext btn-newsfeedRefresh">Refresh Icon</a>
+					</h3>
 					<p>
 						You have not yet joined the club leaderboard, if you want to compete in the club league press the button below, or go settings, join leaderboard.
 					</p>
@@ -219,6 +223,19 @@
 					</p>
 					<a data-role="button" data-inline="true" class="btn-logout">Yes I Want To Logout</a>
 				</div>
+				<hr />
+				<div>
+					<h3>Your Match Stats</h3>
+					 <!-- pie chart of match stats -->
+					 <div id="userTotalGames">
+					 
+					 </div>
+					<canvas id="countries" width="600" height="400"></canvas>
+					<!--matchStats legend-->
+					<table id="userMatchStats" align="center">
+						<tr><th>Legend</th></tr>
+					</table>
+				</div>
 				
 			</div><!-- /content -->
 
@@ -293,8 +310,8 @@
 				  <fieldset class="ui-field-contain">
 					<label for="matchWinner">Winner</label>
 					<select name="matchWinner" id="matchWinner" data-native-menu="false">
-					  <option value="1">Player1</option>
-					  <option value="2">Player2</option>
+					  <option value="1">You</option>
+					  <option value="2">Opponent</option>
 					</select>
 				  </fieldset>
 				</form>				
