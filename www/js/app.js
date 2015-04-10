@@ -47,7 +47,7 @@ $(document).ready(function() {
 		Parse.User.become(parseToken).then(function (user) {
 		  // The current user is now set to user.
 		  currentUser = Parse.User.current();
-		  alert(currentUser.get("username"));
+		  //alert(currentUser.get("username"));
 		}, function (error) {
 		  // The token could not be validated.
 		  alert("parse user could not be set");
@@ -550,7 +550,7 @@ $(document).ready(function() {
 	
 	//Newsfeed
 	//note this is actually the newsfeed, just neeed to update the href once the test home page is removed
-	$(document).on("pagebeforeshow","#homeTest",function(){
+	$(document).on("pagebeforeshow","#one",function(){
 		if (currentUser.get("Leaderboard") == true) {
 			$('#newsfeedJoinLeaderboard').hide();
 		}
@@ -605,7 +605,7 @@ $(document).ready(function() {
 			}
 		});
 	});
-	$(document).on("pagebeforehide","#homeTest",function(){
+	$(document).on("pagebeforehide","#one ",function(){
 		var rowCount = $('#NewsfeedTable tr').length; //return number of rows in table
 		var NewsfeedTable = document.getElementById("NewsfeedTable"); //get table element
 		for (i=0; i < rowCount; i++){
