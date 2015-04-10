@@ -32,12 +32,15 @@ $(document).ready(function() {
           $('.nickname').text(profile.name);
           $('.avatar').attr('src', profile.picture);
 		  $('.sessionIdTest').text(profile.parse_session_token); //session token 
-		  
+		   
 		  //take user to homepage
-		  window.location.href = '#one';
-		  
+		  window.location.href = '#club';
+		   
 		  //set current user in Parse
 		  setParseUser(profile.parse_session_token);
+		  //testNewsfeed();
+		  
+		  //take user to homepage
         }
       });
     });
@@ -60,7 +63,7 @@ $(document).ready(function() {
 		//when testing set to 30 phonegap test app detects screen size differently
 		//when deployed to device set to 260
 		$(".scrollable5").css({
-			height: (window.innerHeight - 30)
+			height: (window.innerHeight - 260)
 		});
 	} 
 	
@@ -150,7 +153,6 @@ $(document).ready(function() {
 	//logout 2
 	$('.btn-logout').click(function(e) {
       // execute logout script
-		
         //var widget = new Auth0Lock(cid, domain);
 		localStorage.removeItem('token');
 		userProfile = null;
@@ -548,17 +550,20 @@ $(document).ready(function() {
 	});
 	
 	
-	//Newsfeed
-	//note this is actually the newsfeed, just neeed to update the href once the test home page is removed
-	$(document).on("pagebeforeshow","#one",function(){
+	//Newsfeed/home page
+	$(document).on("pagebeforeshow","#newsfeed",function(){
 		if (currentUser.get("Leaderboard") == true) {
 			$('#newsfeedJoinLeaderboard').hide();
 		}
 		else {
 			$('#newsfeedJoinLeaderboard').show();
 		}
+		newsfeed();
+	});
+	function newsfeed(){
 		Parse.Cloud.run('newsfeed', {}, {
 			success: function(newsFeed) {
+				
 				//alert(newsFeed);
 				//alert(newsFeed.length); //works perfectly
 				//alert(newsFeed[0]); //works perfectly
@@ -598,20 +603,25 @@ $(document).ready(function() {
 						newsFeedMediaItem.innerHTML = '<img class="newsFeedMediaImage" id="newsFeedMediaItem" src="' + newsFeed[i].media + '" />';
 						document.getElementById(newsFeedMediaRowId).appendChild(newsFeedMediaItem); //append to newsfeed table in dom
 					}
+					
 				}
+				
 			},
 			error: function(error){
 				alert("Newsfeed could not be loaded check internet connection");
 			}
 		});
+	}
+	$(document).on("pagebeforehide","#newsfeed ",function(){ 
+		deleteNewsfeed();
 	});
-	$(document).on("pagebeforehide","#one ",function(){
+	function deleteNewsfeed() {
 		var rowCount = $('#NewsfeedTable tr').length; //return number of rows in table
 		var NewsfeedTable = document.getElementById("NewsfeedTable"); //get table element
 		for (i=0; i < rowCount; i++){
 			NewsfeedTable.deleteRow(0); //delete all table rows except header
 		}
-	});
+	}
 	//adds user to the leaderboard 
 	$('.btn-newsfeedJoinLeaderboard').click(function(e) {
 		Parse.Cloud.run('joinLeaderboard', {}, {

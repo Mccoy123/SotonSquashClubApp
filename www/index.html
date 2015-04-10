@@ -38,486 +38,64 @@
       </div>
 	
 	<div class="logged-in-box auth0-box logged-in" style="display: none;">
-		<!-- Start of test home page -->
-		<section data-role="page" id="one">
-		
-		<div data-role="header">
-				<h1>Soton Squash Club</h1>
-				<a href="#left-panel" data-icon="bars" data-iconpos="notext" data-shadow="false" data-iconshadow="false">Menu</a>
-			</div><!-- /header -->
-
-			<div id="page1Content" class="scrollable5" data-role="content">	
-				<h2>Home</h2>
-				<p>Welcome <span class="sessionIdTest"></span></p>
-				<p>I'm first in the source order so I'm shown as the page.</p>		
-				<input style="text" id="textInput">
-				
-				<fieldset class="ui-field-contain">
-					<label for="selectOpponentPlayer2">Select Opponent</label>
-					<select name="selectOpponentPlayer2" id="selectInput" data-native-menu="false">
-					  <option value="5">TestDom</option>
-					  <option value="2">TestDave</option>
-					  <option value="3">TestJess</option>
-					  <option value="4">TestChris</option>
-					</select>
-				</fieldset>
-				
-				<button onClick="showPopup()"> ShowTextPopUp</button>
-				<button class="btn btn-lg btn-primary btn-ShowTextPopup"> ShowTextPopUp</button>
-				<button class="btn btn-lg btn-primary btn-ShowSelectPopup"> Test</button>
-				<button class="btn btn-lg btn-primary btn-ParseCloudCode"> ParseCloudCode</button>
-				<a data-role="button" data-inline="true" class="btn-ParseCloudCode">ParseCloudCode</a>
-				<button class="btn btn-lg btn-primary btn-api">Call API</button>
-				
-
-				<p>
-				This is some scrollable content set as scrollable by the class
-				Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-				Mauris at mi non est interdum tempor. In hac habitasse 
-				platea dictumst. Duis sollicitudin tellus eget neque
-				dictum pulvinar sed id augue. Mauris sed libero eget
-				nulla ullamcorper aliquam ut sit amet lectus. Donec 
-				pulvinar augue purus, id finibus purus tincidunt aliquam.
-				Proin velit mi, placerat vitae dignissim sed, auctor nec
-				nulla. Nullam lorem libero, feugiat sit amet nunc eget
-				, faucibus convallis risus. Ut turpis sapien, dignissim
-				eu felis sed, semper facilisis tellus. Etiam efficitur nibh sed
-				ipsum vestibulum, accumsan mattis ligula vehicula. Morbi
-				auctor dictum felis eget dapibus.Mauris at velit osum. Proin 
-				scelerisque rutrum magna. Pellentesque ornare luctus quam quis
-				sodales. Vestibulum nec nisi justo. Phasellus rutrum tincidunt 
-				tellus, in imperdiet felis cursus a. Morbi porta luctus vestibulum.
-				Suspendisse dapibus est vel dictum euismod. Sed rutrum nec nisl sed 
-				aliquet. Aenean blandit congue blandit. Morbi ut dignissim urna.
-				Aliquam purus turpis, eleifend vel gravida eu, imperdiet vitae libero.
-				Nulla condimentum dolor et est faucibus, et aliquet turpis hendrerit.
-				Etiam dui ligula, blandit sed tellus ullamcorper, luctus scelerisque
-				ipsum. Nulla facilisi. Proin ullamcorper sem eget leo pretium, vel iaculis
-				tortor blandit. Etiam sed posuere urna. Morbi id augue ac eros dapibus egestas
-				eu in elit. Aliquam erat volutpat. Curabitur odio orci, tincidunt vitae
-				tincidunt vitae, placerat vel erat. Donec gravida sollicitudin tortor,
-				eget hendrerit nisi tempor sit amet. Nunc gravida ligula eros.
-				</p>
-			
-			</div>
-			
-			<!-- /content -->
-			
-			<!-- Panel -->
-        <div data-role="panel"  id="left-panel" data-display="push" data-theme="a">
-            <ul data-role="listview" class="scrollable5" data-theme="a">
-                <li data-icon="delete"><a href="#" data-rel="close">Close</a></li>
-                <li data-role="list-divider">Menu</li>
-				<li data-icon="grid"><a href="#one">Home</a></li>
-				<li data-icon="alert"><a href="#leaderboard">Leaderboard</a></li>
-				<li data-role="list-divider">My Matches</li>
-				<li data-icon="home"><a href="#challengePlayer">Challenge Player</a></li>
-				<li data-icon="home"><a href="#uploadResult">Add Result</a></li>
-				<li data-icon="home"><a href="#myChallenges">My Challenges</a></li>
-				<li data-icon="home"><a href="#profile">My profile</a></li>
-				<li data-role="list-divider">About</li>
-                <li data-icon="grid"><a href="#club">The Club</a></li>
-				<li data-icon="home"><a href="#squash">Squash</a></li>
-				<li data-role="list-divider">Other</li>
-				<li data-icon="home"><a href="#twtter">Twitter</a></li>
-				<li data-icon="home"><a href="#feedback">Send Feedback</a></li>
-				<li data-icon="home"><a href="#homeTest">NewsFeed Test</a></li>
-              </ul>
-        </div>
-			
-		</section><!-- /end page 1-->
-		
-		<!-- Start of home page -->
-		<section data-role="page" id="homeTest">
-		
-		<div data-role="header">
-				<h1>Soton Squash Club</h1>
-				<a href="#left-panel7" data-icon="bars" data-iconpos="notext" data-shadow="false" data-iconshadow="false">Menu</a>
-			</div><!-- /header -->
-
-			<div id="page1Content" class="scrollable5" data-role="content">	
-				<h2>Squash NewsFeed</h2>
-				<hr />
-				
-				<div id="newsfeedJoinLeaderboard" style="display: none;">
-					<h3>
-						Why not join the club Leaderboard?
-						<a href="#" class="ui-btn ui-corner-all ui-icon-refresh ui-btn-icon-notext btn-newsfeedRefresh">Refresh Icon</a>
-					</h3>
-					<p>
-						You have not yet joined the club leaderboard, if you want to compete in the club league press the button below, or go settings, join leaderboard.
-					</p>
-					<a data-role="button" data-inline="true" class="btn-newsfeedJoinLeaderboard">Join The Leaderboard</a>
-				</div>
-				
-				<table id="NewsfeedTable">
-				
-				</table>
-				
-			</div>
-			
-			<!-- /content -->
-			
-			<!-- Panel -->
-        <div data-role="panel"  id="left-panel7" data-display="push" data-theme="a">
-            <ul data-role="listview" class="scrollable5" data-theme="a">
-                <li data-icon="delete"><a href="#" data-rel="close">Close</a></li>
-                <li data-role="list-divider">Menu</li>
-				<li data-icon="grid"><a href="#one">Home</a></li>
-				<li data-icon="alert"><a href="#leaderboard">Leaderboard</a></li>
-				<li data-role="list-divider">My Matches</li>
-				<li data-icon="home"><a href="#challengePlayer">Challenge Player</a></li>
-				<li data-icon="home"><a href="#uploadResult">Add Result</a></li>
-				<li data-icon="home"><a href="#myChallenges">My Challenges</a></li>
-				<li data-icon="home"><a href="#profile">My profile</a></li>
-				<li data-role="list-divider">About</li>
-                <li data-icon="grid"><a href="#club">The Club</a></li>
-				<li data-icon="home"><a href="#squash">Squash</a></li>
-				<li data-role="list-divider">Other</li>
-				<li data-icon="home"><a href="#twtter">Twitter</a></li>
-				<li data-icon="home"><a href="#feedback">Send Feedback</a></li>
-              </ul>
-        </div>
-			
-		</section><!-- /end page home Test-->
-		
-		<!-- Start of My Profile Page -->
-		<section data-role="page" id="profile">
-
-			<div data-role="header">
-				<h1>Soton Squash Club</h1>
-				<a href="#left-panel3" data-icon="bars" data-iconpos="notext" data-shadow="false" data-iconshadow="false">Menu</a>
-			</div><!-- /header -->
-
-			<div id="profileContent" class="scrollable5" data-role="content">	
-				<h2>My Profile</h2>
-				<p>
-					<hr />
-				</p>
-				<section>
-					<div id="joinLeaderboard" data-role="collapsible" data-collapsed-icon="plus">
-						<h3>Join the Leaderboard</h3>
-						<p>
-							Are you sure you want to join the leaderboard?
-						</p>
-						<a data-role="button" data-inline="true" class="btn-joinLeaderboard">Join The Leaderboard</a>
-					</div>
-					<div id="leaveLeaderboard" data-role="collapsible" data-collapsed-icon="delete">
-						<h3>Leave the Leaderboard</h3>
-						<p>
-							WARNING: If you leave the leaderboard you will lose your position and have to rejoin from bottom!
-						</p>
-						<p>
-							Are you sure you want to leave the leaderboard?
-						</p>
-						<a data-role="button" data-inline="true" class="btn-leaveLeaderboard">Leave The Leaderboard</a>
-					</div>
-				</section>
-				<p>
-					<hr />
-				</p>
-				<div data-role="collapsible" data-collapsed-icon="power">
-					<h3>Logout</h3>
-					<p>
-						Are you sure you want to log out?
-					</p>
-					<a data-role="button" data-inline="true" class="btn-logout">Yes I Want To Logout</a>
-				</div>
-				<hr />
-				<div>
-					<h3>Your Match Stats</h3>
-					 <!-- pie chart of match stats -->
-					 <div id="userTotalGames">
-					 
-					 </div>
-					<canvas id="countries" width="600" height="400"></canvas>
-					<!--matchStats legend-->
-					<table id="userMatchStats" align="center">
-						<tr><th>Legend</th></tr>
-					</table>
-				</div>
-				
-			</div><!-- /content -->
-
-			<!-- Panel -->
-			<div data-role="panel"  id="left-panel3" data-display="push" data-theme="a">
-              <ul data-role="listview" class="scrollable5" data-theme="a">
-                <li data-icon="delete"><a href="#" data-rel="close">Close</a></li>
-                <li data-role="list-divider">Menu</li>
-				<li data-icon="grid"><a href="#one">Home</a></li>
-				<li data-icon="alert"><a href="#leaderboard">Leaderboard</a></li>
-				<li data-role="list-divider">My Matches</li>
-				<li data-icon="home"><a href="#challengePlayer">Challenge Player</a></li>
-				<li data-icon="home"><a href="#uploadResult">Add Result</a></li>
-				<li data-icon="home"><a href="#myChallenges">My Challenges</a></li>
-				<li data-icon="home"><a href="#profile">My profile</a></li>
-				<li data-role="list-divider">About</li>
-                <li data-icon="grid"><a href="#club">The Club</a></li>
-				<li data-icon="home"><a href="#squash">Squash</a></li>
-				<li data-role="list-divider">Other</li>
-				<li data-icon="home"><a href="#twtter">Twitter</a></li>
-				<li data-icon="home"><a href="#feedback">Send Feedback</a></li>
-              </ul>
-			</div>
-			
-		</section><!-- /my profile page -->
-		
-		<!-- Start of Add Result Page -->
-		<section data-role="page"  id="uploadResult">
-
-			<div data-role="header">
-				<h1>Soton Squash Club</h1>
-				<a href="#left-panel4" data-icon="bars" data-iconpos="notext" data-shadow="false" data-iconshadow="false">Menu</a>
-			</div><!-- /header -->
-
-			<div data-role="content" class="scrollable5" >	
-				<h2>Add Result</h2>
-				<hr />
-				<div>
-					<p id="numberOpenChallenges">You have X open challenges </p>
-				</div>
-				<hr />
-				<p>Please Fill in the match details below</p>
-				
-				<!--Add result form-->
-				<form id="addResultForm" method="post" action="">
-				
-				  <fieldset class="ui-field-contain">
-					<label for="selectOpponentPlayer2">Select Opponent</label>
-					<select name="selectOpponentPlayer2" id="selectOpponentPlayer2"data-native-menu="true" ></select>
-				  </fieldset>
-				  
-				  <fieldset class="ui-field-contain">
-					<label for="player1Score">Your Score</label>
-					<select name="player1Score" id="player1Score" data-native-menu="false">
-					  <option value= 0 >0</option>
-					  <option value= 1 >1</option>
-					  <option value= 2 >2</option>
-					  <option value= 3 >3</option>
-					</select>
-				  </fieldset>
-				  
-				  <fieldset class="ui-field-contain">
-					<label for="player2Score">Opponents Score</label>
-					<select name="player2Score" id="player2Score" data-native-menu="false">
-					  <option value= 0 >0</option>
-					  <option value= 1 >1</option>
-					  <option value= 2 >2</option>
-					  <option value= 3 >3</option>
-					</select>
-				  </fieldset>
-				  
-				  <fieldset class="ui-field-contain">
-					<label for="matchWinner">Winner</label>
-					<select name="matchWinner" id="matchWinner" data-native-menu="false">
-					  <option value="1">You</option>
-					  <option value="2">Opponent</option>
-					</select>
-				  </fieldset>
-				</form>				
-				<a data-role="button" data-inline="true" class="btn-addResult">Add Score</a>
-				
-				
-			</div><!-- /content -->
-
-			<!-- Panel -->
-			<div data-role="panel" id="left-panel4" data-display="push" data-theme="a">
-              <ul data-role="listview" class="scrollable5" data-theme="a">
-                <li data-icon="delete"><a href="#" data-rel="close">Close</a></li>
-                <li data-role="list-divider">Menu</li>
-				<li data-icon="grid"><a href="#one">Home</a></li>
-				<li data-icon="alert"><a href="#leaderboard">Leaderboard</a></li>
-				<li data-role="list-divider">My Matches</li>
-				<li data-icon="home"><a href="#challengePlayer">Challenge Player</a></li>
-				<li data-icon="home"><a href="#uploadResult">Add Result</a></li>
-				<li data-icon="home"><a href="#myChallenges">My Challenges</a></li>
-				<li data-icon="home"><a href="#profile">My profile</a></li>
-				<li data-role="list-divider">About</li>
-                <li data-icon="grid"><a href="#club">The Club</a></li>
-				<li data-icon="home"><a href="#squash">Squash</a></li>
-				<li data-role="list-divider">Other</li>
-				<li data-icon="home"><a href="#twtter">Twitter</a></li>
-				<li data-icon="home"><a href="#feedback">Send Feedback</a></li>
-              </ul>
-			</div>
-			
-		</section><!-- /add result page -->
-		
-		<!-- Start of challenge player Page -->
-		<section data-role="page"  id="challengePlayer">
-
-			<div data-role="header">
-				<h1>Soton Squash Club</h1>
-				<a href="#left-panel7" data-icon="bars" data-iconpos="notext" data-shadow="false" data-iconshadow="false">Menu</a>
-			</div><!-- /header -->
-
-			<div data-role="content" class="scrollable5" >	
-				<h2>Challenge Player</h2>
-				
-				<div id="challengePlayerJoinLeaderboard" style="display: none;">
-					<h3>Why not join the club Leaderboard?</h3>
-					<p>
-						You have not yet joined the club leaderboard, if you want to compete in the club league press the button below, or go settings, join leaderboard.
-					</p>
-					<a data-role="button" data-inline="true" class="btn-challengePlayerJoinLeaderboard">Join The Leaderboard</a>
-				</div>
-				
-				<div id="challengePlayerArea" style="display: none;">
-					<p>Please Select your opponent below</p>
-					<p>Remember challenges are limited to 3 above your current position!</p>
-					
-					<!--Challenge Player form-->
-					<form id="challengePlayerForm" method="post" action="">
-					  <fieldset class="ui-field-contain">
-						<label for="selectOpponentChallenge">Select Opponent</label>
-						<select name="selectOpponentChallenge" id="selectOpponentChallenge" data-native-menu="true">
-						</select>
-					  </fieldset>
-					</form>
-					
-					<a data-role="button" data-inline="true" class="btn-challengePlayer">Challenge Player</a>
-				</div>
-				
-			</div><!-- /content -->
-
-			<!-- Panel -->
-			<div data-role="panel" id="left-panel7" data-display="push" data-theme="a">
-              <ul data-role="listview" class="scrollable5" data-theme="a">
-                <li data-icon="delete"><a href="#" data-rel="close">Close</a></li>
-                <li data-role="list-divider">Menu</li>
-				<li data-icon="grid"><a href="#one">Home</a></li>
-				<li data-icon="alert"><a href="#leaderboard">Leaderboard</a></li>
-				<li data-role="list-divider">My Matches</li>
-				<li data-icon="home"><a href="#challengePlayer">Challenge Player</a></li>
-				<li data-icon="home"><a href="#uploadResult">Add Result</a></li>
-				<li data-icon="home"><a href="#myChallenges">My Challenges</a></li>
-				<li data-icon="home"><a href="#profile">My profile</a></li>
-				<li data-role="list-divider">About</li>
-                <li data-icon="grid"><a href="#club">The Club</a></li>
-				<li data-icon="home"><a href="#squash">Squash</a></li>
-				<li data-role="list-divider">Other</li>
-				<li data-icon="home"><a href="#twtter">Twitter</a></li>
-				<li data-icon="home"><a href="#feedback">Send Feedback</a></li>
-              </ul>
-			</div>
-			
-		</section><!-- /challenge player page -->
-		
-		<!-- Start of myChallenges Page -->
-		<section data-role="page"  id="myChallenges">
-
-			<div data-role="header">
-				<h1>Soton Squash Club</h1>
-				<a href="#left-panel8" data-icon="bars" data-iconpos="notext" data-shadow="false" data-iconshadow="false">Menu</a>
-			</div><!-- /header -->
-
-			<div data-role="content" class="scrollable5" >	
-				<h2>My Challenges Page</h2>
-				<p>Accept and decline Challenges below</p>
-				<hr />
-				<div>
-					<p id="numberNewChallenges">You have X outstanding challenges </p>
-				</div>
-				
-				<!--New Challenges form-->
-				<form id="newChallengeForm" method="post" action="">
-				  <fieldset class="ui-field-contain">
-					<label for="newMatchChallenges">Select Challenge</label>
-					<select name="newMatchChallenges" id="newMatchChallenges" data-native-menu="true">
-					</select>
-				  </fieldset>
-				</form>
-				
-				<p>
-					<a data-role="button" data-inline="true" class="btn-AcceptChallenge">Accept Challenge</a>	
-					<a data-role="button" data-inline="true" class="btn-DeclineChallenge">Decline Challenge</a>	
-				</p>
-				<hr />
-				<!-- Hidden confirm delete field -->
-				<div class="confirmDecline" style="display: none;">
-					<p>Remember if you decline a challenge your opponent is awarded a 3-0 walkover</p>
-					<a data-role="button" data-inline="true" class="btn-DeclineChallengeCancel">Cancel</a>
-					<a data-role="button" data-inline="true" class="btn-DeclineChallengeConfirm">Confirm Decline Challenge</a>	
-					<hr />
-				</div>
-				
-				<!--My Active Challenges Table-->
-				<table id="myActiveChallengesTable">
-					<tr><th>Open Challenges</th></tr>
-				</table>
-			</div><!-- /content -->
-
-			<!-- Panel -->
-			<div data-role="panel" id="left-panel8" data-display="push" data-theme="a">
-              <ul data-role="listview" class="scrollable5" data-theme="a">
-                <li data-icon="delete"><a href="#" data-rel="close">Close</a></li>
-                <li data-role="list-divider">Menu</li>
-				<li data-icon="grid"><a href="#one">Home</a></li>
-				<li data-icon="alert"><a href="#leaderboard">Leaderboard</a></li>
-				<li data-role="list-divider">My Matches</li>
-				<li data-icon="home"><a href="#challengePlayer">Challenge Player</a></li>
-				<li data-icon="home"><a href="#uploadResult">Add Result</a></li>
-				<li data-icon="home"><a href="#myChallenges">My Challenges</a></li>
-				<li data-icon="home"><a href="#profile">My profile</a></li>
-				<li data-role="list-divider">About</li>
-                <li data-icon="grid"><a href="#club">The Club</a></li>
-				<li data-icon="home"><a href="#squash">Squash</a></li>
-				<li data-role="list-divider">Other</li>
-				<li data-icon="home"><a href="#twtter">Twitter</a></li>
-				<li data-icon="home"><a href="#feedback">Send Feedback</a></li>
-              </ul>
-			</div>
-			
-			</section><!-- /end of myChallenges page -->	
-			
-		<!-- Start of Leaderboard page -->
-		<section data-role="page"  id="leaderboard">
-
-			<div data-role="header">
-				<h1>Soton Squash Club</h1>
-				<a href="#left-panel5" data-icon="bars" data-iconpos="notext" data-shadow="false" data-iconshadow="false">Menu</a>
-			</div><!-- /header -->
-
-			<div data-role="content" class="scrollable5">	
-				<h2>LeaderBoard</h2>
-				<p>The Official Club Ladder is shown below</p>
-				<p>Challenge Other members to games to move up the ladder and become the club champion!</p>
-				
-				<button class="btn btn-lg btn-primary btn-pageRefresh">refresh Page</button>
-				
-				<table id="LeaderboardTable"> <!--put this styling in CSS-->
-				  <tr>
-					<th>Rank</th>
-					<th>Name</th>
-				  </tr>
-				</table>
-				
-			</div><!-- /content -->
-
-			<!-- Panel -->
-			<div data-role="panel"  id="left-panel5" data-display="push" data-theme="a">
-              <ul data-role="listview" class="scrollable5" data-theme="a">
-                <li data-icon="delete"><a href="#" data-rel="close">Close</a></li>
-                <li data-role="list-divider">Menu</li>
-				<li data-icon="grid"><a href="#one">Home</a></li>
-				<li data-icon="alert"><a href="#leaderboard">Leaderboard</a></li>
-				<li data-role="list-divider">My Matches</li>
-				<li data-icon="home"><a href="#challengePlayer">Challenge Player</a></li>
-				<li data-icon="home"><a href="#uploadResult">Add Result</a></li>
-				<li data-icon="home"><a href="#myChallenges">My Challenges</a></li>
-				<li data-icon="home"><a href="#profile">My profile</a></li>
-				<li data-role="list-divider">About</li>
-                <li data-icon="grid"><a href="#club">The Club</a></li>
-				<li data-icon="home"><a href="#squash">Squash</a></li>
-				<li data-role="list-divider">Other</li>
-				<li data-icon="home"><a href="#twtter">Twitter</a></li>
-				<li data-icon="home"><a href="#feedback">Send Feedback</a></li>
-              </ul>
-			</div>
-			
-		</section><!-- end of page Leaderboard -->
 		
 		<!-- Static Pages -->
+		<!-- Start of club page -->
+		<section data-role="page" id="club">
+
+			<div data-role="header">
+				<h1>Soton Squash Club</h1>
+				<a href="#left-panel2" data-icon="bars" data-iconpos="notext" data-shadow="false" data-iconshadow="false">Menu</a>
+			</div><!-- /header -->
+
+			<div id="aboutClubContent" class="scrollable5" data-role="content">	
+				<h2>About The Club</h2>
+				<p>
+					SUSC caters for players of all abilities: from complete beginners to the seasoned pro! 
+					With 4 Hampshire Squash Mens Teams, 2 Mens BUCS, a Ladies Team, Club Night and our new 
+					online squash ladder there is a place for everyone!. 
+				</p>
+				<img class="clubPicture" src="img/SquashBanner.png" />
+				<p>
+					<h3>Club Night</h3>
+					We have Club Night every Monday night from 6-10pm at the SUSU Squash Courts. It's a drop 
+					in/out session. So come along at any point in the night. We always have a minimum of 3 
+					courts with a beginner,intermediate and advance courts.
+				</p>
+				<p>
+				<img class="clubPicture" src="img/SotonTeamPic.jpg" />
+				</p>
+				<p>
+					<h3>Socials</h3>
+					We have a weekly social every Wednesday evening. They're for all our members and always good fun. 
+					They are usually themed and start somewhere in Portswood at 7.30pm, join the Facebook group for up-to-date information! 
+				</p>
+				<p>
+					<img class="clubPicture" src="img/squashSocial.jpg" />
+				</p>
+
+			</div><!-- /content -->
+
+			<!-- Panel -->
+			<div data-role="panel"  id="left-panel2" data-display="push" data-theme="a">
+              <ul data-role="listview" class="scrollable5" data-theme="a">
+                <li data-icon="delete"><a href="#" data-rel="close">Close</a></li>
+                <li data-role="list-divider">Menu</li>
+				<li data-icon="grid"><a href="#newsfeed">Newsfeed</a></li>
+				<li data-icon="alert"><a href="#leaderboard">Leaderboard</a></li>
+				<li data-role="list-divider">My Matches</li>
+				<li data-icon="home"><a href="#challengePlayer">Challenge Player</a></li>
+				<li data-icon="home"><a href="#uploadResult">Add Result</a></li>
+				<li data-icon="home"><a href="#myChallenges">My Challenges</a></li>
+				<li data-role="list-divider">About</li>
+                <li data-icon="grid"><a href="#club">The Club</a></li>
+				<li data-icon="home"><a href="#squash">Squash</a></li>
+				<li data-role="list-divider">Other</li>
+				<li data-icon="home"><a href="#profile">My profile</a></li>
+              </ul>
+			</div>
+			
+		</section><!-- end of about club page -->
 		
 		<!-- Start of about Squash Page -->
 		<section data-role="page" id="squash">
@@ -739,87 +317,404 @@
 
 			<!-- Panel -->
 			<div data-role="panel" id="left-panel6" data-display="push" data-theme="a">
-              <ul data-role="listview" class="scrollable5" data-theme="a">
+               <ul data-role="listview" class="scrollable5" data-theme="a">
                 <li data-icon="delete"><a href="#" data-rel="close">Close</a></li>
                 <li data-role="list-divider">Menu</li>
-				<li data-icon="grid"><a href="#one">Home</a></li>
+				<li data-icon="grid"><a href="#newsfeed">Newsfeed</a></li>
 				<li data-icon="alert"><a href="#leaderboard">Leaderboard</a></li>
 				<li data-role="list-divider">My Matches</li>
 				<li data-icon="home"><a href="#challengePlayer">Challenge Player</a></li>
 				<li data-icon="home"><a href="#uploadResult">Add Result</a></li>
 				<li data-icon="home"><a href="#myChallenges">My Challenges</a></li>
-				<li data-icon="home"><a href="#profile">My profile</a></li>
 				<li data-role="list-divider">About</li>
                 <li data-icon="grid"><a href="#club">The Club</a></li>
 				<li data-icon="home"><a href="#squash">Squash</a></li>
 				<li data-role="list-divider">Other</li>
-				<li data-icon="home"><a href="#twtter">Twitter</a></li>
-				<li data-icon="home"><a href="#feedback">Send Feedback</a></li>
+				<li data-icon="home"><a href="#profile">My profile</a></li>
               </ul>
 			</div>
 			
 		</section><!-- end of aboutSquashPage -->
-
-		<!-- Start of club page -->
-		<section data-role="page" id="club">
-
-			<div data-role="header">
+		<!-- End of static Pages -->
+		
+		<!-- Start of newsfeed page -->
+		<section data-role="page" id="newsfeed">
+		
+		<div data-role="header">
 				<h1>Soton Squash Club</h1>
-				<a href="#left-panel2" data-icon="bars" data-iconpos="notext" data-shadow="false" data-iconshadow="false">Menu</a>
+				<a href="#left-panel" data-icon="bars" data-iconpos="notext" data-shadow="false" data-iconshadow="false">Menu</a>
 			</div><!-- /header -->
 
-			<div id="aboutClubContent" class="scrollable5" data-role="content">	
-				<h2>About The Club</h2>
-				<p>
-					SUSC caters for players of all abilities: from complete beginners to the seasoned pro! 
-					With 4 Hampshire Squash Mens Teams, 2 Mens BUCS, a Ladies Team, Club Night and our new 
-					online squash ladder there is a place for everyone!. 
-				</p>
-				<img class="clubPicture" src="img/SquashBanner.png" />
-				<p>
-					<h3>Club Night</h3>
-					We have Club Night every Monday night from 6-10pm at the SUSU Squash Courts. It's a drop 
-					in/out session. So come along at any point in the night. We always have a minimum of 3 
-					courts with a beginner,intermediate and advance courts.
-				</p>
-				<p>
-				<img class="clubPicture" src="img/SotonTeamPic.jpg" />
-				</p>
-				<p>
-					<h3>Socials</h3>
-					We have a weekly social every Wednesday evening. They're for all our members and always good fun. 
-					They are usually themed and start somewhere in Portswood at 7.30pm, join the Facebook group for up-to-date information! 
-				</p>
-				<p>
-					<img class="clubPicture" src="img/squashSocial.jpg" />
-				</p>
-
-			</div><!-- /content -->
-
+			<div id="page1Content" class="scrollable5" data-role="content">	
+				<h2>Squash NewsFeed</h2>
+				<hr />
+				
+				<div id="newsfeedJoinLeaderboard" style="display: none;">
+					<h3>
+						Why not join the club Leaderboard?
+						<a href="#" class="ui-btn ui-corner-all ui-icon-refresh ui-btn-icon-notext btn-newsfeedRefresh">Refresh Icon</a>
+					</h3>
+					<p>
+						You have not yet joined the club leaderboard, if you want to compete in the club league press the button below, or go settings, join leaderboard.
+					</p>
+					<a data-role="button" data-inline="true" class="btn-newsfeedJoinLeaderboard">Join The Leaderboard</a>
+				</div>
+				
+				<table id="NewsfeedTable">
+				
+				</table>
+				
+			</div>
+			
+			<!-- /content -->
+			
 			<!-- Panel -->
-			<div data-role="panel"  id="left-panel2" data-display="push" data-theme="a">
+        <div data-role="panel"  id="left-panel" data-display="push" data-theme="a">
               <ul data-role="listview" class="scrollable5" data-theme="a">
                 <li data-icon="delete"><a href="#" data-rel="close">Close</a></li>
                 <li data-role="list-divider">Menu</li>
-				<li data-icon="grid"><a href="#one">Home</a></li>
+				<li data-icon="grid"><a href="#newsfeed">Newsfeed</a></li>
 				<li data-icon="alert"><a href="#leaderboard">Leaderboard</a></li>
 				<li data-role="list-divider">My Matches</li>
 				<li data-icon="home"><a href="#challengePlayer">Challenge Player</a></li>
 				<li data-icon="home"><a href="#uploadResult">Add Result</a></li>
 				<li data-icon="home"><a href="#myChallenges">My Challenges</a></li>
-				<li data-icon="home"><a href="#profile">My profile</a></li>
 				<li data-role="list-divider">About</li>
                 <li data-icon="grid"><a href="#club">The Club</a></li>
 				<li data-icon="home"><a href="#squash">Squash</a></li>
 				<li data-role="list-divider">Other</li>
-				<li data-icon="home"><a href="#twtter">Twitter</a></li>
-				<li data-icon="home"><a href="#feedback">Send Feedback</a></li>
+				<li data-icon="home"><a href="#profile">My profile</a></li>
+              </ul>
+        </div>
+			
+		</section><!-- /end page 1-->
+		
+		<!-- Start of My Profile Page -->
+		<section data-role="page" id="profile">
+
+			<div data-role="header">
+				<h1>Soton Squash Club</h1>
+				<a href="#left-panel3" data-icon="bars" data-iconpos="notext" data-shadow="false" data-iconshadow="false">Menu</a>
+			</div><!-- /header -->
+
+			<div id="profileContent" class="scrollable5" data-role="content">	
+				<h2>My Profile</h2>
+				<p>
+					<hr />
+				</p>
+				<section>
+					<div id="joinLeaderboard" data-role="collapsible" data-collapsed-icon="plus">
+						<h3>Join the Leaderboard</h3>
+						<p>
+							Are you sure you want to join the leaderboard?
+						</p>
+						<a data-role="button" data-inline="true" class="btn-joinLeaderboard">Join The Leaderboard</a>
+					</div>
+					<div id="leaveLeaderboard" data-role="collapsible" data-collapsed-icon="delete">
+						<h3>Leave the Leaderboard</h3>
+						<p>
+							WARNING: If you leave the leaderboard you will lose your position and have to rejoin from bottom!
+						</p>
+						<p>
+							Are you sure you want to leave the leaderboard?
+						</p>
+						<a data-role="button" data-inline="true" class="btn-leaveLeaderboard">Leave The Leaderboard</a>
+					</div>
+				</section>
+				<p>
+					<hr />
+				</p>
+				<div data-role="collapsible" data-collapsed-icon="power">
+					<h3>Logout</h3>
+					<p>
+						Are you sure you want to log out?
+					</p>
+					<a data-role="button" data-inline="true" class="btn-logout">Yes I Want To Logout</a>
+				</div>
+				<hr />
+				<div>
+					<h3>Your Match Stats</h3>
+					 <!-- pie chart of match stats -->
+					 <div id="userTotalGames">
+					 
+					 </div>
+					<canvas id="countries" width="600" height="400"></canvas>
+					<!--matchStats legend-->
+					<table id="userMatchStats" align="center">
+						<tr><th>Legend</th></tr>
+					</table>
+				</div>
+				
+			</div><!-- /content -->
+
+			<!-- Panel -->
+			<div data-role="panel"  id="left-panel3" data-display="push" data-theme="a">
+               <ul data-role="listview" class="scrollable5" data-theme="a">
+                <li data-icon="delete"><a href="#" data-rel="close">Close</a></li>
+                <li data-role="list-divider">Menu</li>
+				<li data-icon="grid"><a href="#newsfeed">Newsfeed</a></li>
+				<li data-icon="alert"><a href="#leaderboard">Leaderboard</a></li>
+				<li data-role="list-divider">My Matches</li>
+				<li data-icon="home"><a href="#challengePlayer">Challenge Player</a></li>
+				<li data-icon="home"><a href="#uploadResult">Add Result</a></li>
+				<li data-icon="home"><a href="#myChallenges">My Challenges</a></li>
+				<li data-role="list-divider">About</li>
+                <li data-icon="grid"><a href="#club">The Club</a></li>
+				<li data-icon="home"><a href="#squash">Squash</a></li>
+				<li data-role="list-divider">Other</li>
+				<li data-icon="home"><a href="#profile">My profile</a></li>
               </ul>
 			</div>
 			
-		</section><!-- end of about club page -->
-		<!-- End of static Pages -->
+		</section><!-- /my profile page -->
 		
+		<!-- Start of Add Result Page -->
+		<section data-role="page"  id="uploadResult">
+
+			<div data-role="header">
+				<h1>Soton Squash Club</h1>
+				<a href="#left-panel4" data-icon="bars" data-iconpos="notext" data-shadow="false" data-iconshadow="false">Menu</a>
+			</div><!-- /header -->
+
+			<div data-role="content" class="scrollable5" >	
+				<h2>Add Result</h2>
+				<hr />
+				<div>
+					<p id="numberOpenChallenges">You have X open challenges </p>
+				</div>
+				<hr />
+				<p>Please Fill in the match details below</p>
+				
+				<!--Add result form-->
+				<form id="addResultForm" method="post" action="">
+				
+				  <fieldset class="ui-field-contain">
+					<label for="selectOpponentPlayer2">Select Opponent</label>
+					<select name="selectOpponentPlayer2" id="selectOpponentPlayer2"data-native-menu="true" ></select>
+				  </fieldset>
+				  
+				  <fieldset class="ui-field-contain">
+					<label for="player1Score">Your Score</label>
+					<select name="player1Score" id="player1Score" data-native-menu="false">
+					  <option value= 0 >0</option>
+					  <option value= 1 >1</option>
+					  <option value= 2 >2</option>
+					  <option value= 3 >3</option>
+					</select>
+				  </fieldset>
+				  
+				  <fieldset class="ui-field-contain">
+					<label for="player2Score">Opponents Score</label>
+					<select name="player2Score" id="player2Score" data-native-menu="false">
+					  <option value= 0 >0</option>
+					  <option value= 1 >1</option>
+					  <option value= 2 >2</option>
+					  <option value= 3 >3</option>
+					</select>
+				  </fieldset>
+				  
+				  <fieldset class="ui-field-contain">
+					<label for="matchWinner">Winner</label>
+					<select name="matchWinner" id="matchWinner" data-native-menu="false">
+					  <option value="1">You</option>
+					  <option value="2">Opponent</option>
+					</select>
+				  </fieldset>
+				</form>				
+				<a data-role="button" data-inline="true" class="btn-addResult">Add Score</a>
+				
+				
+			</div><!-- /content -->
+
+			<!-- Panel -->
+			<div data-role="panel" id="left-panel4" data-display="push" data-theme="a">
+               <ul data-role="listview" class="scrollable5" data-theme="a">
+                <li data-icon="delete"><a href="#" data-rel="close">Close</a></li>
+                <li data-role="list-divider">Menu</li>
+				<li data-icon="grid"><a href="#newsfeed">Newsfeed</a></li>
+				<li data-icon="alert"><a href="#leaderboard">Leaderboard</a></li>
+				<li data-role="list-divider">My Matches</li>
+				<li data-icon="home"><a href="#challengePlayer">Challenge Player</a></li>
+				<li data-icon="home"><a href="#uploadResult">Add Result</a></li>
+				<li data-icon="home"><a href="#myChallenges">My Challenges</a></li>
+				<li data-role="list-divider">About</li>
+                <li data-icon="grid"><a href="#club">The Club</a></li>
+				<li data-icon="home"><a href="#squash">Squash</a></li>
+				<li data-role="list-divider">Other</li>
+				<li data-icon="home"><a href="#profile">My profile</a></li>
+              </ul>
+			</div>
+			
+		</section><!-- /add result page -->
+		
+		<!-- Start of challenge player Page -->
+		<section data-role="page"  id="challengePlayer">
+
+			<div data-role="header">
+				<h1>Soton Squash Club</h1>
+				<a href="#left-panel7" data-icon="bars" data-iconpos="notext" data-shadow="false" data-iconshadow="false">Menu</a>
+			</div><!-- /header -->
+
+			<div data-role="content" class="scrollable5" >	
+				<h2>Challenge Player</h2>
+				
+				<div id="challengePlayerJoinLeaderboard" style="display: none;">
+					<h3>Why not join the club Leaderboard?</h3>
+					<p>
+						You have not yet joined the club leaderboard, if you want to compete in the club league press the button below, or go settings, join leaderboard.
+					</p>
+					<a data-role="button" data-inline="true" class="btn-challengePlayerJoinLeaderboard">Join The Leaderboard</a>
+				</div>
+				
+				<div id="challengePlayerArea" style="display: none;">
+					<p>Please Select your opponent below</p>
+					<p>Remember challenges are limited to 3 above your current position!</p>
+					
+					<!--Challenge Player form-->
+					<form id="challengePlayerForm" method="post" action="">
+					  <fieldset class="ui-field-contain">
+						<label for="selectOpponentChallenge">Select Opponent</label>
+						<select name="selectOpponentChallenge" id="selectOpponentChallenge" data-native-menu="true">
+						</select>
+					  </fieldset>
+					</form>
+					
+					<a data-role="button" data-inline="true" class="btn-challengePlayer">Challenge Player</a>
+				</div>
+				
+			</div><!-- /content -->
+
+			<!-- Panel -->
+			<div data-role="panel" id="left-panel7" data-display="push" data-theme="a">
+               <ul data-role="listview" class="scrollable5" data-theme="a">
+                <li data-icon="delete"><a href="#" data-rel="close">Close</a></li>
+                <li data-role="list-divider">Menu</li>
+				<li data-icon="grid"><a href="#newsfeed">Newsfeed</a></li>
+				<li data-icon="alert"><a href="#leaderboard">Leaderboard</a></li>
+				<li data-role="list-divider">My Matches</li>
+				<li data-icon="home"><a href="#challengePlayer">Challenge Player</a></li>
+				<li data-icon="home"><a href="#uploadResult">Add Result</a></li>
+				<li data-icon="home"><a href="#myChallenges">My Challenges</a></li>
+				<li data-role="list-divider">About</li>
+                <li data-icon="grid"><a href="#club">The Club</a></li>
+				<li data-icon="home"><a href="#squash">Squash</a></li>
+				<li data-role="list-divider">Other</li>
+				<li data-icon="home"><a href="#profile">My profile</a></li>
+              </ul>
+			</div>
+			
+		</section><!-- /challenge player page -->
+		
+		<!-- Start of myChallenges Page -->
+		<section data-role="page"  id="myChallenges">
+
+			<div data-role="header">
+				<h1>Soton Squash Club</h1>
+				<a href="#left-panel8" data-icon="bars" data-iconpos="notext" data-shadow="false" data-iconshadow="false">Menu</a>
+			</div><!-- /header -->
+
+			<div data-role="content" class="scrollable5" >	
+				<h2>My Challenges Page</h2>
+				<p>Accept and decline Challenges below</p>
+				<hr />
+				<div>
+					<p id="numberNewChallenges">You have X outstanding challenges </p>
+				</div>
+				
+				<!--New Challenges form-->
+				<form id="newChallengeForm" method="post" action="">
+				  <fieldset class="ui-field-contain">
+					<label for="newMatchChallenges">Select Challenge</label>
+					<select name="newMatchChallenges" id="newMatchChallenges" data-native-menu="true">
+					</select>
+				  </fieldset>
+				</form>
+				
+				<p>
+					<a data-role="button" data-inline="true" class="btn-AcceptChallenge">Accept Challenge</a>	
+					<a data-role="button" data-inline="true" class="btn-DeclineChallenge">Decline Challenge</a>	
+				</p>
+				<hr />
+				<!-- Hidden confirm delete field -->
+				<div class="confirmDecline" style="display: none;">
+					<p>Remember if you decline a challenge your opponent is awarded a 3-0 walkover</p>
+					<a data-role="button" data-inline="true" class="btn-DeclineChallengeCancel">Cancel</a>
+					<a data-role="button" data-inline="true" class="btn-DeclineChallengeConfirm">Confirm Decline Challenge</a>	
+					<hr />
+				</div>
+				
+				<!--My Active Challenges Table-->
+				<table id="myActiveChallengesTable">
+					<tr><th>Open Challenges</th></tr>
+				</table>
+			</div><!-- /content -->
+
+			<!-- Panel -->
+			<div data-role="panel" id="left-panel8" data-display="push" data-theme="a">
+               <ul data-role="listview" class="scrollable5" data-theme="a">
+                <li data-icon="delete"><a href="#" data-rel="close">Close</a></li>
+                <li data-role="list-divider">Menu</li>
+				<li data-icon="grid"><a href="#newsfeed">Newsfeed</a></li>
+				<li data-icon="alert"><a href="#leaderboard">Leaderboard</a></li>
+				<li data-role="list-divider">My Matches</li>
+				<li data-icon="home"><a href="#challengePlayer">Challenge Player</a></li>
+				<li data-icon="home"><a href="#uploadResult">Add Result</a></li>
+				<li data-icon="home"><a href="#myChallenges">My Challenges</a></li>
+				<li data-role="list-divider">About</li>
+                <li data-icon="grid"><a href="#club">The Club</a></li>
+				<li data-icon="home"><a href="#squash">Squash</a></li>
+				<li data-role="list-divider">Other</li>
+				<li data-icon="home"><a href="#profile">My profile</a></li>
+              </ul>
+			</div>
+			
+			</section><!-- /end of myChallenges page -->	
+			
+		<!-- Start of Leaderboard page -->
+		<section data-role="page"  id="leaderboard">
+
+			<div data-role="header">
+				<h1>Soton Squash Club</h1>
+				<a href="#left-panel5" data-icon="bars" data-iconpos="notext" data-shadow="false" data-iconshadow="false">Menu</a>
+			</div><!-- /header -->
+
+			<div data-role="content" class="scrollable5">	
+				<h2>LeaderBoard</h2>
+				<p>The Official Club Ladder is shown below</p>
+				<p>Challenge Other members to games to move up the ladder and become the club champion!</p>
+				
+				<button class="btn btn-lg btn-primary btn-pageRefresh">refresh Page</button>
+				
+				<table id="LeaderboardTable"> <!--put this styling in CSS-->
+				  <tr>
+					<th>Rank</th>
+					<th>Name</th>
+				  </tr>
+				</table>
+				
+			</div><!-- /content -->
+
+			<!-- Panel -->
+			<div data-role="panel"  id="left-panel5" data-display="push" data-theme="a">
+               <ul data-role="listview" class="scrollable5" data-theme="a">
+                <li data-icon="delete"><a href="#" data-rel="close">Close</a></li>
+                <li data-role="list-divider">Menu</li>
+				<li data-icon="grid"><a href="#newsfeed">Newsfeed</a></li>
+				<li data-icon="alert"><a href="#leaderboard">Leaderboard</a></li>
+				<li data-role="list-divider">My Matches</li>
+				<li data-icon="home"><a href="#challengePlayer">Challenge Player</a></li>
+				<li data-icon="home"><a href="#uploadResult">Add Result</a></li>
+				<li data-icon="home"><a href="#myChallenges">My Challenges</a></li>
+				<li data-role="list-divider">About</li>
+                <li data-icon="grid"><a href="#club">The Club</a></li>
+				<li data-icon="home"><a href="#squash">Squash</a></li>
+				<li data-role="list-divider">Other</li>
+				<li data-icon="home"><a href="#profile">My profile</a></li>
+              </ul>
+			</div>
+			
+		</section><!-- end of page Leaderboard -->
+				
 	</div> <!-- end of logged in content -->
 		
 		<!-- Auth0 widget script -->
