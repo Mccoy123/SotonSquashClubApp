@@ -29,12 +29,12 @@
 </head> 
 
     <body> <!-- using the standard template supplied by jquery mobile -->
-	<div class="login-page clearfix">
+	<div class="pageHeader login-page clearfix">
 	  <div class="login-box auth0-box before">
 	    <h1>Soton Squash App</h3>
 		<img class="image60" src="img/icon.png" />
 		<p>Have Fun Get Fit, Get Sexy, Yeahhhhhh Buddddyyyyyyy!!!!</p>
-		<input type="submit" data-inline="true" class="btn-login" value="Sign-Up / Sign-In" />
+		<input type="submit" data-inline="true" class="btn-login" data-shadow="true" value="Sign-Up / Sign-In" />
       </div>
 	
 	<div class="logged-in-box auth0-box logged-in" style="display: none;">
@@ -43,11 +43,12 @@
 		<!-- Start of club page -->
 		<section data-role="page" id="club">
 
-			<div data-role="header">
-				<h1>Soton Squash Club</h1>
-				<a href="#left-panel2" data-icon="bars" data-iconpos="notext" data-shadow="false" data-iconshadow="false">Menu</a>
+			<div class="pageHeader"data-role="header">
+				<div class="appHeaderText">
+					<a href="#left-panel2" class="ui-btn appHeaderMenu ui-shadow ui-corner-all ui-icon-bars ui-btn-icon-notext">Menu</a>
+					Soton Squash Club
+				</div>
 			</div><!-- /header -->
-
 			<div id="aboutClubContent" class="scrollable5" data-role="content">	
 				<h2>About The Club</h2>
 				<p>
@@ -77,8 +78,8 @@
 			</div><!-- /content -->
 
 			<!-- Panel -->
-			<div data-role="panel"  id="left-panel2" data-display="push" data-theme="a">
-              <ul data-role="listview" class="scrollable5" data-theme="a">
+			<div data-role="panel" class="pageHeader"  id="left-panel2" data-display="push" data-theme="a">
+              <ul data-role="listview" data-theme="a">
                 <li data-icon="delete"><a href="#" data-rel="close">Close</a></li>
                 <li data-role="list-divider">Menu</li>
 				<li data-icon="grid"><a href="#newsfeed">Newsfeed</a></li>
@@ -99,9 +100,11 @@
 		
 		<!-- Start of about Squash Page -->
 		<section data-role="page" id="squash">
-			<div data-role="header">
-				<h1>Soton Squash Club</h1>
-				<a href="#left-panel6" data-icon="bars" data-iconpos="notext" data-shadow="false" data-iconshadow="false">Menu</a>
+			<div class="pageHeader" data-role="header">
+				<div class="appHeaderText">
+					<a href="#left-panel6" class="ui-btn appHeaderMenu ui-shadow ui-corner-all ui-icon-bars ui-btn-icon-notext">Menu</a>
+					Soton Squash Club
+				</div>
 			</div><!-- /header -->
 			<div id="aboutSquashContent" class="scrollable5" data-role="content">	
 				<h2>About Squash</h2>
@@ -316,8 +319,8 @@
 			</div><!-- /content -->
 
 			<!-- Panel -->
-			<div data-role="panel" id="left-panel6" data-display="push" data-theme="a">
-               <ul data-role="listview" class="scrollable5" data-theme="a">
+			<div data-role="panel" class="pageHeader" id="left-panel6" data-display="push" data-theme="a">
+               <ul data-role="listview" data-theme="a">
                 <li data-icon="delete"><a href="#" data-rel="close">Close</a></li>
                 <li data-role="list-divider">Menu</li>
 				<li data-icon="grid"><a href="#newsfeed">Newsfeed</a></li>
@@ -340,13 +343,15 @@
 		<!-- Start of newsfeed page -->
 		<section data-role="page" id="newsfeed">
 		
-		<div data-role="header">
-				<h1>Soton Squash Club</h1>
-				<a href="#left-panel" data-icon="bars" data-iconpos="notext" data-shadow="false" data-iconshadow="false">Menu</a>
+		<div class="pageHeader" data-role="header">
+				<div class="appHeaderText">
+					<a href="#left-panel" class="ui-btn appHeaderMenu ui-shadow ui-corner-all ui-icon-bars ui-btn-icon-notext">Menu</a>
+					Soton Squash Club
+				</div>
 			</div><!-- /header -->
 
 			<div id="page1Content" class="scrollable5" data-role="content">	
-				<h2>Squash NewsFeed</h2>
+				<h2>Club NewsFeed</h2>
 				<hr />
 				
 				<div id="newsfeedJoinLeaderboard" style="display: none;">
@@ -369,8 +374,8 @@
 			<!-- /content -->
 			
 			<!-- Panel -->
-        <div data-role="panel"  id="left-panel" data-display="push" data-theme="a">
-              <ul data-role="listview" class="scrollable5" data-theme="a">
+        <div data-role="panel"  class="pageHeader" id="left-panel" data-display="push" data-theme="a">
+              <ul data-role="listview" data-theme="a">
                 <li data-icon="delete"><a href="#" data-rel="close">Close</a></li>
                 <li data-role="list-divider">Menu</li>
 				<li data-icon="grid"><a href="#newsfeed">Newsfeed</a></li>
@@ -392,9 +397,11 @@
 		<!-- Start of My Profile Page -->
 		<section data-role="page" id="profile">
 
-			<div data-role="header">
-				<h1>Soton Squash Club</h1>
-				<a href="#left-panel3" data-icon="bars" data-iconpos="notext" data-shadow="false" data-iconshadow="false">Menu</a>
+			<div class="pageHeader" data-role="header">
+				<div class="appHeaderText">
+					<a href="#left-panel3" class="ui-btn appHeaderMenu ui-shadow ui-corner-all ui-icon-bars ui-btn-icon-notext">Menu</a>
+					Soton Squash Club
+				</div>
 			</div><!-- /header -->
 
 			<div id="profileContent" class="scrollable5" data-role="content">	
@@ -448,8 +455,8 @@
 			</div><!-- /content -->
 
 			<!-- Panel -->
-			<div data-role="panel"  id="left-panel3" data-display="push" data-theme="a">
-               <ul data-role="listview" class="scrollable5" data-theme="a">
+			<div data-role="panel" class="pageHeader"  id="left-panel3" data-display="push" data-theme="a">
+               <ul data-role="listview" data-theme="a">
                 <li data-icon="delete"><a href="#" data-rel="close">Close</a></li>
                 <li data-role="list-divider">Menu</li>
 				<li data-icon="grid"><a href="#newsfeed">Newsfeed</a></li>
@@ -471,9 +478,11 @@
 		<!-- Start of Add Result Page -->
 		<section data-role="page"  id="uploadResult">
 
-			<div data-role="header">
-				<h1>Soton Squash Club</h1>
-				<a href="#left-panel4" data-icon="bars" data-iconpos="notext" data-shadow="false" data-iconshadow="false">Menu</a>
+			<div class="pageHeader" data-role="header">
+				<div class="appHeaderText">
+					<a href="#left-panel4" class="ui-btn appHeaderMenu ui-shadow ui-corner-all ui-icon-bars ui-btn-icon-notext">Menu</a>
+					Soton Squash Club
+				</div>
 			</div><!-- /header -->
 
 			<div data-role="content" class="scrollable5" >	
@@ -527,8 +536,8 @@
 			</div><!-- /content -->
 
 			<!-- Panel -->
-			<div data-role="panel" id="left-panel4" data-display="push" data-theme="a">
-               <ul data-role="listview" class="scrollable5" data-theme="a">
+			<div data-role="panel" class="pageHeader" id="left-panel4" data-display="push" data-theme="a">
+               <ul data-role="listview" data-theme="a">
                 <li data-icon="delete"><a href="#" data-rel="close">Close</a></li>
                 <li data-role="list-divider">Menu</li>
 				<li data-icon="grid"><a href="#newsfeed">Newsfeed</a></li>
@@ -550,9 +559,11 @@
 		<!-- Start of challenge player Page -->
 		<section data-role="page"  id="challengePlayer">
 
-			<div data-role="header">
-				<h1>Soton Squash Club</h1>
-				<a href="#left-panel7" data-icon="bars" data-iconpos="notext" data-shadow="false" data-iconshadow="false">Menu</a>
+			<div class="pageHeader" data-role="header">
+				<div class="appHeaderText">
+					<a href="#left-panel7" class="ui-btn appHeaderMenu ui-shadow ui-corner-all ui-icon-bars ui-btn-icon-notext">Menu</a>
+					Soton Squash Club
+				</div>
 			</div><!-- /header -->
 
 			<div data-role="content" class="scrollable5" >	
@@ -585,8 +596,8 @@
 			</div><!-- /content -->
 
 			<!-- Panel -->
-			<div data-role="panel" id="left-panel7" data-display="push" data-theme="a">
-               <ul data-role="listview" class="scrollable5" data-theme="a">
+			<div data-role="panel" class="pageHeader" id="left-panel7" data-display="push" data-theme="a">
+               <ul data-role="listview" data-theme="a">
                 <li data-icon="delete"><a href="#" data-rel="close">Close</a></li>
                 <li data-role="list-divider">Menu</li>
 				<li data-icon="grid"><a href="#newsfeed">Newsfeed</a></li>
@@ -608,9 +619,11 @@
 		<!-- Start of myChallenges Page -->
 		<section data-role="page"  id="myChallenges">
 
-			<div data-role="header">
-				<h1>Soton Squash Club</h1>
-				<a href="#left-panel8" data-icon="bars" data-iconpos="notext" data-shadow="false" data-iconshadow="false">Menu</a>
+			<div class="pageHeader" data-role="header">
+				<div class="appHeaderText">
+					<a href="#left-panel8" class="ui-btn appHeaderMenu ui-shadow ui-corner-all ui-icon-bars ui-btn-icon-notext">Menu</a>
+					Soton Squash Club
+				</div>
 			</div><!-- /header -->
 
 			<div data-role="content" class="scrollable5" >	
@@ -650,8 +663,8 @@
 			</div><!-- /content -->
 
 			<!-- Panel -->
-			<div data-role="panel" id="left-panel8" data-display="push" data-theme="a">
-               <ul data-role="listview" class="scrollable5" data-theme="a">
+			<div data-role="panel" class="pageHeader" id="left-panel8" data-display="push" data-theme="a">
+               <ul data-role="listview" data-theme="a">
                 <li data-icon="delete"><a href="#" data-rel="close">Close</a></li>
                 <li data-role="list-divider">Menu</li>
 				<li data-icon="grid"><a href="#newsfeed">Newsfeed</a></li>
@@ -673,17 +686,17 @@
 		<!-- Start of Leaderboard page -->
 		<section data-role="page"  id="leaderboard">
 
-			<div data-role="header">
-				<h1>Soton Squash Club</h1>
-				<a href="#left-panel5" data-icon="bars" data-iconpos="notext" data-shadow="false" data-iconshadow="false">Menu</a>
+			<div class="pageHeader" data-role="header">
+				<div class="appHeaderText">
+					<a href="#left-panel5" class="ui-btn appHeaderMenu ui-shadow ui-corner-all ui-icon-bars ui-btn-icon-notext">Menu</a>
+					Soton Squash Club
+				</div>
 			</div><!-- /header -->
 
 			<div data-role="content" class="scrollable5">	
 				<h2>LeaderBoard</h2>
 				<p>The Official Club Ladder is shown below</p>
 				<p>Challenge Other members to games to move up the ladder and become the club champion!</p>
-				
-				<button class="btn btn-lg btn-primary btn-pageRefresh">refresh Page</button>
 				
 				<table id="LeaderboardTable"> <!--put this styling in CSS-->
 				  <tr>
@@ -695,8 +708,8 @@
 			</div><!-- /content -->
 
 			<!-- Panel -->
-			<div data-role="panel"  id="left-panel5" data-display="push" data-theme="a">
-               <ul data-role="listview" class="scrollable5" data-theme="a">
+			<div data-role="panel" class="pageHeader" id="left-panel5" data-display="push" data-theme="a">
+               <ul data-role="listview" data-theme="a">
                 <li data-icon="delete"><a href="#" data-rel="close">Close</a></li>
                 <li data-role="list-divider">Menu</li>
 				<li data-icon="grid"><a href="#newsfeed">Newsfeed</a></li>

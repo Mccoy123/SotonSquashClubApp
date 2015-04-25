@@ -6,8 +6,28 @@
 body {
   text-align: center;
 }
+
+ .ui-page .ui-header {
+    background: #FF0000;
+	min-height: 30px;
+  }
+.pageHeader{
+	padding-top: 15px;
+}
+.appHeaderMenu{
+	position: absolute;
+    left: 3%;
+}
+.appHeaderText {
+	font-size: 1.5em;
+	color: #FFFFFF;
+	vertical-align: middle;
+}
+.verticalAlignMiddle {
+	vertical-align: middle;
+}
 .scrollable5 {
-	height: 70%;
+	height: 100%;
     overflow: scroll;
 }
 .pageContentPadding{
@@ -53,9 +73,6 @@ body {
 	padding: 5px;
 	margin-left: auto;
     margin-right: auto;
-	width:95%;
-}
-#myActiveChallengesTable{
 	width: 90%;
 	margin: 0 auto;
 	border-collapse: separate;
@@ -65,16 +82,20 @@ body {
 	background: white;
     box-shadow: 3px 3px 5px #666;
     padding: 12px;
+	color: #000000;
 }
 .challengeAccepted {
-	background: green;
+	background:  #94FF70;
+	border-radius: 4%;
 }
 .awaitingResponseOpponent{
-	background: yellow;
+	background: #FFFF80;
+	border-radius: 4%;
 }
 
 .awaitingResponseUser{
-	background: orange;
+	background: #FFB84D; 	
+	border-radius: 4%;
 }
 
 /*end of MyChallenge Page CSS*/

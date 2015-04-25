@@ -63,7 +63,7 @@ $(document).ready(function() {
 		//when testing set to 30 phonegap test app detects screen size differently
 		//when deployed to device set to 260
 		$(".scrollable5").css({
-			height: (window.innerHeight - 30)
+			height: (window.innerHeight - 60)
 		});
 	} 
 	
@@ -489,7 +489,7 @@ $(document).ready(function() {
 						var opponentsEmail = activeChallengesArray[i].oppnentInfo;
 						//add data to table
 						//$('#myActiveChallengesTable tr:last').after('<tr class="' + challengeStatus + '"><td>'+ challengeDetails +'</td></tr><tr class="' + challengeStatus + '"><td>'+ challengeStatusMessage +'</td></tr>');
-						$('#myActiveChallengesTable tr:last').after('<tr class=" activeChallengeRow ' + challengeStatus + '"><td><p>'+ challengeDetails + '</p><p>' + challengeStatusMessage +'</p><p>' + opponentsEmail +'</p></td></tr>');
+						$('#myActiveChallengesTable tr:last').after('<tr class=" activeChallengeRow"><td><div class="' + challengeStatus + '"><p>' + challengeStatusMessage +'</p><p>' + opponentsEmail +'</p></div></td></tr>');
 					} 
 				}
 			},
@@ -608,7 +608,7 @@ $(document).ready(function() {
 				
 			},
 			error: function(error){
-				alert("Newsfeed could not be loaded check internet connection");
+				alert("Newsfeed could not be loaded check internet connection!!");
 			}
 		});
 	}
