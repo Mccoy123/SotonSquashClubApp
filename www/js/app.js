@@ -77,18 +77,10 @@ $(document).ready(function() {
 			changeHash: false
 		});
 	}
-	//test example for a button on leaderboard page delete when no longer needed
-	//maybe add to home page???
-	$('.btn-pageRefresh').click(function(e) {
-		var currentPage = "#newsfeed";
-		pageRefresh(currentPage);
-	});
-	
-	
-	
+		
 	//MyProfile Functions 4
 	//show correct button 1
-	$(document).on("pagebeforeshow","#profile",function(){
+	$(document).on("pagebeforeshow","#settings",function(){
 		if (currentUser.get("Leaderboard") == true) {
 			$('#joinLeaderboard').hide();
 			$('#leaveLeaderboard').show();
@@ -139,7 +131,7 @@ $(document).ready(function() {
 			}
 		});
 	});
-	$(document).on("pagebeforehide","#profile",function(){
+	$(document).on("pagebeforehide","#settings",function(){
 		//new to remove active challenge table too.
 		var rowCount = $('#userMatchStats tr').length; //return number of rows in table
 		var userMatchStatsTable = document.getElementById("userMatchStats"); //get table element
@@ -295,10 +287,8 @@ $(document).ready(function() {
 		  }
 		});
     });
-	
 	//end of challenge player functions
-	
-	
+
 	//Add Result functions 3
 	// uploadresult functions 2
 	$(document).on("pagebeforeshow","#uploadResult",function(){
@@ -605,6 +595,11 @@ $(document).ready(function() {
 		  }
 		});
     });
+	//refresh Newsfeed
+	$('.btn-pageRefresh').click(function(e) {
+		var currentPage = "#newsfeed";
+		pageRefresh(currentPage);
+	});
 	//end of Newsfeed functions
 	
 	//Leaderboard
