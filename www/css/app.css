@@ -23,6 +23,9 @@ body {
 	color: #FFFFFF;
 	vertical-align: middle;
 }
+.menuDivider{
+	background: #FF0000;
+}
 .verticalAlignMiddle {
 	vertical-align: middle;
 }
@@ -138,6 +141,10 @@ body {
 .newsFeedMediaImage{
 	max-width: 100%;
     max-height: 100%;
+}
+.newsfeedRefresh{
+	position: absolute;
+    right: 3%;
 }
 
 /*End of Newsfeed Page CSS*/

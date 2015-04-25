@@ -80,7 +80,7 @@ $(document).ready(function() {
 	//test example for a button on leaderboard page delete when no longer needed
 	//maybe add to home page???
 	$('.btn-pageRefresh').click(function(e) {
-		var currentPage = "#leaderboard";
+		var currentPage = "#newsfeed";
 		pageRefresh(currentPage);
 	});
 	
@@ -206,43 +206,6 @@ $(document).ready(function() {
 		});
     });
 	//end of My Profile Function
-	
-	//Home Test Functions
-	$('.btn-ShowTextPopup').click(function(e) {
-		alert("Hello");
-		makePageScrollable();
-		//var pageHeight = document.getElementById("page1Content");
-		//alert(pageHeight.offsetHeight);
-		//alert($(window).height());
-		//alert($(window).innerHeight());
-    });
-	$('.btn-ParseCloudCode').click(function(e) {
-		alert("Hello");
-		Parse.Cloud.run('hello', {}, {
-		success: function(result) {
-			// result is 'My Cloud Code!'
-			alert(result);
-		  },
-		  error: function(error) {
-		    alert(error);
-		  }
-		});
-	});
-	$('.btn-ShowSelectPopup').click(function(e) {
-		var input2 = document.getElementById("selectInput").value;
-		alert("input2");
-    });	
-	//popup funstion
-	function showPopupText(){
-	var input = document.getElementById("textInput").value;
-	alert("input");
-	}
-	
-	function showPopupSelect(){
-	var input2 = document.getElementById("selectInput").value;
-	alert("input");
-	}
-	//End OF home Test functions
 	
 	//chalengePlayer Functions
 	$(document).on("pagebeforeshow","#challengePlayer",function(){
