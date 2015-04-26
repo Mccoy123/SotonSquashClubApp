@@ -17,6 +17,7 @@ body {
 .appHeaderMenu{
 	position: absolute;
     left: 3%;
+	z-index: 1;
 }
 .darkFont{
 	color: #000000;
@@ -66,7 +67,14 @@ body {
   height: 90%;
   width: 90%;
 }
-
+.clubPicture{
+  height: 50%;
+  width: 90%;
+}
+.clubPicture2{
+  height: 35%;
+  width: 90%;
+}
 /*Page Specific CSS*/
 
 /*Challenge Player*/
@@ -151,6 +159,7 @@ body {
 .newsfeedRefresh{
 	position: absolute;
     right: 3%;
+	z-index: 1;
 }
 
 /*End of Newsfeed Page CSS*/
@@ -208,10 +217,7 @@ body {
 
 /*need to sort out*/
 
-.clubPicture{
-  height: 50%;
-  width: 90%;
-}
+
 
 
 

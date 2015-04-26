@@ -63,7 +63,7 @@ $(document).ready(function() {
 		//when testing set to 30 phonegap test app detects screen size differently
 		//when deployed to device set to 260
 		$(".scrollable5").css({
-			height: (window.innerHeight - 60)
+			height: (window.innerHeight - 30)
 		});
 	} 
 	
@@ -200,7 +200,7 @@ $(document).ready(function() {
 	
 	$('.btn-updateDisplayName').click(function(e) {
 		var newDisplayName = document.getElementById("newDisplayName").value;
-		alert("newDisplayName");
+		alert(newDisplayName);
     });	
 	
 	//end of settings Function
@@ -635,29 +635,4 @@ $(document).ready(function() {
 	
 	//parse intilaisation
 	Parse.initialize("5N1zo8DBnukiwCvOwuSiXByNtVNefFr7DS6YKvoy", "JbmB3R9Rj7ld8sAN7un9lTqI4PUQB4W1JIt5qLSQ");
-	
-	/* Setting up ajax for secure server calls
-    $.ajaxSetup({
-      'beforeSend': function(xhr) {
-        if (localStorage.getItem('userToken')) {
-          xhr.setRequestHeader('Authorization',
-                'Bearer ' + localStorage.getItem('userToken'));
-        }
-      }
-    });
-
-    $('.btn-api').click(function(e) {
-      // Just call your API here. The header will be sent
-      $.ajax({
-        url: 'http://localhost:3001/secured/ping',
-        method: 'GET'
-      }).then(function(data, textStatus, jqXHR) {
-        alert("The request to the secured enpoint was successfull");
-      }, function() {
-        alert("You need to download the server seed and start it to call this API");
-      });
-    });*/
-	
-
-
 });
