@@ -206,7 +206,7 @@ $(document).ready(function() {
 			pageRefresh(currentPage); //refresh page
 		  },
 		  error: function(error) {
-		    alert(error);
+		    alert(error.message);
 		  }
 		});
     });	
@@ -447,7 +447,8 @@ $(document).ready(function() {
 		Parse.Cloud.run('displayActiveChallenges', {}, {
 			success: function(activeChallengesArray) {
 				if (activeChallengesArray.length == 0){
-					$('#myActiveChallengesTable tr:last').after('<tr class=" activeChallengeRow"><td><p> You do not have any open challenges! </p></td></tr>');
+					$('#myActiveChallengesTable tr:last').after
+					('<tr class=" activeChallengeRow"><td><p> You do not have any open challenges! </p></td></tr>');
 				} else {
 					for(var i = 0; i < activeChallengesArray.length; i++) {
 						var challengeDetails = activeChallengesArray[i].challengeDetails;
@@ -455,7 +456,6 @@ $(document).ready(function() {
 						var challengeStatusMessage = activeChallengesArray[i].challengeStatusMessage;
 						var opponentsEmail = activeChallengesArray[i].oppnentInfo;
 						//add data to table
-						//$('#myActiveChallengesTable tr:last').after('<tr class="' + challengeStatus + '"><td>'+ challengeDetails +'</td></tr><tr class="' + challengeStatus + '"><td>'+ challengeStatusMessage +'</td></tr>');
 						$('#myActiveChallengesTable tr:last').after('<tr class=" activeChallengeRow"><td><div class="' + challengeStatus + '"><p class="darkFont">' + challengeStatusMessage +'</p><p class="darkFont">' + opponentsEmail +'</p></div></td></tr>');
 					} 
 				}
