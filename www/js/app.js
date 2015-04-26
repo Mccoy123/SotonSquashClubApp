@@ -179,7 +179,6 @@ $(document).ready(function() {
 	$('.btn-leaveLeaderboard').click(function(e) {
 		Parse.Cloud.run('leaveLeaderboard', {}, {
 		success: function(result) {
-			// result is 'My Cloud Code!'
 			alert(result);
 			$('#leaveLeaderboard').hide();
 			$('#joinLeaderboard').show();
@@ -200,7 +199,16 @@ $(document).ready(function() {
 	
 	$('.btn-updateDisplayName').click(function(e) {
 		var newDisplayName = document.getElementById("newDisplayName").value;
-		alert(newDisplayName);
+		Parse.Cloud.run('updateDisplayName', {newDisplayName: newDisplayName}, {
+		success: function(result) {
+			alert(result);
+			var currentPage = "#settings";
+			pageRefresh(currentPage); //refresh page
+		  },
+		  error: function(error) {
+		    alert(error);
+		  }
+		});
     });	
 	
 	//end of settings Function
