@@ -18,6 +18,9 @@ body {
 	position: absolute;
     left: 3%;
 }
+.darkFont{
+	color: #000000;
+}
 .appHeaderText {
 	font-size: 1.5em;
 	color: #FFFFFF;
@@ -90,15 +93,18 @@ body {
 .challengeAccepted {
 	background:  #94FF70;
 	border-radius: 4%;
+	text-shadow: 0 1px 3px rgba(0,0,0,.5);
 }
 .awaitingResponseOpponent{
 	background: #FFFF80;
 	border-radius: 4%;
+	text-shadow: 0 1px 3px rgba(0,0,0,.5);
 }
 
 .awaitingResponseUser{
 	background: #FFB84D; 	
 	border-radius: 4%;
+	text-shadow: 0 1px 3px rgba(0,0,0,.5);
 }
 
 /*end of MyChallenge Page CSS*/
@@ -149,15 +155,28 @@ body {
 
 /*End of Newsfeed Page CSS*/
 
-/*My Profile Page CSS*/
-#matchStatsTotalGames{
-	background:
+/*Settings Page CSS*/
+#userMatchStats{
+	padding: 5px;
+	margin-left: auto;
+    margin-right: auto;
+	margin: 0 auto;
+}
+#userMatchStats th{
+	text-align: center;
+}
+.statsLegend{
+	padding: 6px;
 }
 #matchStatsTotalWins{
 	background: #4ACAB4;
+	border-radius: 4%;
+	text-shadow: 0 1px 3px rgba(0,0,0,.5);
 }
 #matchStatsTotalLoses{
-	background: #878BB6
+	background: #878BB6;
+	border-radius: 4%;
+	text-shadow: 0 1px 3px rgba(0,0,0,.5);
 }
 
 /*End of My Profile Page*/
@@ -165,11 +184,13 @@ body {
 
 /*Leaderboard Page*/
 #LeaderboardTable{
-    border: 1px solid Red;
+    border-radius: 10%;
+	border: 1px solid Red;
     padding: 5px;
 	margin-left: auto;
     margin-right: auto;
 	width:95%;
+	
 }
 #LeaderboardTable th{
 	background-color: Red;

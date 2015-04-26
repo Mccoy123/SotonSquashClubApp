@@ -78,7 +78,7 @@ $(document).ready(function() {
 		});
 	}
 		
-	//MyProfile Functions 4
+	//settings Functions 4
 	//show correct button 1
 	$(document).on("pagebeforeshow","#settings",function(){
 		if (currentUser.get("Leaderboard") == true) {
@@ -121,10 +121,10 @@ $(document).ready(function() {
 				var playerMatchStats= document.getElementById("countries").getContext("2d");
 				// draw pie chart
 				var pieChartMatchStats = new Chart(playerMatchStats).Pie(MatchStatsData, pieOptions);
-				//legend
 				
-				$('#userMatchStats tr:last').after('<tr id="matchStatsTotalWins"><td><p>You Have Won: '+ totalWins + '</p></td></tr>');
-				$('#userMatchStats tr:last').after('<tr id="matchStatsTotalLoses"><td><p>You have Lost: '+ totalLoses + '</p></td></tr>');		
+				//legend
+				$('#userMatchStats tr:last').after('<tr><td><div class="statsLegend" id="matchStatsTotalWins"><p class="darkFont">You Have Won: '+ totalWins + '</p></div></td></tr>');
+				$('#userMatchStats tr:last').after('<tr><td><div class="statsLegend" id="matchStatsTotalLoses"><p class="darkFont">You have Lost: '+ totalLoses + '</p></div></td></tr>');		
 			},
 			error: function(error) {
 				alert(error);
@@ -141,7 +141,7 @@ $(document).ready(function() {
 		// Destroys a specific chart instance
 		//pieChartMatchStats.destroy();
 	});
-		
+	
 	//logout 2
 	$('.btn-logout').click(function(e) {
       // execute logout script
@@ -197,7 +197,13 @@ $(document).ready(function() {
 		  }
 		});
     });
-	//end of My Profile Function
+	
+	$('.btn-updateDisplayName').click(function(e) {
+		var newDisplayName = document.getElementById("newDisplayName").value;
+		alert("newDisplayName");
+    });	
+	
+	//end of settings Function
 	
 	//chalengePlayer Functions
 	$(document).on("pagebeforeshow","#challengePlayer",function(){
@@ -442,7 +448,7 @@ $(document).ready(function() {
 						var opponentsEmail = activeChallengesArray[i].oppnentInfo;
 						//add data to table
 						//$('#myActiveChallengesTable tr:last').after('<tr class="' + challengeStatus + '"><td>'+ challengeDetails +'</td></tr><tr class="' + challengeStatus + '"><td>'+ challengeStatusMessage +'</td></tr>');
-						$('#myActiveChallengesTable tr:last').after('<tr class=" activeChallengeRow"><td><div class="' + challengeStatus + '"><p>' + challengeStatusMessage +'</p><p>' + opponentsEmail +'</p></div></td></tr>');
+						$('#myActiveChallengesTable tr:last').after('<tr class=" activeChallengeRow"><td><div class="' + challengeStatus + '"><p class="darkFont">' + challengeStatusMessage +'</p><p class="darkFont">' + opponentsEmail +'</p></div></td></tr>');
 					} 
 				}
 			},
