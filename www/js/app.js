@@ -8,7 +8,7 @@ $(document).ready(function() {
 	window.location.href = '#one'; //set navigation on login maybe put inside a function??
 	makePageScrollable(); //sets up making pages scrollable
 	
-    var userProfile; //declere userProfile
+    var userProfile; //declare userProfile
 
 	//log-in
     $('.btn-login').click(function(e) {
@@ -63,7 +63,7 @@ $(document).ready(function() {
 		//when testing set to 30 phonegap test app detects screen size differently
 		//when deployed to device set to 260
 		$(".scrollable5").css({
-			height: (window.innerHeight - 260)
+			height: (window.innerHeight - 30)
 		});
 	} 
 	
